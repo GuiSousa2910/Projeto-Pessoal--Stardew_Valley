@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text" id="searchInput">
+
+    <p id="searchResults"></p>
+
+</body>
+
+</html>
+<script>
+    const opcoes = [
+        { nome: 'amanda', imagem: 'amanda.jpg' },
+        { nome: 'ana', imagem: 'ana.jpg' },
+        { nome: 'alisson', imagem: 'alisson.jpg' }
+    ];
+
+    let texto = document.getElementById('searchInput');
+
+    texto.addEventListener('input', function () {
+        const searchTerm = this.value.toLowerCase();
+        const opcoesFiltradas = opcoes.filter(option => option.nome.startsWith(searchTerm));
+        displayResults(opcoesFiltradas);
+    });
+
+    function displayResults(results) {
+        const searchResults = document.getElementById('searchResults');
+        searchResults.innerHTML = '';
+        results.forEach(result => {
+            const div = document.createElement('div');
+            const img = document.createElement('img');
+            const span = document.createElement('span');
+            img.src = result.imagem;
+            span.textContent = result.nome;
+            div.appendChild(img);
+            div.appendChild(span);
+            searchResults.appendChild(div);
+        });
+    }
+</script>

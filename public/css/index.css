@@ -1,0 +1,19 @@
+*{
+    padding: 0%;
+    margin: 0%;
+    font-style: normal;
+}
+
+body{
+    background-color: aquamarine;
+}
+
+.imagemFundoHome{
+    background-image: url(../assets/imagemFundoHome.webp);
+}
+
+.navbar{
+    height: 5%;
+    width: 100%;
+    background-color: brown;
+}
