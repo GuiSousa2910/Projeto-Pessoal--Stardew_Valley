@@ -9,6 +9,8 @@
 </head>
 
 <body>
+    
+
     <div class="fundo">
         <div class="nav">
             <img src="../assets/galinha.png" alt="galinha">
@@ -25,16 +27,19 @@
             </div>
         </div>
         <div class="informacoes-centrais">
-            <div onclick="mostrar()">
-                <div >
+            <div onmouseleave="desmostrar()" onmouseenter="mostrar()">
+    
+                <!-- <div class="div_teste"></div> -->
+                
+                <div>
                     <img class="imagemCentralHome" src="../assets/Main_Logo.png" id="1">
                 </div>
                 <div >
-                    <img class="imagemCentralHome2" src="../assets/Group 1.png" id="2" >
+                    <img class="imagemCentralHome2" style="display: none;" src="../assets/Group 2.png" id="2" >
                 </div>
             </div>
             <div class="textoCentralHome">
-                <p>Para você que está começando a Jogar <span> Stardew Valley </span> esse é o site <span>perfeito para
+                <p>Para você que está começando a Jogar <span> Stardew Valley </span> ou quer começar esse é o site <span>perfeito para
                         você!</span> Aqui você verá informações sobre <k> todos os personagens </k> do jogo, <k> dicas
                         do que comprar em cada estação </k> e muito mais!</p>
             </div>
@@ -45,9 +50,4 @@
 </body>
 
 </html>
-<script>
-    function mostrar() {
-        document.getElementById('reiniciar').setAttribute('disabled', true)
-        document.getElementById('2').removeAttribute('disabled');
-    }
-</script>
+<script src="../js/index.js"></script>

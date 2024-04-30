@@ -11,6 +11,20 @@ a {
     cursor: pointer;
 }
 
+.div_teste {
+    height: 300px;
+    width: 600px;
+    background-repeat: no-repeat;
+    background-size: contain;
+    animation: slideRight 2s ease;
+    background-image: url("../assets/Main_Logo.png");
+}
+
+.div_teste:hover {
+    transform: rotate(-5deg) scale(1);
+    background-image: url("../assets/Group 2.png");
+}
+
 body {
     font-family: "Pixelify Sans", sans-serif;
     font-optical-sizing: auto;
@@ -127,29 +141,29 @@ body {
     justify-content: center;
     align-items: center;
     height: 70%;
-    gap: 250px;
+    gap: 200px;
 }
 
 .fundo .informacoes-centrais .textoCentralHome {
     display: flex;
     flex-direction: column;
-    width: 550px;
+    width: 600px;
     font-size: 35px;
     font-weight: 500px;
     color: #212121;
     animation: slideLeft 2s ease;
     letter-spacing: 2px;
+    transform: translateX(0px);
 }
 
 @keyframes slideLeft {
     0% {
         opacity: 0;
-        transform: translateX(0px);
+        transform: translateX(100px);
     }
-
     100% {
         opacity: 1;
-        transform: translateX(-50px);
+        transform: translateX(0px);
     }
 }
 
@@ -163,6 +177,11 @@ body {
     font-weight: bolder;
 }
 
+.fundo .informacoes-centrais .imagemCentralHome {
+    width: auto;
+    height: 300px;
+    animation: slideRight 2s ease;
+}
 
 @keyframes slideRight {
     0% {
@@ -176,24 +195,9 @@ body {
     }
 }
 
-.fundo .informacoes-centrais .imagemCentralHome {
-    width: auto;
-    height: 300px;
-    animation: slideRight 2s ease;
+.fundo .informacoes-centrais .imagemCentralHome2:hover { 
+    transform: rotate(-5deg) scale(1);
 }
-
-/* .fundo .informacoes-centrais .imagemCentralHome:hover {
-    /* display: none; 
-    transform: rotate(-5deg) scale(1.05);
-}*/
-
-/* .fundo .informacoes-centrais .imagemCentralHome2{
-    display: none;
-}
-
-.fundo .informacoes-centrais .imagemCentralHome2:hover{
-    display: block;
-} */
 
 .fundo .flecha {
     opacity: 0;
