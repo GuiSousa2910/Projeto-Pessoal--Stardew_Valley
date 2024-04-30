@@ -14,10 +14,10 @@ a {
 body {
     font-family: "Pixelify Sans", sans-serif;
     font-optical-sizing: auto;
-    font-style: normal;    
+    font-style: normal;
     background-image: url(../assets/imagemBody.jpg);
     /* height: 950px; */
-    
+
     /* Create the parallax scrolling effect */
     min-height: 500px;
     background-attachment: fixed;
@@ -30,14 +30,10 @@ body {
     display: none;
 }
 
-.fundo{
-    /* background-image: url(../assets/imagemFundo.png);
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center; */
-    background: rgb(244,212,151);
-    background: linear-gradient(180deg, rgba(244,212,151,1) 40%, rgba(182,108,63,1) 71%);
-    height: 800px;
+.fundo {
+    background: rgb(244, 212, 151);
+    background: linear-gradient(180deg, rgba(244, 212, 151, 1) 40%, rgba(182, 108, 63, 1) 71%);
+    height: 730px;
     width: 100%;
     border-bottom: 10px white solid;
 }
@@ -47,8 +43,8 @@ body {
     padding-top: 0.2%;
     padding-bottom: 0.2%;
     width: 100%;
-    background: rgb(66,36,25);
-    background: linear-gradient(90deg, rgba(66,36,25,1) 7%, rgba(24,17,12,1) 98%);
+    background: rgb(66, 36, 25);
+    background: linear-gradient(90deg, rgba(66, 36, 25, 1) 7%, rgba(24, 17, 12, 1) 98%);
     border-bottom: white 2px solid;
     display: flex;
     font-weight: bold;
@@ -64,7 +60,7 @@ body {
         opacity: 0;
         transform: translateY(-50px);
     }
-    
+
     100% {
         opacity: 1;
         transform: translateY(0);
@@ -83,43 +79,144 @@ body {
     cursor: pointer;
 }
 
- .nav p::before {
+.nav p::before {
     content: "";
     width: 20px;
     height: 4px;
     border-top-left-radius: 32px;
     border-bottom-right-radius: 32px;
-    background: rgb(22,153,22);
-    background: linear-gradient(90deg, rgba(22,153,22,1) 36%, rgba(189,249,124,1) 77%);
+    background: rgb(22, 153, 22);
+    background: linear-gradient(90deg, rgba(22, 153, 22, 1) 36%, rgba(189, 249, 124, 1) 77%);
     position: absolute;
     bottom: -6px;
     transition: width .4s ease-in-out;
 }
 
- .nav  p:hover::before {
+.nav p:hover::before {
     width: 100%;
-}   
+}
 
-.nav img{
+.nav img {
     width: auto;
     height: 80px;
     margin-left: 7%;
+    cursor: pointer;
 }
-.nav .nav-list{
+
+.nav .nav-list {
     display: flex;
     justify-content: space-between;
     gap: 400px;
 }
 
-.nav .nav-list .login{
+.nav .nav-list .login {
     display: flex;
     gap: 20px;
     margin-right: 7%;
     font-size: 30px;
-}   
+}
 
-.nav .nav-list  .sobre{
+.nav .nav-list .sobre {
     display: flex;
     gap: 100px;
     margin-right: -10%;
+}
+
+.fundo .informacoes-centrais {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 70%;
+    gap: 250px;
+}
+
+.fundo .informacoes-centrais .textoCentralHome {
+    display: flex;
+    flex-direction: column;
+    width: 550px;
+    font-size: 35px;
+    font-weight: 500px;
+    color: #212121;
+    animation: slideLeft 2s ease;
+    letter-spacing: 2px;
+}
+
+@keyframes slideLeft {
+    0% {
+        opacity: 0;
+        transform: translateX(0px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateX(-50px);
+    }
+}
+
+.fundo .informacoes-centrais .textoCentralHome span {
+    color: green;
+    font-weight: bolder;
+}
+
+.fundo .informacoes-centrais .textoCentralHome k {
+    color: green;
+    font-weight: bolder;
+}
+
+
+@keyframes slideRight {
+    0% {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+    
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.fundo .informacoes-centrais .imagemCentralHome {
+    width: auto;
+    height: 300px;
+    animation: slideRight 2s ease;
+}
+
+/* .fundo .informacoes-centrais .imagemCentralHome:hover {
+    /* display: none; 
+    transform: rotate(-5deg) scale(1.05);
+}*/
+
+/* .fundo .informacoes-centrais .imagemCentralHome2{
+    display: none;
+}
+
+.fundo .informacoes-centrais .imagemCentralHome2:hover{
+    display: block;
+} */
+
+.fundo .flecha {
+    opacity: 0;
+    height: 70px;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 24px;
+    margin: 0 auto;
+    animation: slideDown 1.5s ease forwards 2s, arrowTransition 2s ease-in-out infinite 2s;
+    user-select: none;
+}
+
+@keyframes arrowTransition {
+    0% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-16px);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
 }

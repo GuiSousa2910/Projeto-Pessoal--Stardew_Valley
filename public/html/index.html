@@ -5,14 +5,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/index.css">
-    <!-- <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.js"> -->
     <title>Document</title>
 </head>
 
 <body>
     <div class="fundo">
         <div class="nav">
-            <img src="../assets/galinha.png" alt="">
+            <img src="../assets/galinha.png" alt="galinha">
             <div class="nav-list">
                 <div class="sobre">
                     <p>Sobre</p>
@@ -26,13 +25,29 @@
             </div>
         </div>
         <div class="informacoes-centrais">
-            <img src="../assets/Main_Logo.png" alt="">
+            <div onclick="mostrar()">
+                <div >
+                    <img class="imagemCentralHome" src="../assets/Main_Logo.png" id="1">
+                </div>
+                <div >
+                    <img class="imagemCentralHome2" src="../assets/Group 1.png" id="2" >
+                </div>
+            </div>
+            <div class="textoCentralHome">
+                <p>Para você que está começando a Jogar <span> Stardew Valley </span> esse é o site <span>perfeito para
+                        você!</span> Aqui você verá informações sobre <k> todos os personagens </k> do jogo, <k> dicas
+                        do que comprar em cada estação </k> e muito mais!</p>
+            </div>
         </div>
+        <a><img class="flecha" src="../assets/down-arrow.svg"></a>
     </div>
 
 </body>
 
 </html>
-<!-- <script src="https://unpkg.com/aos@next/dist/aos.js"></script> -->
 <script>
+    function mostrar() {
+        document.getElementById('reiniciar').setAttribute('disabled', true)
+        document.getElementById('2').removeAttribute('disabled');
+    }
 </script>
