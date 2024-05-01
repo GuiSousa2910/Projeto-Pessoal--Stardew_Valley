@@ -11,7 +11,11 @@ a {
     cursor: pointer;
 }
 
-.div_teste {
+.setinha-direita, .txt-stardew, .img-stardew{
+    visibility: hidden;
+}
+
+/* .div_teste {
     height: 300px;
     width: 600px;
     background-repeat: no-repeat;
@@ -23,7 +27,7 @@ a {
 .div_teste:hover {
     transform: rotate(-5deg) scale(1);
     background-image: url("../assets/Group 2.png");
-}
+} */
 
 body {
     font-family: "Pixelify Sans", sans-serif;
@@ -59,6 +63,7 @@ body {
     width: 100%;
     background: rgb(66, 36, 25);
     background: linear-gradient(90deg, rgba(66, 36, 25, 1) 7%, rgba(24, 17, 12, 1) 98%);
+    /* position: fixed; */
     border-bottom: white 2px solid;
     display: flex;
     font-weight: bold;
@@ -156,6 +161,10 @@ body {
     transform: translateX(0px);
 }
 
+/* .headline{
+    visibility: hidden;
+} */
+
 @keyframes slideLeft {
     0% {
         opacity: 0;
@@ -215,12 +224,68 @@ body {
     0% {
         transform: translateY(0);
     }
-
+    
     50% {
         transform: translateY(-16px);
     }
-
+    
     100% {
         transform: translateY(0);
     }
+}
+
+.espaco{
+    margin-bottom: 10%;
+}
+
+.meio-site .infos-stardew{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    /* gap: 100px  ; */
+}
+
+.meio-site .infos-stardew .txt-stardew{
+    background-color: #ffffffaa;
+    border-radius: 20px;
+    /* height: 430px; */
+    height: 95%;
+    padding: 20px;
+    width: 500px;
+}
+
+.meio-site .infos-stardew .txt-stardew .titulo-stardew{
+    font-size: 32px;
+    font-weight: bold;
+    margin-bottom: 2%;
+    border-bottom: 5px solid green;
+    border-top-left-radius: 32px;
+    border-bottom-right-radius: 32px;
+    /* background: rgb(22, 153, 22);
+    background: linear-gradient(90deg, rgba(22, 153, 22, 1) 36%, rgba(189, 249, 124, 1) 77%); */
+    bottom: -6px;
+    transition: width .4s ease-in-out;
+    /* border-bottom: 2px solid fuchsia; */
+    /* text-decoration: underline; */
+}
+
+.meio-site .infos-stardew .txt-stardew .texto-stardew{
+    font-size: 22px;
+    font-weight: 700;
+}  
+
+.setinha-direita{
+    width: auto;
+    height: 50px;
+}
+
+.meio-site .infos-stardew .img-stardew{
+    width: auto;
+    height: 350px;
+}
+
+.divisao{
+    margin-bottom: 5%;
+    margin-top: 5%;
+    border-bottom: #ffffff dashed 5px;
 }
