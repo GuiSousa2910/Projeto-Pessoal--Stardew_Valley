@@ -8,6 +8,10 @@ function desmostrar() {
     document.getElementById('1').style.animation = 'none';
 }
 
+function descer() {
+    document.documentElement.style.scrollBehavior = 'smooth';
+}
+
 window.sr = ScrollReveal({ reset: true });
 
 sr.reveal('.setinha-direita', {
