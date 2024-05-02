@@ -13,11 +13,11 @@ a {
     cursor: pointer;
 }
 
-.setinha-direita,
+/* .setinha-direita,
 .txt-stardew,
 .img-stardew {
     visibility: hidden;
-}
+} */
 
 /* .div_teste {
     height: 300px;
@@ -222,7 +222,7 @@ body {
     bottom: 24px;
     margin: 0 auto;
     animation: slideDown 1.5s ease forwards 2s, arrowTransition 2s ease-in-out infinite 2s;
-    user-select: none;
+    /* user-select: none; */
 }
 
 @keyframes arrowTransition {
@@ -282,6 +282,11 @@ body {
     height: 95%;
 }
 
+/* .setinha-esquerda{
+    width: 3.5%;
+    height: 95%;
+} */
+
 .meio-site .infos-stardew .img-stardew {
     width: auto;
     height: 350px;
@@ -316,18 +321,16 @@ body {
 .meio-site .pesca {
     display: flex;
     flex-direction: row-reverse;
-    /* align-items: center;
-    justify-content: center;
-    display: flex; */
-    /* justify-content: space-evenly; */
-    align-items: start;
-    /* gap: 100px  ; */
+    justify-content: space-evenly;
+    align-items: center;
+    margin-bottom: 10%;
 }
 
 .meio-site .pesca .pesca-texto-img {
     background-color: #ffffffaa;
     border-radius: 20px;
     border: #ffffff 10px solid;
+    padding-top: 20px;
 }
 
 .meio-site .pesca .pesca-titulo {
@@ -364,4 +367,94 @@ body {
     /* font-size: 22px; */
     font-weight: 700;
     font-size: 30px;
+}
+
+.meio-site .pesca .pesca-img {
+    height: 15rem;
+    width: auto;
+}
+
+.meio-site .amizade {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    margin-bottom: 10%;
+}
+
+.meio-site .amizade .amizade-textos {
+    background-color: #ffffffaa;
+    border-radius: 20px;
+    border: #ffffff 10px solid;
+    padding-top: 20px;
+}
+
+.meio-site .amizade .amizade-titulo {
+    font-size: 40px;
+    font-weight: bolder;
+    letter-spacing: 2px;
+    display: flex;
+    justify-content: center;
+}
+
+.meio-site .amizade .amizade-paragrafo {
+    height: 95%;
+    padding: 20px;
+    width: 500px;
+    font-size: 30px;
+    font-weight: 700;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.meio-site .amizade .seta-direita {
+    width: auto;
+    height: 25rem;
+}
+
+.meio-site .amizade .img-amizade {
+    height: 17rem;
+    width: auto;
+}
+
+.meio-site .plantacao {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-evenly;
+    align-items: center;
+    margin-bottom: 10%;
+}
+
+.meio-site .plantacao .plantacao-textos {
+    background-color: #ffffffaa;
+    border-radius: 20px;
+    border: #ffffff 10px solid;
+    padding-top: 20px;
+}
+
+.meio-site .plantacao .plantancao-titulo{
+    font-size: 40px;
+    font-weight: bolder;
+    letter-spacing: 2px;
+    display: flex;
+    justify-content: center;
+}
+
+.meio-site .plantacao .plantancao-paragrafo{
+    height: 95%;
+    padding: 20px;
+    width: 500px;
+    font-size: 30px;
+    font-weight: 700;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.meio-site .plantacao .seta-esquerda{
+    width: auto;
+    height: 30rem;
+}
+
+.meio-site .plantacao .img-plantacao{
+    height: 20rem;
+    width: auto;
 }
