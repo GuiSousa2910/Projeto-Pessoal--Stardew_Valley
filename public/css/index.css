@@ -1,5 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&display=swap');
 
+@import url('https://fonts.googleapis.com/css2?family=Jersey+15&display=swap');
+
 * {
     padding: 0%;
     margin: 0%;
@@ -11,7 +13,9 @@ a {
     cursor: pointer;
 }
 
-.setinha-direita, .txt-stardew, .img-stardew{
+.setinha-direita,
+.txt-stardew,
+.img-stardew {
     visibility: hidden;
 }
 
@@ -66,11 +70,11 @@ body {
     /* position: fixed; */
     border-bottom: white 2px solid;
     display: flex;
-    font-weight: bold;
+    /* font-weight: 100; */
     flex-direction: row;
     align-items: center;
     color: whitesmoke;
-    justify-content: space-between;
+    justify-content: space-evenly;
     animation: slideDown 2s ease;
 }
 
@@ -94,7 +98,7 @@ body {
     text-transform: uppercase;
     letter-spacing: 2px;
     position: relative;
-    font-size: 30px;
+    font-size: 25px;
     cursor: pointer;
 }
 
@@ -125,7 +129,7 @@ body {
 .nav .nav-list {
     display: flex;
     justify-content: space-between;
-    gap: 400px;
+    gap: 200px;
 }
 
 .nav .nav-list .login {
@@ -170,6 +174,7 @@ body {
         opacity: 0;
         transform: translateX(100px);
     }
+
     100% {
         opacity: 1;
         transform: translateX(0px);
@@ -197,14 +202,14 @@ body {
         opacity: 0;
         transform: translateX(-50px);
     }
-    
+
     100% {
         opacity: 1;
         transform: translateX(0);
     }
 }
 
-.fundo .informacoes-centrais .imagemCentralHome2:hover { 
+.fundo .informacoes-centrais .imagemCentralHome2:hover {
     transform: rotate(-5deg) scale(1);
 }
 
@@ -224,28 +229,28 @@ body {
     0% {
         transform: translateY(0);
     }
-    
+
     50% {
         transform: translateY(-16px);
     }
-    
+
     100% {
         transform: translateY(0);
     }
 }
 
-#espaco{
+#espaco {
     margin-bottom: 10%;
 }
 
-.meio-site .infos-stardew{
+.meio-site .infos-stardew {
     display: flex;
     justify-content: space-evenly;
     align-items: center;
     /* gap: 100px  ; */
 }
 
-.meio-site .infos-stardew .txt-stardew{
+.meio-site .infos-stardew .txt-stardew {
     background-color: #ffffffaa;
     border-radius: 20px;
     border: #ffffff 10px solid;
@@ -255,7 +260,7 @@ body {
     width: 500px;
 }
 
-.meio-site .infos-stardew .txt-stardew .titulo-stardew{
+.meio-site .infos-stardew .txt-stardew .titulo-stardew {
     font-size: 32px;
     font-weight: bold;
     margin-bottom: 2%;
@@ -267,43 +272,96 @@ body {
     transition: width .4s ease-in-out;
 }
 
-.meio-site .infos-stardew .txt-stardew .texto-stardew{
+.meio-site .infos-stardew .txt-stardew .texto-stardew {
     font-size: 22px;
     font-weight: 700;
-}  
+}
 
-.setinha-direita{
+.setinha-direita {
     width: 3.5%;
     height: 95%;
 }
 
-.meio-site .infos-stardew .img-stardew{
+.meio-site .infos-stardew .img-stardew {
     width: auto;
     height: 350px;
 }
 
-.divisao{
+.divisao {
     margin-bottom: 5%;
     margin-top: 5%;
     border-bottom: #ffffff dashed 5px;
 }
 
-.meio-site .oque-fazer{
+.meio-site .oque-fazer {
     display: flex;
     text-align: center;
     justify-content: center;
 }
 
-.meio-site .oque-fazer .oque-fazer-titulo{
-    border-bottom: green 2px solid;
+.meio-site .oque-fazer .oque-fazer-titulo {
     font-size: 40px;
     font-weight: bolder;
     letter-spacing: 2px;
+    margin-bottom: 5%;
 }
 
-.meio-site .oque-fazer .oque-fazer-titulo span{
+.meio-site .oque-fazer .oque-fazer-titulo span {
     color: green;
     background-color: #ffffffaa;
     border-radius: 20px;
     padding: 3px;
+}
+
+.meio-site .pesca {
+    display: flex;
+    flex-direction: row-reverse;
+    /* align-items: center;
+    justify-content: center;
+    display: flex; */
+    /* justify-content: space-evenly; */
+    align-items: start;
+    /* gap: 100px  ; */
+}
+
+.meio-site .pesca .pesca-texto-img {
+    background-color: #ffffffaa;
+    border-radius: 20px;
+    border: #ffffff 10px solid;
+}
+
+.meio-site .pesca .pesca-titulo {
+    font-size: 40px;
+    font-weight: bolder;
+    letter-spacing: 2px;
+    /* margin-bottom: 2%; */
+    display: flex;
+    justify-content: center;
+}
+
+.meio-site .pesca .pesca-texto {
+    /* height: 430px; */
+    height: 95%;
+    padding: 20px;
+    width: 500px;
+    /* border-radius: 20px; */
+    font-size: 30px;
+    font-weight: 700;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.meio-site .pesca .pesca-texto k {
+    font-family: "Jersey 15", sans-serif;
+    font-weight: 600;
+}
+
+.meio-site .pesca .pesca-texto span {
+    color: green;
+    /* background-color: #ffffffaa; */
+    /* border-radius: 20px; */
+    /* padding: 3px; */
+    /* font-size: 22px; */
+    font-weight: 700;
+    font-size: 30px;
 }
