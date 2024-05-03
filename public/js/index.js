@@ -12,22 +12,27 @@ function descer() {
     document.documentElement.style.scrollBehavior = 'smooth';
 }
 
+function fixar(){
+    // document.documentElement.style.position = 'fixed'
+    document.documentElement.style.backgroundColor = 'transparent' 
+}
+
 window.sr = ScrollReveal({ reset: true });
 
 sr.reveal('.setinha-direita', {
-    duration: 1200,
-    origin: 'bottom'
+    duration: 2000,
+    origin: 'bottom',
+    distance: '100px'
 });
 
 sr.reveal('.txt-stardew', {
-    duration: 2200,
-    distace: '90px',
+    duration: 2500,
+    distance: '200px', // Corrigido o typo 'distace' para 'distance' [[5](https://stackoverflow.com/questions/50090538/scrollreveal-js-init-reset-divs-when-scroll)]
     origin: 'left'
 });
 
 sr.reveal('.img-stardew', {
     duration: 2700,
-    // delay: 500,
-    // distace: '90px',
-    origin: 'right'
+    origin: 'right',
+    distance: '200px' // Ajustado o valor de 'origin' para 'right'
 });
