@@ -26,7 +26,7 @@
   </div>
   <div class="meio">
     <div class="tela" id="tela">
-      <div class="textos">
+      <div class="textos" id="textos">
         <div class="cadastro-titulo">
           <p>Cadastro</p>
         </div>
@@ -42,14 +42,25 @@
           </div>
           <div class="input-senha">
             <p>Senha</p>
-            <input type="password" >
+            <input type="password" id="input_senha">
             <span id="alerta-senha"></span>
           </div>
+          <div class="input-confirme-senha">
+            <p>Confirme sua senha</p>
+            <input type="text" id="input_confirmacao_senha">
+            <span id="alerta-confirme-senha"></span>
+          </div>
+          <div class="input-fazenda">
+            <p>Nome da sua Fazenda</p>
+            <input type="text" id="input_fazenda">
+          </div>
         </div>
-
+        <button>Cadastrar</button>
       </div>
-      <div class="bolha">
-
+      <div class="bolha" id="1">
+        <p>Já tem uma conta?</p>
+        <p>Clique abaixo!!</p>
+        <button onclick="teste()" id="teste">login</button>
       </div>
     </div>
   </div>
@@ -60,6 +71,45 @@
 </html>
 <!-- <script src="../js/cadastro.js"></script> -->
 <script>
+
+  function teste() {
+    document.getElementById('textos').style.display = 'none';
+
+    // document.getElementById('1').style.transform = 'translateX(0px)'.transition = 'transform 2s';
+
+    // document.getElementById('1').style.transition =
+
+
+
+    document.getElementById('1').style.borderTopLeftRadius = '0px';
+    document.getElementById('1').style.borderBottomLeftRadius = '0px';
+    document.getElementById('1').style.borderTopRightRadius = '100px';
+    document.getElementById('1').style.borderBottomRightRadius = '100px';
+
+    // document.getElementById('1').style.transition = 'transform 20s';
+    // document.getElementById('1').style.transform = 'translateX(0px)';
+
+    document.getElementById('teste').addEventListener('click', function () {
+      var bolha = document.getElementById('1');
+      bolha.style.transform = 'translateX (0px)';
+      bolha.style.transition = 'transform 2s';
+    });
+
+    //     document.getElementById('moveButton').addEventListener('click', function() {
+    //     var elementToMove = document.getElementById('elementToMove');
+    //     // Definindo a nova posição do elemento
+    //     elementToMove.style.left = '200px'; // Move 200px para a direita
+    // });
+
+
+  }
+
+
+
+
+
+
+
 
   function cadastrar() {
     aguardar();
