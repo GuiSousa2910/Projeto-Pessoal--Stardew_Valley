@@ -12,11 +12,6 @@ function descer() {
     document.documentElement.style.scrollBehavior = 'smooth';
 }
 
-// function fixar(){
-//     document.documentElement.style.position = 'fixed'
-//     document.documentElement.style.backgroundColor = 'transparent' 
-// }
-
 window.sr = ScrollReveal({ reset: true });
 
 sr.reveal('.setinha-direita', {

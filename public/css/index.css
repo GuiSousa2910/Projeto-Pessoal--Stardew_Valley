@@ -5,7 +5,6 @@
 * {
     padding: 0%;
     margin: 0%;
-    font-style: normal;
 }
 
 a {
@@ -39,48 +38,7 @@ a {
     visibility: hidden;
 }
 
-/* .div_teste {
-    height: 300px;
-    width: 600px;
-    background-repeat: no-repeat;
-    background-size: contain;
-    animation: slideRight 2s ease;
-    background-image: url("../assets/Main_Logo.png");
-}
-
-.div_teste:hover {
-    transform: rotate(-5deg) scale(1);
-    background-image: url("../assets/Group 2.png");
-} */
-
-body {
-    font-family: "Pixelify Sans", sans-serif;
-    font-optical-sizing: auto;
-    font-style: normal;
-    background-image: url(../assets/imagemBody.jpg);
-    /* height: 950px; */
-
-    /* Create the parallax scrolling effect */
-    min-height: 500px;
-    background-attachment: fixed;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-}
-
-::-webkit-scrollbar {
-    display: none;
-}
-
-.fundo {
-    background: rgb(244, 212, 151);
-    background: linear-gradient(180deg, rgba(244, 212, 151, 1) 40%, rgba(182, 108, 63, 1) 71%);
-    height: 100vh;
-    width: 100vw;
-    border-bottom: 10px white solid;
-}
-
-.fundo .nav {
+.nav {
     height: 10vh;
     padding-top: 0.2%;
     padding-bottom: 0.2%;
@@ -165,6 +123,33 @@ body {
     margin-right: -10%;
 }
 
+body {
+    font-family: "Pixelify Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+    background-image: url(../assets/imagemBody.jpg);
+    /* height: 950px; */
+
+    /* Create the parallax scrolling effect */
+    min-height: 500px;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+::-webkit-scrollbar {
+    display: none;
+}
+
+.fundo {
+    background: rgb(244, 212, 151);
+    background: linear-gradient(180deg, rgba(244, 212, 151, 1) 40%, rgba(182, 108, 63, 1) 71%);
+    height: 100vh;
+    width: 100vw;
+    border-bottom: 10px white solid;
+}
+
 .fundo .informacoes-centrais {
     display: flex;
     justify-content: center;
@@ -184,10 +169,6 @@ body {
     letter-spacing: 2px;
     transform: translateX(0px);
 }
-
-/* .headline{
-    visibility: hidden;
-} */
 
 @keyframes slideLeft {
     0% {
