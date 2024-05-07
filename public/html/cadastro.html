@@ -8,8 +8,8 @@
 
   <title>Cadastro</title>
 
-  <script src="./js/sessao.js"></script>
-
+  <script src="../js/sessao.js"></script>
+  <script src="../js/validacao.js"></script>
   <link rel="stylesheet" href="../css/cadastro.css" />
   <link rel="icon" href="../assets/galinha.png" />
 </head>
@@ -24,95 +24,120 @@
       </div>
     </div>
   </div>
-  <div class="meio">
-    <div class="tela" id="tela">
-      <div class="textos" id="textos">
-        <div class="cadastro-titulo">
-          <p>Cadastro</p>
+  <div class="container" id="container">
+    <div class="form-container sign-up">
+      <form>
+        <h1>Cadastra-se</h1>
+
+        <input onfocus="cadastrarNome()" oninput="cadastrarNome()" type="text" id="input_nomeUsuario"
+          placeholder="Seu nome">
+
+        <input onfocus="cadastrarEmail()" oninput="cadastrarEmail()" type="text" id="input_email" placeholder="Email">
+
+        <input type="password" id="input_senha"
+          placeholder="Insira sua Senha">
+
+        <input type="password" id="input_confirmacao_senha"
+          placeholder="Confirme a Senha">
+
+        <input onfocus="cadastrarNomeFazenda()" oninput="cadastrarNomeFazenda()" type="text" id="input_fazenda"
+          placeholder="Nome da sua Fazenda">
+
+        <button onclick="cadastrar()" id="cadastrarBotao" disabled>Cadastrar</button>
+
+        <div id="div_aguardar" class="loading-div">
+          <img src="../assets/Eclipse@1x-0.8s-200px-200px.gif" id="loading-gif" />
         </div>
-        <div class="cadastro-inputs">
-          <div class="input-nome">
-            <p>Seu nome:</p>
-            <input type="text" id="input_nomeUsuario">
-          </div>
-          <div class="input-email">
-            <p>Email:</p>
-            <input type="text" id="input_email">
-            <span id="alerta_email"></span>
-          </div>
-          <div class="input-senha">
-            <p>Senha</p>
-            <input type="password" id="input_senha">
-            <span id="alerta-senha"></span>
-          </div>
-          <div class="input-confirme-senha">
-            <p>Confirme sua senha</p>
-            <input type="text" id="input_confirmacao_senha">
-            <span id="alerta-confirme-senha"></span>
-          </div>
-          <div class="input-fazenda">
-            <p>Nome da sua Fazenda</p>
-            <input type="text" id="input_fazenda">
-          </div>
+        
+      </form>
+    </div>
+    <div class="form-container sign-in">
+      <form>
+        <h1>Login</h1>
+        <input type="email" placeholder="Email">
+        <input type="password" placeholder="Password">
+
+        <button onclick="entrar()">Login</button>
+      </form>
+    </div>
+    <div class="toggle-container">
+      <div class="toggle">
+        <div class="toggle-panel toggle-left">
+          <h1 style="font-size: 50px;">Já tem uma conta?</h1>
+          <p style="font-size: 20px; margin: 10px;">Entre com ela agora mesmo!!</p>
+          <button class="hidden" id="login">Login</button>
         </div>
-        <button>Cadastrar</button>
-      </div>
-      <div class="bolha" id="1">
-        <p>Já tem uma conta?</p>
-        <p>Clique abaixo!!</p>
-        <button onclick="teste()" id="teste">login</button>
+        <div class="toggle-panel toggle-right">
+          <h1 style="font-size: 50px;">Ainda não tem seu cadastro?</h1>
+          <p style="font-size: 20px; margin: 10px;">Registre-se abaixo!!</p>
+          <button class="hidden" id="register">Cadastrar-se</button>
+        </div>
       </div>
     </div>
   </div>
 
-  <!-- funcao do botao de cadastro deve ser "CADASTRAR()" -->
 </body>
 
 </html>
-<!-- <script src="../js/cadastro.js"></script> -->
 <script>
 
-  function teste() {
-    document.getElementById('textos').style.display = 'none';
 
-    // document.getElementById('1').style.transform = 'translateX(0px)'.transition = 'transform 2s';
+  const container = document.getElementById('container');
+  const registerBtn = document.getElementById('register');
+  const loginBtn = document.getElementById('login');
 
-    // document.getElementById('1').style.transition =
+  registerBtn.addEventListener('click', () => {
+    container.classList.add("active");
+  });
 
+  loginBtn.addEventListener('click', () => {
+    container.classList.remove("active");
+  });
 
+  // document.getElementById('textos').style.display = 'none';
+  // document.getElementById('texto-bolha').style.display = 'none';
 
-    document.getElementById('1').style.borderTopLeftRadius = '0px';
-    document.getElementById('1').style.borderBottomLeftRadius = '0px';
-    document.getElementById('1').style.borderTopRightRadius = '100px';
-    document.getElementById('1').style.borderBottomRightRadius = '100px';
+  // document.getElementById('1').style.borderTopRightRadius = '0px';
+  // document.getElementById('1').style.borderBottomRightRadius = '0px';
+  // document.getElementById('1').style.borderTopLeftRadius = '100px';
+  // document.getElementById('1').style.borderBottomLeftRadius = '100px';
 
-    // document.getElementById('1').style.transition = 'transform 20s';
-    // document.getElementById('1').style.transform = 'translateX(0px)';
+  // document.getElementById('1').style.transition = 'transform 20s';
+  // document.getElementById('1').style.transform = 'translateX(0px)';
 
-    document.getElementById('teste').addEventListener('click', function () {
-      var bolha = document.getElementById('1');
-      bolha.style.transform = 'translateX (0px)';
-      bolha.style.transition = 'transform 2s';
-    });
-
-    //     document.getElementById('moveButton').addEventListener('click', function() {
-    //     var elementToMove = document.getElementById('elementToMove');
-    //     // Definindo a nova posição do elemento
-    //     elementToMove.style.left = '200px'; // Move 200px para a direita
-    // });
-
-
-  }
+  // document.getElementById('teste').addEventListener('click', function () {
+  //   var bolha = document.getElementById('1');
+  //   bolha.style.transform = 'translateX (100%)';
+  //   bolha.style.transition = 'transform 2s';
+  // });
 
 
+  // document.getElementById('1').style.transform = 'translateX(0px)'.transition = 'transform 2s';
+
+  // document.getElementById('1').style.transition =
+
+  //     document.getElementById('textos').style.transform = 'translateX(-100%)';
+  //     document.getElementById('1').style.transform = 'translateX(0)';
 
 
+  // document.querySelector('.bolha').addEventListener('click', function() {
+  //     document.getElementById('textos').style.transform = 'translateX(0)';
+  //     document.getElementById('1').style.transform = 'translateX(100%)';
+  // });
 
 
+  //     document.getElementById('moveButton').addEventListener('click', function() {
+  //     var elementToMove = document.getElementById('elementToMove');
+  //     // Definindo a nova posição do elemento
+  //     elementToMove.style.left = '200px'; // Move 200px para a direita
+  // });
 
 
+  var contador = 0;
   function cadastrar() {
-    aguardar();
+    // aguardar();
+
+    console.log(contador++);
 
     //Recupere o valor da nova input pelo nome do id
     // Agora vá para o método fetch logo abaixo
@@ -244,6 +269,76 @@
       .catch(function (resposta) {
         console.log(`#ERRO: ${resposta}`);
       });
+  }
+
+  function sumirMensagem() {
+    cardErro.style.display = "none";
+  }
+
+  function entrar() {
+    aguardar();
+
+    var emailVar = email_input.value;
+    var senhaVar = senha_input.value;
+
+    if (emailVar == "" || senhaVar == "") {
+      cardErro.style.display = "block";
+      mensagem_erro.innerHTML = "(Mensagem de erro para todos os campos em branco)";
+      finalizarAguardar();
+      return false;
+    }
+    else {
+      setInterval(sumirMensagem, 5000);
+    }
+
+    console.log("FORM LOGIN: ", emailVar);
+    console.log("FORM SENHA: ", senhaVar);
+
+    fetch("/usuarios/autenticar", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        emailServer: emailVar,
+        senhaServer: senhaVar
+      })
+    }).then(function (resposta) {
+      console.log("ESTOU NO THEN DO entrar()!");
+
+      if (resposta.ok) {
+        console.log(resposta);
+
+        resposta.json().then(json => {
+          console.log(json);
+          console.log(JSON.stringify(json));
+          sessionStorage.EMAIL_USUARIO = json.email;
+          sessionStorage.NOME_USUARIO = json.nome;
+          sessionStorage.CPF_USUARIO = json.cpf;
+          sessionStorage.ID_USUARIO = json.id;
+          sessionStorage.AQUARIOS = JSON.stringify(json.aquarios);
+
+          setTimeout(function () {
+            window.location = "./dashboard/cards.html";
+          }, 1000); // apenas para exibir o loading
+
+        });
+
+      } else {
+
+        console.log("Houve um erro ao tentar realizar o login!");
+
+        resposta.text().then(texto => {
+          console.error(texto);
+          finalizarAguardar(texto);
+        });
+      }
+
+    }).catch(function (erro) {
+      console.log(erro);
+    });
+
+    return false;
   }
 
   function sumirMensagem() {
