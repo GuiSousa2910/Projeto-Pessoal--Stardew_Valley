@@ -9,8 +9,8 @@ function cadastrarNome() {
 
     if (nome == '') {
         document.getElementById('input_nomeUsuario').style.borderBottom = '3px solid red';
-
     }
+    
     else {
         document.getElementById('input_nomeUsuario').style.borderBottom = '3px solid #008000';
         cadastrarNomeBoolean = true;
@@ -47,8 +47,42 @@ function cadastrarEmail() {
     }
 }
 
-if (cadastrarNomeBoolean == true &&
-    cadastrarFazendaBoolean == true &&
-    cadastrarEmailBoolean == true) {
-    document.getElementById('cadastrarBotao').removeAttribute('disabled');
+function cadastrarSenha() {
+    var senha = input_senha.value;
+    if (senha.length >= 6) {
+        document.getElementById('input_senha').style.borderBottom = '3px solid #008000';
+        cadastrarSenhaBoolean = true;
+        // var alerta = alerta_senha.innerHTML = `A senha deve ter mais que 6 caracteres`;
+        // alerta.style.fontSize = '3px';
+        // alerta.style.margin = "0px"
+    }
+    else {
+        document.getElementById('input_senha').style.borderBottom = '3px solid red';
+        // alerta_senha.innerHTML = ``;
+    }
 }
+
+function cadastrarConfirmarSenha() {
+    var senha = input_senha.value;
+    var confirmar = input_confirmacao_senha.value;
+    if (confirmar != senha) {
+        document.getElementById('input_confirmacao_senha').style.borderBottom = '3px solid red';
+        // var alerta = alerta_senha.innerHTML = `A senha deve ter mais que 6 caracteres`;
+        // alerta.style.fontSize = '3px';
+        // alerta.style.margin = "0px"
+    }
+    else {
+        document.getElementById('input_confirmacao_senha').style.borderBottom = '3px solid #008000';
+        // alerta_senha.innerHTML = ``;
+        cadastrarSenhaConfirmadaBoolean = true;
+    }
+}
+
+function validar() {
+    if (cadastrarNomeBoolean &&
+        cadastrarFazendaBoolean &&
+        cadastrarEmailBoolean && cadastrarSenhaBoolean && cadastrarSenhaConfirmadaBoolean) {
+        document.getElementById('cadastrarBotao').removeAttribute('disabled');  
+    }
+}
+

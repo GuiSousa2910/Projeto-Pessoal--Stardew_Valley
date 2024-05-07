@@ -8,47 +8,51 @@
 
   <title>Cadastro</title>
 
-  <script src="../js/sessao.js"></script>
-  <script src="../js/validacao.js"></script>
-  <link rel="stylesheet" href="../css/cadastro.css" />
-  <link rel="icon" href="../assets/galinha.png" />
+  <script src="js/sessao.js"></script>
+  <script src="js/validacao.js"></script>
+  <link rel="stylesheet" href="css/cadastro.css" />
+  <link rel="icon" href="assets/galinha.png" />
 </head>
 
 <body onload="listar()">
 
   <div class="nav">
-    <img src="../assets/galinha.png" alt="galinha">
+    <img src="assets/galinha.png" alt="galinha">
     <div class="nav-list">
       <div class="sobre">
-        <a href="../html/index.html">Home</a>
+        <a href="html/index.html">Home</a>
       </div>
     </div>
   </div>
   <div class="container" id="container">
-    <div class="form-container sign-up">
+    <div class="form-container sign-up" onchange="validar()">
       <form>
-        <h1>Cadastra-se</h1>
+        <h1>Cadastra-se</h1> 
 
         <input onfocus="cadastrarNome()" oninput="cadastrarNome()" type="text" id="input_nomeUsuario"
           placeholder="Seu nome">
 
         <input onfocus="cadastrarEmail()" oninput="cadastrarEmail()" type="text" id="input_email" placeholder="Email">
+        <!-- <div id="alerta_email"></div> -->
 
-        <input type="password" id="input_senha"
+        <input onfocus="cadastrarSenha()" oninput="cadastrarSenha()" type="password" id="input_senha"
           placeholder="Insira sua Senha">
+          <!-- <div id="alerta_senha"></div> -->
 
-        <input type="password" id="input_confirmacao_senha"
+        <input onfocus="cadastrarConfirmarSenha()" oninput="cadastrarConfirmarSenha()" type="password" id="input_confirmacao_senha"
           placeholder="Confirme a Senha">
+          <!-- <div id="alerta_confirme_senha"></div> -->
 
         <input onfocus="cadastrarNomeFazenda()" oninput="cadastrarNomeFazenda()" type="text" id="input_fazenda"
           placeholder="Nome da sua Fazenda">
 
-        <button onclick="cadastrar()" id="cadastrarBotao" disabled>Cadastrar</button>
+        <button onclick="cadastrar()" >Cadastrar</button>
 
         <div id="div_aguardar" class="loading-div">
-          <img src="../assets/Eclipse@1x-0.8s-200px-200px.gif" id="loading-gif" />
+          <img src="assets/Eclipse@1x-0.8s-200px-200px.gif" id="loading-gif" />
         </div>
-        
+        <div id="mensagem_erro"></div>
+
       </form>
     </div>
     <div class="form-container sign-in">
@@ -81,7 +85,6 @@
 </html>
 <script>
 
-
   const container = document.getElementById('container');
   const registerBtn = document.getElementById('register');
   const loginBtn = document.getElementById('login');
@@ -94,126 +97,21 @@
     container.classList.remove("active");
   });
 
-  // document.getElementById('textos').style.display = 'none';
-  // document.getElementById('texto-bolha').style.display = 'none';
-
-  // document.getElementById('1').style.borderTopRightRadius = '0px';
-  // document.getElementById('1').style.borderBottomRightRadius = '0px';
-  // document.getElementById('1').style.borderTopLeftRadius = '100px';
-  // document.getElementById('1').style.borderBottomLeftRadius = '100px';
-
-  // document.getElementById('1').style.transition = 'transform 20s';
-  // document.getElementById('1').style.transform = 'translateX(0px)';
-
-  // document.getElementById('teste').addEventListener('click', function () {
-  //   var bolha = document.getElementById('1');
-  //   bolha.style.transform = 'translateX (100%)';
-  //   bolha.style.transition = 'transform 2s';
-  // });
-
-
-  // document.getElementById('1').style.transform = 'translateX(0px)'.transition = 'transform 2s';
-
-  // document.getElementById('1').style.transition =
-
-  //     document.getElementById('textos').style.transform = 'translateX(-100%)';
-  //     document.getElementById('1').style.transform = 'translateX(0)';
-
-
-  // document.querySelector('.bolha').addEventListener('click', function() {
-  //     document.getElementById('textos').style.transform = 'translateX(0)';
-  //     document.getElementById('1').style.transform = 'translateX(100%)';
-  // });
-
-
-  //     document.getElementById('moveButton').addEventListener('click', function() {
-  //     var elementToMove = document.getElementById('elementToMove');
-  //     // Definindo a nova posição do elemento
-  //     elementToMove.style.left = '200px'; // Move 200px para a direita
-  // });
-
-
-  var contador = 0;
+  // var contador = 0;
   function cadastrar() {
-    // aguardar();
-
-    console.log(contador++);
+    aguardar();
+    // console.log(contador++);
 
     //Recupere o valor da nova input pelo nome do id
     // Agora vá para o método fetch logo abaixo
-    var nomeVar = nome_input.value;
-    var emailVar = email_input.value;
-    var senhaVar = senha_input.value;
-    var confirmacaoSenhaVar = confirmacao_senha_input.value;
-
+    var nomeVar = input_nomeUsuario.value;
+    var emailVar = input_email.value;
+    var senhaVar = input_senha.value;
+    var fazendaVar = input_fazenda.value;
     mensagem_erro.innerHTML = '';
-    if (
-      nomeVar == "" ||
-      emailVar == "" ||
-      senhaVar == "" ||
-      confirmacaoSenhaVar == ""
-    ) {
-      cardErro.style.display = "block";
-      mensagem_erro.innerHTML =
-        "Todos seus campos estão em branco";
-
-      finalizarAguardar();
-      return false;
-    } else if (nomeVar.length <= 1) {
-      cardErro.style.display = "block";
-      mensagem_erro.innerHTML +=
-        "Insira um nome maior!";
-
-      finalizarAguardar();
-      return false;
-    }
-    else if (senhaVar != confirmacaoSenhaVar) {
-      cardErro.style.display = "block";
-      mensagem_erro.innerHTML +=
-        "Suas senhas não são compativeis";
-
-      finalizarAguardar();
-      return false;
-    }
-    else if (senhaVar < 6 && confirmacaoSenhaVar < 6) {
-      cardErro.style.display = "block";
-      mensagem_erro.innerHTML +=
-        "Sua senha é muito curta";
-
-      finalizarAguardar();
-      return false;
-    }
-    else if (cpfVar.length != 11) {
-      cardErro.style.display = "block";
-      mensagem_erro.innerHTML +=
-        "CPF incompativel";
-
-      finalizarAguardar();
-      return false;
-    }
-    else if (emailVar.indexOf('@') == -1) {
-      cardErro.style.display = "block";
-      mensagem_erro.innerHTML +=
-        "Email Inválido";
-
-      finalizarAguardar();
-      return false;
-    }
-    else if (emailVar.indexOf('.') == -1) {
-      cardErro.style.display = "block";
-      mensagem_erro.innerHTML +=
-        "Email Inválido";
-
-      finalizarAguardar();
-      return false;
-    }
-
-    else {
-      setInterval(sumirMensagem, 5000);
-    }
 
     // Enviando o valor da nova input
-    fetch("/usuarios/cadastrar", {
+    fetch("/fazendeiro/cadastrar", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -224,8 +122,7 @@
         nomeServer: nomeVar,
         emailServer: emailVar,
         senhaServer: senhaVar,
-        empresaServer: empresaVar,
-        cpfServer: cpfVar
+        fazendaServer: fazendaVar
       }),
     })
       .then(function (resposta) {
@@ -238,7 +135,7 @@
             "Cadastro realizado com sucesso! Redirecionando para tela de Login...";
 
           setTimeout(() => {
-            window.location = "login.html";
+            window.location = "index.html";
           }, "2000");
 
           limparFormulario();
@@ -271,15 +168,14 @@
       });
   }
 
-  function sumirMensagem() {
-    cardErro.style.display = "none";
-  }
 
+
+  // LOGIN
   function entrar() {
     aguardar();
 
-    var emailVar = email_input.value;
-    var senhaVar = senha_input.value;
+    var emailVar = input_email.value;
+    var senhaVar = input_senha.value;
 
     if (emailVar == "" || senhaVar == "") {
       cardErro.style.display = "block";
@@ -294,7 +190,7 @@
     console.log("FORM LOGIN: ", emailVar);
     console.log("FORM SENHA: ", senhaVar);
 
-    fetch("/usuarios/autenticar", {
+    fetch("/fazendeiro/autenticar", {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
