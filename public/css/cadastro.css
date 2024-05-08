@@ -114,9 +114,9 @@ body {
     /* margin: 20px 0; */
 }
 
-.container span {
+/* .container span {
     font-size: 12px;
-}
+} */
 
 .container a {
     color: #333;
@@ -136,6 +136,7 @@ body {
     border-radius: 20px;
     font-family: "Pixelify Sans", sans-serif;
     cursor: pointer;
+    outline: none;
 }
 
 .container button:hover {
@@ -148,7 +149,7 @@ body {
     border-color: #fff;
 }
 
-.container form {
+.container label {
     background-color: #fff;
     display: flex;
     align-items: center;
@@ -309,3 +310,15 @@ h1 {
     height: 60px;
     width: 60px;
   }
+
+/* Style for the error message span */
+#alerta_email,
+#alerta_senha,
+#alerta_confirme_senha {
+    margin-top: -2em;
+    display: block; /* Make it a block element to occupy full width */
+    width: 100%; /* Span the full width of the input field */
+    font-size: 1em; /* Adjust font size as needed */
+    color: red; /* Set error message color */
+    margin: -1.3em;
+}

@@ -14,7 +14,7 @@
   <link rel="icon" href="assets/galinha.png" />
 </head>
 
-<body onload="listar()">
+<body>
 
   <div class="nav">
     <img src="assets/galinha.png" alt="galinha">
@@ -26,43 +26,47 @@
   </div>
   <div class="container" id="container">
     <div class="form-container sign-up" onchange="validar()">
-      <form>
-        <h1>Cadastra-se</h1> 
+      <label>
+        <h1>Cadastra-se</h1>
 
-        <input onfocus="cadastrarNome()" oninput="cadastrarNome()" type="text" id="input_nomeUsuario"
+        <input autocomplete="off" onfocus="cadastrarNome()" oninput="cadastrarNome(); validar()" type="text" id="input_nomeUsuario"
           placeholder="Seu nome">
 
-        <input onfocus="cadastrarEmail()" oninput="cadastrarEmail()" type="text" id="input_email" placeholder="Email">
-        <!-- <div id="alerta_email"></div> -->
+        <input autocomplete="off" onfocus="cadastrarEmail()" oninput="cadastrarEmail(); validar()" type="text" id="input_email" placeholder="Email">
+        <span id="alerta_email"></span>
 
-        <input onfocus="cadastrarSenha()" oninput="cadastrarSenha()" type="password" id="input_senha"
+        <input autocomplete="off" onfocus="cadastrarSenha()" oninput="cadastrarSenha(); validar()" type="password" id="input_senha"
           placeholder="Insira sua Senha">
-          <!-- <div id="alerta_senha"></div> -->
+        <span id="alerta_senha"></span>
 
-        <input onfocus="cadastrarConfirmarSenha()" oninput="cadastrarConfirmarSenha()" type="password" id="input_confirmacao_senha"
-          placeholder="Confirme a Senha">
-          <!-- <div id="alerta_confirme_senha"></div> -->
+        <input autocomplete="off" onfocus="cadastrarConfirmarSenha()" oninput="cadastrarConfirmarSenha(); validar()" type="password"
+          id="input_confirmacao_senha" placeholder="Confirme a Senha">
+        <span id="alerta_confirme_senha"></span>
 
-        <input onfocus="cadastrarNomeFazenda()" oninput="cadastrarNomeFazenda()" type="text" id="input_fazenda"
+        <input autocomplete="off" onfocus="cadastrarNomeFazenda()" oninput="cadastrarNomeFazenda(); validar()" type="text" id="input_fazenda"
           placeholder="Nome da sua Fazenda">
 
-        <button onclick="cadastrar()" >Cadastrar</button>
+        <button id="cadastrarBotao" disabled onclick="cadastrar()">Cadastrar</button>
 
         <div id="div_aguardar" class="loading-div">
           <img src="assets/Eclipse@1x-0.8s-200px-200px.gif" id="loading-gif" />
         </div>
         <div id="mensagem_erro"></div>
 
-      </form>
+      </label>
     </div>
     <div class="form-container sign-in">
-      <form>
+      <label>
         <h1>Login</h1>
-        <input type="email" placeholder="Email">
-        <input type="password" placeholder="Password">
+        <input autocomplete="off" type="email" id="input_emailLogin" placeholder="Email">
+        <input autocomplete="off" type="password" id="input_senhaLogin" placeholder="Password">
 
-        <button onclick="entrar()">Login</button>
-      </form>
+        <button type="submit" onclick="entrar()">Login</button>
+        <div id="div_aguardar" class="loading-div">
+          <img src="assets/Eclipse@1x-0.8s-200px-200px.gif" id="loading-gif" />
+        </div>
+        <div id="div_erros_login" style="font-size: 20px; font-weight: bold;"></div>
+      </label>
     </div>
     <div class="toggle-container">
       <div class="toggle">
@@ -72,14 +76,13 @@
           <button class="hidden" id="login">Login</button>
         </div>
         <div class="toggle-panel toggle-right">
-          <h1 style="font-size: 50px;">Ainda não tem seu cadastro?</h1>
+          <h1 style="font-size: 50px;">Ainda não tem <br>seu cadastro?</h1>
           <p style="font-size: 20px; margin: 10px;">Registre-se abaixo!!</p>
           <button class="hidden" id="register">Cadastrar-se</button>
         </div>
       </div>
     </div>
   </div>
-
 </body>
 
 </html>
@@ -99,6 +102,7 @@
 
   // var contador = 0;
   function cadastrar() {
+    // e.prevent.default();
     aguardar();
     // console.log(contador++);
 
@@ -111,7 +115,7 @@
     mensagem_erro.innerHTML = '';
 
     // Enviando o valor da nova input
-    fetch("/fazendeiro/cadastrar", {
+    fetch("/usuarios/cadastrar", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -129,14 +133,13 @@
         console.log("resposta: ", resposta);
 
         if (resposta.ok) {
-          cardErro.style.display = "block";
 
           mensagem_erro.innerHTML =
             "Cadastro realizado com sucesso! Redirecionando para tela de Login...";
 
           setTimeout(() => {
-            window.location = "index.html";
-          }, "2000");
+            window.location.href = "indexLogado.html";
+          }, "5000");
 
           limparFormulario();
           finalizarAguardar();
@@ -152,45 +155,19 @@
     return false;
   }
 
-  function listar() {
-    fetch("/empresas/listar", {
-      method: "GET",
-    })
-      .then(function (resposta) {
-        resposta.json().then((empresas) => {
-          empresas.forEach((empresa) => {
-            listaEmpresas.innerHTML += `<option value='${empresa.id}'>${empresa.cnpj}</option>`;
-          });
-        });
-      })
-      .catch(function (resposta) {
-        console.log(`#ERRO: ${resposta}`);
-      });
-  }
-
-
 
   // LOGIN
   function entrar() {
+    // e.prevent.default();
     aguardar();
 
-    var emailVar = input_email.value;
-    var senhaVar = input_senha.value;
-
-    if (emailVar == "" || senhaVar == "") {
-      cardErro.style.display = "block";
-      mensagem_erro.innerHTML = "(Mensagem de erro para todos os campos em branco)";
-      finalizarAguardar();
-      return false;
-    }
-    else {
-      setInterval(sumirMensagem, 5000);
-    }
+    var emailVar = input_emailLogin.value;
+    var senhaVar = input_senhaLogin.value;
 
     console.log("FORM LOGIN: ", emailVar);
     console.log("FORM SENHA: ", senhaVar);
 
-    fetch("/fazendeiro/autenticar", {
+    fetch("/usuarios/autenticar", {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
@@ -204,29 +181,33 @@
 
       if (resposta.ok) {
         console.log(resposta);
+        div_erros_login.innerHTML = 'Login realizado com sucesso!'
+        
+        setTimeout(() => {
+          window.location = "indexLogado.html";
+        }, "3000");
 
         resposta.json().then(json => {
           console.log(json);
           console.log(JSON.stringify(json));
+          
           sessionStorage.EMAIL_USUARIO = json.email;
           sessionStorage.NOME_USUARIO = json.nome;
-          sessionStorage.CPF_USUARIO = json.cpf;
+          sessionStorage.NOMEFAZENDA_USUARIO = json.nomeFazenda;
           sessionStorage.ID_USUARIO = json.id;
-          sessionStorage.AQUARIOS = JSON.stringify(json.aquarios);
-
-          setTimeout(function () {
-            window.location = "./dashboard/cards.html";
-          }, 1000); // apenas para exibir o loading
+          
 
         });
-
+        finalizarAguardar();
+        console.log('DEU CERTOOOOOOOOOOOOOOOOOOOOOO')
       } else {
 
         console.log("Houve um erro ao tentar realizar o login!");
+        div_erros_login.innerHTML = 'Login não foi realizado com sucesso!'
+
 
         resposta.text().then(texto => {
           console.error(texto);
-          finalizarAguardar(texto);
         });
       }
 
@@ -237,7 +218,7 @@
     return false;
   }
 
-  function sumirMensagem() {
-    cardErro.style.display = "none";
-  }
+  // function sumirMensagem() {
+  //   cardErro.style.display = "none";
+  // }
 </script>
