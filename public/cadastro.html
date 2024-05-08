@@ -29,22 +29,23 @@
       <label>
         <h1>Cadastra-se</h1>
 
-        <input autocomplete="off" onfocus="cadastrarNome()" oninput="cadastrarNome(); validar()" type="text" id="input_nomeUsuario"
-          placeholder="Seu nome">
+        <input autocomplete="off" onfocus="cadastrarNome()" oninput="cadastrarNome(); validar()" type="text"
+          id="input_nomeUsuario" placeholder="Seu nome">
 
-        <input autocomplete="off" onfocus="cadastrarEmail()" oninput="cadastrarEmail(); validar()" type="text" id="input_email" placeholder="Email">
+        <input autocomplete="off" onfocus="cadastrarEmail()" oninput="cadastrarEmail(); validar()" type="text"
+          id="input_email" placeholder="Email">
         <span id="alerta_email"></span>
 
-        <input autocomplete="off" onfocus="cadastrarSenha()" oninput="cadastrarSenha(); validar()" type="password" id="input_senha"
-          placeholder="Insira sua Senha">
+        <input autocomplete="off" onfocus="cadastrarSenha()" oninput="cadastrarSenha(); validar()" type="password"
+          id="input_senha" placeholder="Insira sua Senha">
         <span id="alerta_senha"></span>
 
-        <input autocomplete="off" onfocus="cadastrarConfirmarSenha()" oninput="cadastrarConfirmarSenha(); validar()" type="password"
-          id="input_confirmacao_senha" placeholder="Confirme a Senha">
+        <input autocomplete="off" onfocus="cadastrarConfirmarSenha()" oninput="cadastrarConfirmarSenha(); validar()"
+          type="password" id="input_confirmacao_senha" placeholder="Confirme a Senha">
         <span id="alerta_confirme_senha"></span>
 
-        <input autocomplete="off" onfocus="cadastrarNomeFazenda()" oninput="cadastrarNomeFazenda(); validar()" type="text" id="input_fazenda"
-          placeholder="Nome da sua Fazenda">
+        <input autocomplete="off" onfocus="cadastrarNomeFazenda()" oninput="cadastrarNomeFazenda(); validar()"
+          type="text" id="input_fazenda" placeholder="Nome da sua Fazenda">
 
         <button id="cadastrarBotao" disabled onclick="cadastrar()">Cadastrar</button>
 
@@ -100,29 +101,21 @@
     container.classList.remove("active");
   });
 
-  // var contador = 0;
   function cadastrar() {
-    // e.prevent.default();
     aguardar();
-    // console.log(contador++);
 
-    //Recupere o valor da nova input pelo nome do id
-    // Agora vá para o método fetch logo abaixo
     var nomeVar = input_nomeUsuario.value;
     var emailVar = input_email.value;
     var senhaVar = input_senha.value;
     var fazendaVar = input_fazenda.value;
     mensagem_erro.innerHTML = '';
 
-    // Enviando o valor da nova input
     fetch("/usuarios/cadastrar", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        // crie um atributo que recebe o valor recuperado aqui
-        // Agora vá para o arquivo routes/usuario.js
         nomeServer: nomeVar,
         emailServer: emailVar,
         senhaServer: senhaVar,
@@ -135,7 +128,7 @@
         if (resposta.ok) {
 
           mensagem_erro.innerHTML =
-            "Cadastro realizado com sucesso! Redirecionando para tela de Login...";
+            "Cadastro realizado com sucesso!";
 
           setTimeout(() => {
             window.location.href = "indexLogado.html";
@@ -158,7 +151,6 @@
 
   // LOGIN
   function entrar() {
-    // e.prevent.default();
     aguardar();
 
     var emailVar = input_emailLogin.value;
@@ -181,8 +173,8 @@
 
       if (resposta.ok) {
         console.log(resposta);
-        div_erros_login.innerHTML = 'Login realizado com sucesso!'
-        
+        div_erros_login.innerHTML = 'Login realizado com sucesso!';
+
         setTimeout(() => {
           window.location = "indexLogado.html";
         }, "3000");
@@ -190,21 +182,18 @@
         resposta.json().then(json => {
           console.log(json);
           console.log(JSON.stringify(json));
-          
+
           sessionStorage.EMAIL_USUARIO = json.email;
           sessionStorage.NOME_USUARIO = json.nome;
           sessionStorage.NOMEFAZENDA_USUARIO = json.nomeFazenda;
           sessionStorage.ID_USUARIO = json.id;
-          
-
         });
         finalizarAguardar();
-        console.log('DEU CERTOOOOOOOOOOOOOOOOOOOOOO')
+        console.log('DEU CERTOOOOOOOOOOOOOOOOOOOOOO');
       } else {
 
         console.log("Houve um erro ao tentar realizar o login!");
-        div_erros_login.innerHTML = 'Login não foi realizado com sucesso!'
-
+        div_erros_login.innerHTML = 'Login não foi realizado com sucesso!';
 
         resposta.text().then(texto => {
           console.error(texto);
@@ -217,8 +206,4 @@
 
     return false;
   }
-
-  // function sumirMensagem() {
-  //   cardErro.style.display = "none";
-  // }
 </script>

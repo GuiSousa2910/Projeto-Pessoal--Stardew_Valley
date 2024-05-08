@@ -10,7 +10,7 @@
     <title>Stardew Valley</title>
 </head>
 
-<body>
+<body onload="escrever()">
 
 
     <div class="fundo">
@@ -23,6 +23,8 @@
                     <a href="#dev" onclick="descer()">Desenvolvedor</a>
                 </div>
             </div>
+            <div id="teste"> </div>
+            <img src="assets/fotos logada/fazendeiro.png" alt="">
         </div>
         <div class="informacoes-centrais">
             <div onmouseleave="desmostrar()" onmouseenter="mostrar()">
@@ -231,4 +233,12 @@
 </body>
 
 </html>
-<script src="js/index.js" defer></script>
+<script src="js/animacaoFoto.js" defer></script>
+<script src="js/scrollreveal.js"></script>
+<script>
+    console.log(sessionStorage.NOME_USUARIO)
+    function escrever() {
+        document.getElementById('teste');
+        teste.innerHTML = `Olá, ${sessionStorage.NOME_USUARIO}`
+    }
+</script>
