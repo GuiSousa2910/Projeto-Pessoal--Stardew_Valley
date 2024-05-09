@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://unpkg.com/scrollreveal"></script>
-    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/indexLogado.css">
     <link rel="icon" href="assets/galinha.png" />
     <title>Stardew Valley</title>
 </head>
@@ -15,15 +15,16 @@
 
     <div class="fundo">
         <div class="nav">
-            <img src="assets/galinha.png" alt="galinha">
+            <img src="assets/galinha.png" alt="galinha" onclick="voltar()">
             <div class="nav-list">
                 <div class="sobre">
                     <a href="#espaco" onclick="descer()">Sobre</a>
                     <a href="#divisao" onclick="descer()">Oque vou fazer?</a>
                     <a href="#dev" onclick="descer()">Desenvolvedor</a>
+                    <a href="PROTOTIPO-PESQUISA-PERSONAGEM.html">Busca dos Personagens</a>
                 </div>
             </div>
-            <div id="teste"> </div>
+            <div id="teste"></div>
             <img src="assets/fotos logada/fazendeiro.png" alt="">
         </div>
         <div class="informacoes-centrais">
@@ -36,12 +37,13 @@
                 </div>
             </div>
             <div class="textoCentralHome">
-                <p>Para você que está começando a Jogar <span> Stardew Valley </span> ou quer começar esse é o site
+                <p>Para você que está começando a Jogar <span> Stardew Valley</span>, esse é o site
                     <span>perfeito para
-                        você!</span> Aqui você verá informações sobre <span> todos os personagens </span> do jogo,
+                        você!</span> Aqui você terá informações sobre <span> todos os personagens </span> do jogo,
                     <span> dicas
-                        do que comprar em cada estação </span> e muito mais!
+                        do que comprar em cada estação </span> e muito mais! Acesse sua <span> DashBoard para algumas informações </span>!!
                 </p>
+                <button class="botaoDash">DashBoard!</button>
             </div>
         </div>
         <a href="#espaco" onclick="descer()"><img class="flecha" src="assets/seta para baixo.png"></a>
@@ -159,7 +161,8 @@
                         <span style="color: #e87f18;">animais de celeiro</span> e os <span
                             style="color: #577ae4;">pets</span>, os de celeiro te ajudam a
                         ganhar um <span style="color: green;">dinheiro</span>, já que eles te fornecem itens para vender
-                        e os pets decoram a fazenda!</p>
+                        e os pets decoram a fazenda!
+                    </p>
                 </div>
             </div>
             <div>
@@ -205,7 +208,8 @@
                             style="color: #72785b;">caverna infinita!</span> Mais para frente na história, você após
                         fazer várias missões irá para a '<span style="color: #00ffff;">Ilha Gengibre</span>', uma enorme
                         ilha tropical onde sua moeda de troca são as '<span style="color: #d6b602;">nozes
-                            douradas</span>'. Você com certeza também terá muito o que explorar!</p>
+                            douradas</span>'. Você com certeza também terá muito o que explorar!
+                    </p>
                 </div>
             </div>
             <div>
@@ -225,7 +229,19 @@
                 <p>Desenvolvedor</p>
             </div>
             <div class="desenvolvedor-paragrafo">
-                <p>Olá, este sou eu! Me chamo <span style="color: #00ffff;">Guilherme</span> e atualmente tenho <span style="color: #00ffff;">18 anos</span> e curso <span style="color: #ffc400;">ADS na faculdade SPTech</span>, onde tenho a enorme oportunidade de ir atrás <span style="color: #3300cc;">dos meus sonhos</span>. Escolhi <span style="color: #5cf45c;">Stardew Valley</span> como o meu tema por conta de toda a <span style="color: #ccff33;">ajuda que ele já me proporcionou.</span> Por ser um jogo calmo, muitas vezes, quando me encontrava <span style="color: #8b008b;">estressado</span> ou, na maioria das vezes, <span style="color: #000080;">triste</span>, eu sempre <span style="color: #6bffb5;">jogava pelo menos um pouco</span> apenas para me <span style="color: #ffcbdb;">acalmar</span>. Isso aconteceu <span style="color: #2c2c2c;">tantas vezes</span> que hoje tenho <span style="color: #ffaa1d;">300 horas jogadas</span>. Com este projeto, espero conseguir <span style="color: #ff75ac;">espalhar essa ajuda que recebi</span>, para que eu possa ajudar as pessoas, mesmo que indiretamente.<span style="color: #9acd32;"> Aproveitem o site!</p>
+                <p>Olá, este sou eu! Me chamo <span style="color: #00ffff;">Guilherme</span> e atualmente tenho <span
+                        style="color: #00ffff;">18 anos</span> e curso <span style="color: #ffc400;">ADS na faculdade
+                        SPTech</span>, onde tenho a enorme oportunidade de ir atrás <span style="color: #3300cc;">dos
+                        meus sonhos</span>. Escolhi <span style="color: #5cf45c;">Stardew Valley</span> como o meu tema
+                    por conta de toda a <span style="color: #ccff33;">ajuda que ele já me proporcionou.</span> Por ser
+                    um jogo calmo, muitas vezes, quando me encontrava <span style="color: #8b008b;">estressado</span>
+                    ou, na maioria das vezes, <span style="color: #000080;">triste</span>, eu sempre <span
+                        style="color: #6bffb5;">jogava pelo menos um pouco</span> apenas para me <span
+                        style="color: #ffcbdb;">acalmar</span>. Isso aconteceu <span style="color: #2c2c2c;">tantas
+                        vezes</span> que hoje tenho <span style="color: #ffaa1d;">300 horas jogadas</span>. Com este
+                    projeto, espero conseguir <span style="color: #ff75ac;">espalhar essa ajuda que recebi</span>, para
+                    que eu possa ajudar as pessoas, mesmo que indiretamente.<span style="color: #9acd32;"> Aproveitem o
+                        site!</p>
             </div>
         </div>
     </div>
@@ -236,9 +252,13 @@
 <script src="js/animacaoFoto.js" defer></script>
 <script src="js/scrollreveal.js"></script>
 <script>
-    console.log(sessionStorage.NOME_USUARIO)
+    console.log(sessionStorage.NOME_USUARIO);
     function escrever() {
         document.getElementById('teste');
-        teste.innerHTML = `Olá, ${sessionStorage.NOME_USUARIO}`
+        teste.innerHTML = `Olá, ${sessionStorage.NOME_USUARIO}`;
+    }
+
+    function voltar() {
+        window.location = 'index.html'
     }
 </script>
