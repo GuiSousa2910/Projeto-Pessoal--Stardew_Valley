@@ -49,6 +49,7 @@ a {
     border-bottom: white 2px solid;
     display: flex;
     /* font-weight: 100; */
+    margin-top: -19px;
     flex-direction: row;
     align-items: center;
     color: whitesmoke;
@@ -97,38 +98,9 @@ a {
     width: 100%;
 }
 
-.nav #junte-se {
-    display: flex;
-    align-items: center;
-    font-weight: 500;
-    color: #f3f3f3;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    position: relative;
-    font-size: 25px;
-    cursor: pointer;
-}
-
-.nav #junte-se::before {
-    content: "";
-    width: 20px;
-    height: 4px;
-    border-top-left-radius: 32px;
-    border-bottom-right-radius: 32px;
-    background: rgb(0, 0, 255);
-    background: linear-gradient(90deg, rgba(0, 0, 255, 1) 0%, rgba(0, 202, 255, 1) 59%);
-    position: absolute;
-    bottom: -6px;
-    transition: width .4s ease-in-out;
-}
-
-.nav #junte-se:hover::before {
-    width: 100%;
-}
-
 .nav img {
     width: auto;
-    height: 80px;
+    height: 60px;
     margin-left: 7%;
     cursor: pointer;
 }
@@ -137,13 +109,6 @@ a {
     display: flex;
     justify-content: space-between;
     gap: 200px;
-}
-
-.nav .nav-list .login {
-    display: flex;
-    gap: 20px;
-    margin-right: 7%;
-    font-size: 25px;
 }
 
 .nav .nav-list .sobre {
@@ -157,9 +122,6 @@ body {
     font-optical-sizing: auto;
     font-style: normal;
     background-image: url(../assets/imagemBody.jpg);
-    /* height: 950px; */
-
-    /* Create the parallax scrolling effect */
     min-height: 500px;
     background-attachment: fixed;
     background-position: center;
