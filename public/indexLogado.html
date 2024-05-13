@@ -18,7 +18,7 @@
             <img src="assets/galinha.png" alt="galinha" onclick="voltar()">
             <div class="nav-list">
                 <div class="sobre">
-                    <!-- <a href="http://localhost:3000/ia.html">IA</a> -->
+                    <a href="http://localhost:3000/ia.html">IA</a>
                     <a href="#divisao" onclick="descer()">Oque vou fazer?</a>
                     <a href="#dev" onclick="descer()">Desenvolvedor</a>
                     <a href="PROTOTIPO-PESQUISA-PERSONAGEM.html">Busca dos Personagens</a>
@@ -252,10 +252,8 @@
 <script src="js/animacaoFoto.js" defer></script>
 <script src="js/scrollreveal.js"></script>
 <script>
-    console.log(sessionStorage.NOME_USUARIO);
     function escrever() {
-        document.getElementById('teste');
-        teste.innerHTML = `Olá, ${sessionStorage.NOME_USUARIO}`;
+        teste.innerHTML = `Olá, ${sessionStorage.NOME_USUARIO.toUpperCase()}`;
     }
 
     function voltar() {
