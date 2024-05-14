@@ -848,7 +848,6 @@ const opcoes = [
    },
 ];
 
-
 let texto = document.getElementById('searchInput');
 
 
@@ -870,7 +869,6 @@ function displayResults(results) {
       const seta = document.createElement('img');
       const img = document.createElement('img');
 
-
       for (let index = 0; index < result.imagemPresentes.length; index++) {
          const imageContainer = document.createElement('div');
          imageContainer.style.display = 'flex';
@@ -891,7 +889,6 @@ function displayResults(results) {
 
          div3.appendChild(imageContainer);
       }
-
 
       const nome = document.createElement('span');
       const tituloPresentes = document.createElement('span');
