@@ -12,7 +12,7 @@
 
 <body onload="escrever()">
 
-<img src="/public/assets/" alt="">
+    <img src="/public/assets/" alt="">
     <div class="fundo">
         <div class="nav">
             <img src="assets/galinha.png" alt="galinha" onclick="voltar()">
@@ -41,9 +41,10 @@
                     <span>perfeito para
                         você!</span> Aqui você terá informações sobre <span> todos os personagens </span> do jogo,
                     <span> dicas
-                        do que comprar em cada estação </span> e muito mais! Acesse sua <span> DashBoard para algumas informações </span>!!
+                        do que comprar em cada estação </span> e muito mais! Acesse sua <span> DashBoard para algumas
+                        informações </span>!!
                 </p>
-                <button class="botaoDash">DashBoard!</button>
+                <button class="botaoDash" onclick="ir()">DashBoard!</button>
             </div>
         </div>
         <a href="#espaco" onclick="descer()"><img class="flecha" src="assets/seta para baixo.png"></a>
@@ -257,6 +258,9 @@
     }
 
     function voltar() {
-        window.location = 'index.html'
+        window.location = 'index.html';
+    }
+    function ir() {
+        window.location = 'dashboard.html';
     }
 </script>

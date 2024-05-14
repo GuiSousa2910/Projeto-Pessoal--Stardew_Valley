@@ -1,0 +1,139 @@
+@import url('https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&display=swap');
+
+* {
+    padding: 0%;
+    margin: 0%;
+}
+
+a {
+    all: unset;
+    cursor: pointer;
+}
+
+.nav {
+    height: 10vh;
+    padding-top: 0.2%;
+    padding-bottom: 0.2%;
+    width: 100vw;
+    background: rgb(66, 36, 25);
+    background: linear-gradient(90deg, rgba(66, 36, 25, 1) 7%, rgba(24, 17, 12, 1) 98%);
+    border-bottom: white 2px solid;
+    display: flex;
+    /* flex-direction: row; */
+    align-items: center;
+    color: whitesmoke;
+    animation: slideDown 2s ease;
+    gap: 35vw;
+    /* margin-bottom: 4.2%; */
+}
+
+@keyframes slideDown {
+    0% {
+        opacity: 0;
+        transform: translateY(-50px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.nav a {
+    display: flex;
+    align-items: center;
+    font-weight: 500;
+    color: #ffffff;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    position: relative;
+    font-size: 35px;
+    justify-content: center;
+    cursor: pointer;
+
+}
+
+.nav a::before {
+    content: "";
+    width: 20px;
+    height: 4px;
+    border-top-left-radius: 32px;
+    border-bottom-right-radius: 32px;
+    background: rgb(22, 153, 22);
+    background: linear-gradient(90deg, rgba(22, 153, 22, 1) 36%, rgba(189, 249, 124, 1) 77%);
+    position: absolute;
+    bottom: -6px;
+    transition: width .4s ease-in-out;
+}
+
+.nav a:hover::before {
+    width: 100%;
+}
+
+.nav img {
+    display: flex;
+    width: auto;
+    height: 60px;
+    margin-left: 7%;
+    cursor: pointer;
+}
+
+body {
+    font-family: "Pixelify Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+    background-image: url(../assets/imagemBody.jpg);
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: column;
+    height: 100vh;
+}
+
+.centro{
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.centro .todas-infos {
+    border: 5px white solid;
+    border-radius: 30px;
+    display: flex;
+    align-items: center;
+    padding: 1rem;
+    width: 90vw;
+    height: 80vh;
+    background: linear-gradient(180deg, rgba(244, 212, 151, 1) 40%, rgba(182, 108, 63, 1) 71%);
+}
+
+.centro .todas-infos .opcoes{
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    height: 70vh;
+    width: 15vw;
+    justify-content: space-evenly;
+}
+
+.centro .todas-infos .opcoes button{
+    height: 10vh;
+    width: 15vw;
+    border-radius: 30px;
+    border: #ffffff 3px solid;
+    background-color: rgb(133, 89, 39);
+    cursor: pointer;
+}
+.centro .todas-infos .opcoes button:hover{
+    background-color: rgb(171, 122, 67);
+}
+
+.centro .todas-infos .dash{
+    border: 3px black solid;
+}
