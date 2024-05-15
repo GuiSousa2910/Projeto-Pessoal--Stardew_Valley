@@ -27,6 +27,10 @@ a {
     /* margin-bottom: 4.2%; */
 }
 
+::-webkit-scrollbar {
+    display: none;
+}
+
 @keyframes slideDown {
     0% {
         opacity: 0;
@@ -94,7 +98,7 @@ body {
     height: 100vh;
 }
 
-.centro{
+.centro {
     height: 100vh;
     width: 100vw;
     display: flex;
@@ -113,7 +117,7 @@ body {
     background: linear-gradient(180deg, rgba(244, 212, 151, 1) 40%, rgba(182, 108, 63, 1) 71%);
 }
 
-.centro .todas-infos .opcoes{
+.centro .todas-infos .opcoes {
     display: flex;
     flex-direction: column;
     justify-content: start;
@@ -122,18 +126,62 @@ body {
     justify-content: space-evenly;
 }
 
-.centro .todas-infos .opcoes button{
+.centro .todas-infos .opcoes button {
     height: 10vh;
     width: 15vw;
     border-radius: 30px;
     border: #ffffff 3px solid;
     background-color: rgb(133, 89, 39);
     cursor: pointer;
+    font-size: 30px;
+    font-family: "Pixelify Sans", sans-serif;
+    font-weight: bold;
+    color: white;
 }
-.centro .todas-infos .opcoes button:hover{
+
+.centro .todas-infos .opcoes button:hover {
     background-color: rgb(171, 122, 67);
 }
 
-.centro .todas-infos .dash{
-    border: 3px black solid;
+.centro .todas-infos .dash {
+    width: 75vw;
+    height: 80vh;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.centro .todas-infos .dash p {
+    font-size: 30px;
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+
+.centro .todas-infos .dash select {
+    width: 20vw;
+    height: 90vh;
+    text-align: center;
+    font-family: "Pixelify Sans", sans-serif;
+    border-radius: 30px;
+    font-weight: bold;
+    font-size: 18px;
+    background-color: transparent;
+    border: 3px rgb(133, 89, 39) solid;
+    outline: none;
+    cursor: pointer;
+}
+
+.container-chart {
+    display: flex;
+    justify-content: space-around;
+    height: 80vh;
+    width: 80vw;
+    margin-top: 5%;
+}
+
+.chart {
+    flex-direction: column;
+    width: 60vw;
+    height: 60vh;
 }

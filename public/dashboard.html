@@ -7,9 +7,11 @@
     <title>DashBoard</title>
     <link rel="stylesheet" href="../public/css/dashboard.css">
     <link rel="icon" href="assets/galinha.png">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
 </head>
 
-<body>
+<body onload="validar()" onchange="validar()">
     <div class="nav">
         <img src="assets/galinha.png" alt="galinha">
         <div class="nav-list">
@@ -22,15 +24,220 @@
     <div class="centro">
         <div class="todas-infos">
             <div class="opcoes">
-                <button onclick=""></button>
+                <button onclick="">Produtos</button>
                 <button onclick=""></button>
                 <button onclick=""></button>
             </div>
-            <div class="dash">
+            <div class="dash" id="dash">
                 <p>Lista de Produtos de cada Estação!</p>
+                <select id="select_estacoes">
+                    <option value="#">Selecione a Estação!</option>
+                    <option value="1">Verão</option>
+                    <option value="2">Inverno</option>
+                    <option value="3">Outono</option>
+                    <option value="4">Primavera</option>
+                </select>
+                <div class="container-chart">
+                    <div class="chart" id="">
+                        <canvas id="chart1"></canvas>
+                        <canvas id="chart2"></canvas>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
 </body>
 
 </html>
+
+
+
+<script>
+    function validar() {
+        var estacoes = select_estacoes.value;
+
+        if (estacoes == '#') {
+            document.getElementById('dash').style.marginTop = '40%';
+            document.getElementById('chart1').style.display = 'none';
+            document.getElementById('chart2').style.display = 'none';
+        }
+
+        else if (estacoes == '1') {
+            document.getElementById('dash').style.marginTop = '0%';
+            const chartBarVerao = new Chart(
+                document.getElementById('chart1'),
+                configBarVerao,
+                document.getElementById('chart1').style.display = 'flex',
+                document.getElementById('chart2').style.display = 'none'
+            );
+        }
+        
+        else if (estacoes == '2') {
+            document.getElementById('dash').style.marginTop = '0%';
+            const chartBarInverno = new Chart(
+                document.getElementById('chart2'),
+                configBarInverno,
+                document.getElementById('chart2').style.display = 'flex',
+                document.getElementById('chart1').style.display = 'none'
+            );
+        }
+    }
+
+
+</script>
+<script>
+    const labelsVerao = ['Melão', 'Tomate', 'Mirtilo', 'Pimenta', 'Trigo', 'Rabanete', 'Milho', 'Papoula', 'Miçanga', 'Lúpulo', 'Girassol', 'Repolho'];
+    const dataBarVerao = {
+        labels: labelsVerao,
+        datasets: [{
+            label: 'Preço Semente',
+            data: [80, 50, 80, 40, 10, 40, 150, 100, 50, 60, 200, 100],
+            backgroundColor: [
+                'rgb(255, 0, 166)',
+                'rgb(255, 0, 166)',
+                'rgb(255, 0, 166)',
+                'rgb(255, 0, 166)',
+                'rgb(255, 0, 166)',
+                'rgb(255, 0, 166)',
+                'rgb(255, 0, 166)',
+                'rgb(255, 0, 166)',
+                'rgb(255, 0, 166)'
+            ],
+            borderColor: [
+                'rgb(0, 0, 0)',
+                'rgb(0, 0, 0)',
+                'rgb(0, 0, 0)',
+                'rgb(0, 0, 0)',
+                'rgb(0, 0, 0)',
+                'rgb(0, 0, 0)',
+                'rgb(0, 0, 0)'
+            ],
+            borderWidth: 1
+        },
+        {
+            label: 'Preço de Venda Total na Estatação',
+            data: [250, 300, 600, 320, 25, 90, 200, 140, 90, 425, 80, 260],
+            backgroundColor: [
+                'rgb(115, 202, 231)',
+                'rgb(115, 202, 231)',
+                'rgb(115, 202, 231)',
+                'rgb(115, 202, 231)',
+                'rgb(115, 202, 231)',
+                'rgb(115, 202, 231)',
+                'rgb(115, 202, 231)',
+                'rgb(115, 202, 231)',
+                'rgb(115, 202, 231)'
+            ],
+            borderColor: [
+                'rgb(0, 0, 0)',
+                'rgb(0, 0, 0)',
+                'rgb(0, 0, 0)',
+                'rgb(0, 0, 0)',
+                'rgb(0, 0, 0)',
+                'rgb(0, 0, 0)',
+                'rgb(0, 0, 0)'
+            ],
+            borderWidth: 1
+        }
+        ],
+    };
+</script>
+
+<script>
+    const configBarVerao = {
+        type: 'bar',
+        data: dataBarVerao,
+        options: {
+            plugins: {
+                title: {
+                    display: true,
+                    text: 'Sementes do Verão',
+                    color: '#ffffff'
+                },
+                legend: {
+                    labels: {
+                        color: '#ffffff'
+                    }
+                },
+            },
+            scales: {
+                y: {
+                    beginAtZero: true,
+                    ticks: {
+                        color: '#ffffff'
+                    }
+                }, x: {
+                    ticks: {
+                        color: '#ffffff'
+                    }
+                }
+            },
+        }
+    };
+</script>
+
+<script>
+    const labelsInverno = ['Fibra', 'Melão-Poeiro'];
+    const dataBarInverno = {
+        labels: labelsInverno,
+        datasets: [{
+            label: 'Preço Semente',
+            data: [80, 50],
+            backgroundColor: [
+                'rgb(255, 0, 166)',
+                'rgb(255, 0, 166)'
+            ],
+            borderColor: [
+                'rgb(0, 0, 0)',
+                'rgb(0, 0, 0)'
+            ],
+            borderWidth: 1
+        },
+        {
+            label: 'Preço de Venda Total na Estatação',
+            data: [250, 300],
+            backgroundColor: [
+                'rgb(115, 202, 231)',
+                'rgb(115, 202, 231)'
+            ],
+            borderColor: [
+                'rgb(0, 0, 0)',
+                'rgb(0, 0, 0)'
+            ],
+            borderWidth: 1
+        }
+        ],
+    };
+</script>
+<script>
+    const configBarInverno = {
+        type: 'bar',
+        data: dataBarInverno,
+        options: {
+            plugins: {
+                title: {
+                    display: true,
+                    text: 'Sementes do Inverno',
+                    color: '#ffffff'
+                },
+                legend: {
+                    labels: {
+                        color: '#ffffff'
+                    }
+                },
+            },
+            scales: {
+                y: {
+                    beginAtZero: true,
+                    ticks: {
+                        color: '#ffffff'
+                    }
+                }, x: {
+                    ticks: {
+                        color: '#ffffff'
+                    }
+                }
+            },
+        }
+    };
+</script>
