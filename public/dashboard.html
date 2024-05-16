@@ -27,7 +27,7 @@
         <div class="todas-infos" id="todas-info">
             <div class="opcoes">
                 <button id="botao1" onclick="">Produtos</button>
-                <button id="botao2" onclick=""></button>
+
                 <button id="botao3" onclick=""></button>
             </div>
             <div class="dash" id="dash">
@@ -62,7 +62,6 @@
     function validar() {
 
         document.getElementById('botao1').style.backgroundColor = '#ab7a43';
-        document.getElementById('botao2').style.backgroundColor = 'rgb(133, 89, 39)';
         document.getElementById('botao3').style.backgroundColor = 'rgb(133, 89, 39)';
 
         var estacoes = select_estacoes.value;
@@ -86,14 +85,12 @@
             document.getElementById('select_estacoes').style.webkitTextStrokeWidth = '0.2px';
             document.getElementById('select_estacoes').style.webkitTextStrokeColor = 'white';
             document.getElementById('tittle').style.color = '#fb183d';
-            document.getElementById('tittle').style.color = '#fb183d';
             document.getElementById('tittle').style.webkitTextStrokeWidth = '1px';
             document.getElementById('tittle').style.webkitTextStrokeColor = 'white';
             document.getElementById('textinho').style.color = '#fb183d';
-            document.getElementById('textinho').style.webkitTextStrokeWidth = '0.3px';
+            document.getElementById('textinho').style.webkitTextStrokeWidth = '0.5px';
             document.getElementById('textinho').style.webkitTextStrokeColor = 'white';
             document.getElementById('botao1').style.backgroundColor = '#ffa500';
-            document.getElementById('botao2').style.backgroundColor = '#ff5900';
             document.getElementById('botao3').style.backgroundColor = '#ff5900';
             document.getElementById('container-chart').style.marginTop = '2%';
 
@@ -110,11 +107,14 @@
         else if (estacoes == '2') {
             document.getElementById('dash').style.marginTop = '0%';
             document.getElementById('todas-info').style.background = 'linear-gradient(165deg, #bed8ff 0, #1d8ae5 50%, #0046c3 100%';
-            document.getElementById('select_estacoes').style.color = 'white';
-            document.getElementById('tittle').style.color = 'white';
+            document.getElementById('select_estacoes').style.color = 'blue';
+            document.getElementById('tittle').style.color = 'blue';
+            document.getElementById('tittle').style.webkitTextStrokeWidth = '1px';
+            document.getElementById('tittle').style.webkitTextStrokeColor = 'white';
             document.getElementById('botao1').style.backgroundColor = '#009dff';
-            document.getElementById('botao2').style.backgroundColor = 'blue';
-            document.getElementById('textinho').style.color = 'white';
+            document.getElementById('textinho').style.color = 'blue';
+            document.getElementById('textinho').style.webkitTextStrokeWidth = '0.5px';
+            document.getElementById('textinho').style.webkitTextStrokeColor = 'white';
             document.getElementById('botao3').style.backgroundColor = 'blue';
             document.getElementById('container-chart').style.marginTop = '2%';
             const chartBarInverno = new Chart(
@@ -130,12 +130,15 @@
         else if (estacoes == '3') {
             document.getElementById('dash').style.marginTop = '0%';
             document.getElementById('todas-info').style.background = 'linear-gradient(165deg, rgb(238, 179, 123) 8.7%, rgb(216, 103, 77) 47.5%, rgb(114, 43, 54) 89.1%)';
-            document.getElementById('select_estacoes').style.color = 'white';
-            document.getElementById('tittle').style.color = 'white';
+            document.getElementById('select_estacoes').style.color = '#4c3228';
+            document.getElementById('tittle').style.color = '#4c3228';
+            document.getElementById('tittle').style.webkitTextStrokeWidth = '0.8px';
+            document.getElementById('tittle').style.webkitTextStrokeColor = 'white';
             document.getElementById('botao1').style.backgroundColor = '#b77345';
-            document.getElementById('botao2').style.backgroundColor = '#9b4d00';
             document.getElementById('botao3').style.backgroundColor = '#9b4d00';
-            document.getElementById('textinho').style.color = 'white';
+            document.getElementById('textinho').style.color = '#4c3228';
+            document.getElementById('textinho').style.webkitTextStrokeWidth = '0.4px';
+            document.getElementById('textinho').style.webkitTextStrokeColor = 'white';
             document.getElementById('container-chart').style.marginTop = '2%';
             const chartBarOutono = new Chart(
                 document.getElementById('chart3'),
@@ -151,13 +154,16 @@
             document.getElementById('dash').style.marginTop = '0%';
             document.getElementById('todas-info').style.background = 'linear-gradient(330deg, #0fd850 0%, #f9f047 100%)';
             document.getElementById('botao1').style.backgroundColor = '#75ff75';
-            document.getElementById('botao2').style.backgroundColor = 'green';
             document.getElementById('botao3').style.backgroundColor = 'green';
-            document.getElementById('select_estacoes').style.color = 'white';
+            document.getElementById('select_estacoes').style.color = 'green';
             document.getElementById('select_estacoes').style.webkitTextStrokeWidth = '0.2px';
-            document.getElementById('select_estacoes').style.webkitTextStrokeColor = 'green';
-            document.getElementById('tittle').style.color = 'white';
-            document.getElementById('textinho').style.color = 'white';
+            document.getElementById('select_estacoes').style.webkitTextStrokeColor = 'white';
+            document.getElementById('tittle').style.color = 'green';
+            document.getElementById('tittle').style.webkitTextStrokeWidth = '0.8px';
+            document.getElementById('tittle').style.webkitTextStrokeColor = 'white';
+            document.getElementById('textinho').style.color = 'green';
+            document.getElementById('textinho').style.webkitTextStrokeWidth = '0.4px';
+            document.getElementById('textinho').style.webkitTextStrokeColor = 'white';
             document.getElementById('container-chart').style.marginTop = '2%';
             const chartBarPrimavera = new Chart(
                 document.getElementById('chart4'),

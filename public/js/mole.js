@@ -39,13 +39,14 @@ function getRandomTile() {
     return num.toString();
 }
 
+function guardar(idFazendeiro, score) {
+            
+}
+
 function setMole() {
 
     if (gameOver) {
         return;
-        function guardar(idFazendeiro, score) {
-            
-        }
     }
 
     if (currMoleTile) {
