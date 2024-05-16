@@ -24,7 +24,7 @@
     <div class="centro">
         <div class="todas-infos">
             <div class="opcoes">
-                <button onclick="">Produtos</button>
+                <button id="botao1" onclick="">Produtos</button>
                 <button onclick=""></button>
                 <button onclick=""></button>
             </div>
@@ -54,6 +54,9 @@
 
 <script>
     function validar() {
+
+        document.getElementById('botao1').style.backgroundColor = '#ab7a43'
+
         var estacoes = select_estacoes.value;
 
         if (estacoes == '#') {
