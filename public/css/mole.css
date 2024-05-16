@@ -97,7 +97,7 @@ body {
     align-items: center;
     flex-direction: column;
     height: 100vh;
-    
+
     user-select: none;
     -moz-user-select: none;
     -webkit-user-drag: none;
@@ -127,7 +127,7 @@ body {
     background-image: url(../assets/whackmole/bau.png);
     background-size: cover;
     display: flex;
-    justify-content: center;
+    justify-content: center;;
     align-items: center;
 }
 

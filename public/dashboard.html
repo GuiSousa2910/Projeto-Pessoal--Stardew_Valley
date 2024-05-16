@@ -5,11 +5,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DashBoard</title>
-    <link rel="stylesheet" href="../public/css/dashboard.css">
+    <link rel="stylesheet" href="css/dashboard.css">
     <link rel="icon" href="assets/galinha.png">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
 </head>
+<!-- linear-gradient(to top, #0fd850 0%, #f9f047 100%) PRIMAVERA -->
+<!-- linear-gradient(to top, rgb(238, 179, 123) 8.7%, rgb(216, 103, 77) 47.5%, rgb(114, 43, 54) 89.1%) OUTONO -->
 
 <body onload="validar()" onchange="validar()">
     <div class="nav">
@@ -22,25 +24,28 @@
     </div>
 
     <div class="centro">
-        <div class="todas-infos">
+        <div class="todas-infos" id="todas-info">
             <div class="opcoes">
                 <button id="botao1" onclick="">Produtos</button>
-                <button onclick=""></button>
-                <button onclick=""></button>
+                <button id="botao2" onclick=""></button>
+                <button id="botao3" onclick=""></button>
             </div>
             <div class="dash" id="dash">
-                <p>Lista de Produtos de cada Estação!</p>
+                <p id="tittle">Lista de Produtos de cada Estação!</p>
+                <p class="textinho" id="textinho">Veja aqui quanto cada semente te dará individualmente no término da estação!!</p>
                 <select id="select_estacoes">
-                    <option value="#">Selecione a Estação!</option>
-                    <option value="1">Verão</option>
-                    <option value="2">Inverno</option>
-                    <option value="3">Outono</option>
-                    <option value="4">Primavera</option>
+                    <option id="opcoes" value="#">Selecione a Estação!</option>
+                    <option id="opcoes" value="1">Verão</option>
+                    <option id="opcoes" value="2">Inverno</option>
+                    <option id="opcoes" value="3">Outono</option>
+                    <option id="opcoes" value="4">Primavera</option>
                 </select>
-                <div class="container-chart">
+                <div class="container-chart" id="container-chart">
                     <div class="chart" id="">
                         <canvas id="chart1"></canvas>
                         <canvas id="chart2"></canvas>
+                        <canvas id="chart3"></canvas>
+                        <canvas id="chart4"></canvas>
                     </div>
                 </div>
             </div>
@@ -55,32 +60,100 @@
 <script>
     function validar() {
 
-        document.getElementById('botao1').style.backgroundColor = '#ab7a43'
+        document.getElementById('botao1').style.backgroundColor = '#ab7a43';
+        document.getElementById('botao2').style.backgroundColor = 'rgb(133, 89, 39)';
+        document.getElementById('botao3').style.backgroundColor = 'rgb(133, 89, 39)';
 
         var estacoes = select_estacoes.value;
 
         if (estacoes == '#') {
             document.getElementById('dash').style.marginTop = '40%';
+            document.getElementById('chart4').style.display = 'none';
             document.getElementById('chart1').style.display = 'none';
+            document.getElementById('chart3').style.display = 'none';
             document.getElementById('chart2').style.display = 'none';
+            document.getElementById('todas-info').style.background = 'linear-gradient(180deg, rgba(244, 212, 151, 1) 40%, rgba(182, 108, 63, 1) 71%)';
+            document.getElementById('select_estacoes').style.color = 'black';
+            document.getElementById('tittle').style.color = 'black';
         }
 
         else if (estacoes == '1') {
             document.getElementById('dash').style.marginTop = '0%';
+            document.getElementById('todas-info').style.background = 'linear-gradient(165deg, #c2dd5f 0, #cdd551 7.14%, #d7cb43 14.29%, #e0c036 21.43%, #e8b429 28.57%, #eea51d 35.71%, #f49514 42.86%, #f88310 50%, #fb6f15 57.14%, #fe591f 64.29%, #ff402b 71.43%, #ff1a37 78.57%, #ff0045 85.71%, #ff0054 92.86%, #ff0065 100%)';
+            document.getElementById('select_estacoes').style.color = 'white';
+            document.getElementById('tittle').style.color = 'white';
+            document.getElementById('textinho').style.color = 'white';
+            document.getElementById('botao1').style.backgroundColor = '#ffa500';
+            document.getElementById('botao2').style.backgroundColor = '#ff5900';
+            document.getElementById('botao3').style.backgroundColor = '#ff5900';
+            document.getElementById('container-chart').style.marginTop = '2%';
+            
             const chartBarVerao = new Chart(
                 document.getElementById('chart1'),
                 configBarVerao,
                 document.getElementById('chart1').style.display = 'flex',
+                document.getElementById('chart4').style.display = 'none',
+                document.getElementById('chart3').style.display = 'none',
                 document.getElementById('chart2').style.display = 'none'
             );
         }
         
         else if (estacoes == '2') {
             document.getElementById('dash').style.marginTop = '0%';
+            document.getElementById('todas-info').style.background = 'linear-gradient(165deg, #bed8ff 0, #1d8ae5 50%, #0046c3 100%';
+            document.getElementById('select_estacoes').style.color = 'white';
+            document.getElementById('tittle').style.color = 'white';
+            document.getElementById('botao1').style.backgroundColor = '#009dff';
+            document.getElementById('botao2').style.backgroundColor = 'blue';
+            document.getElementById('textinho').style.color = 'white';
+            document.getElementById('botao3').style.backgroundColor = 'blue';
+            document.getElementById('container-chart').style.marginTop = '2%';
             const chartBarInverno = new Chart(
                 document.getElementById('chart2'),
                 configBarInverno,
                 document.getElementById('chart2').style.display = 'flex',
+                document.getElementById('chart4').style.display = 'none',
+                document.getElementById('chart3').style.display = 'none',
+                document.getElementById('chart1').style.display = 'none'
+            );
+        }
+        
+        else if (estacoes == '3') {
+            document.getElementById('dash').style.marginTop = '0%';
+            document.getElementById('todas-info').style.background = 'linear-gradient(165deg, rgb(238, 179, 123) 8.7%, rgb(216, 103, 77) 47.5%, rgb(114, 43, 54) 89.1%)';
+            document.getElementById('select_estacoes').style.color = 'white';
+            document.getElementById('tittle').style.color = 'white';
+            document.getElementById('botao1').style.backgroundColor = '#b77345';
+            document.getElementById('botao2').style.backgroundColor = '#9b4d00';
+            document.getElementById('botao3').style.backgroundColor = '#9b4d00';
+            document.getElementById('textinho').style.color = 'white';
+            document.getElementById('container-chart').style.marginTop = '2%';
+            const chartBarOutono = new Chart(
+                document.getElementById('chart3'),
+                configBarOutono,
+                document.getElementById('chart3').style.display = 'flex',
+                document.getElementById('chart4').style.display = 'none',
+                document.getElementById('chart2').style.display = 'none',
+                document.getElementById('chart1').style.display = 'none'
+            );
+        }
+        
+        else if (estacoes == '4') {
+            document.getElementById('dash').style.marginTop = '0%';
+            document.getElementById('todas-info').style.background = 'linear-gradient(330deg, #0fd850 0%, #f9f047 100%)';
+            document.getElementById('select_estacoes').style.color = 'white';
+            document.getElementById('tittle').style.color = 'white';
+            document.getElementById('botao1').style.backgroundColor = '#75ff75';
+            document.getElementById('botao2').style.backgroundColor = 'green';
+            document.getElementById('botao3').style.backgroundColor = 'green';
+            document.getElementById('textinho').style.color = 'white';
+            document.getElementById('container-chart').style.marginTop = '2%';
+            const chartBarPrimavera = new Chart(
+                document.getElementById('chart4'),
+                configBarPrimavera,
+                document.getElementById('chart3').style.display = 'none',
+                document.getElementById('chart4').style.display = 'flex',
+                document.getElementById('chart2').style.display = 'none',
                 document.getElementById('chart1').style.display = 'none'
             );
         }
@@ -96,24 +169,10 @@
             label: 'Preço Semente',
             data: [80, 50, 80, 40, 10, 40, 150, 100, 50, 60, 200, 100],
             backgroundColor: [
-                'rgb(255, 0, 166)',
-                'rgb(255, 0, 166)',
-                'rgb(255, 0, 166)',
-                'rgb(255, 0, 166)',
-                'rgb(255, 0, 166)',
-                'rgb(255, 0, 166)',
-                'rgb(255, 0, 166)',
-                'rgb(255, 0, 166)',
-                'rgb(255, 0, 166)'
+                '#ffff00'
             ],
             borderColor: [
-                'rgb(0, 0, 0)',
-                'rgb(0, 0, 0)',
-                'rgb(0, 0, 0)',
-                'rgb(0, 0, 0)',
-                'rgb(0, 0, 0)',
-                'rgb(0, 0, 0)',
-                'rgb(0, 0, 0)'
+                'white'
             ],
             borderWidth: 1
         },
@@ -121,24 +180,10 @@
             label: 'Preço de Venda Total na Estatação',
             data: [250, 300, 600, 320, 25, 90, 200, 140, 90, 425, 80, 260],
             backgroundColor: [
-                'rgb(115, 202, 231)',
-                'rgb(115, 202, 231)',
-                'rgb(115, 202, 231)',
-                'rgb(115, 202, 231)',
-                'rgb(115, 202, 231)',
-                'rgb(115, 202, 231)',
-                'rgb(115, 202, 231)',
-                'rgb(115, 202, 231)',
-                'rgb(115, 202, 231)'
+                '#ff6600'
             ],
             borderColor: [
-                'rgb(0, 0, 0)',
-                'rgb(0, 0, 0)',
-                'rgb(0, 0, 0)',
-                'rgb(0, 0, 0)',
-                'rgb(0, 0, 0)',
-                'rgb(0, 0, 0)',
-                'rgb(0, 0, 0)'
+                'white'
             ],
             borderWidth: 1
         }
@@ -155,11 +200,17 @@
                 title: {
                     display: true,
                     text: 'Sementes do Verão',
-                    color: '#ffffff'
+                    color: '#ffffff',
+                    font: {
+                        size: 25
+                    }
                 },
                 legend: {
                     labels: {
-                        color: '#ffffff'
+                        color: '#ffffff',
+                        font: {
+                            size: 20
+                        }
                     }
                 },
             },
@@ -167,11 +218,17 @@
                 y: {
                     beginAtZero: true,
                     ticks: {
-                        color: '#ffffff'
+                        color: '#ffffff',
+                        font: {
+                            size: 15
+                        }
                     }
                 }, x: {
                     ticks: {
-                        color: '#ffffff'
+                        color: '#ffffff',
+                        font: {
+                            size: 15
+                        }
                     }
                 }
             },
@@ -187,12 +244,10 @@
             label: 'Preço Semente',
             data: [80, 50],
             backgroundColor: [
-                'rgb(255, 0, 166)',
-                'rgb(255, 0, 166)'
+                'lightblue'
             ],
             borderColor: [
-                'rgb(0, 0, 0)',
-                'rgb(0, 0, 0)'
+                'white'
             ],
             borderWidth: 1
         },
@@ -200,12 +255,10 @@
             label: 'Preço de Venda Total na Estatação',
             data: [250, 300],
             backgroundColor: [
-                'rgb(115, 202, 231)',
-                'rgb(115, 202, 231)'
+                'blue'
             ],
             borderColor: [
-                'rgb(0, 0, 0)',
-                'rgb(0, 0, 0)'
+                'white'
             ],
             borderWidth: 1
         }
@@ -221,11 +274,17 @@
                 title: {
                     display: true,
                     text: 'Sementes do Inverno',
-                    color: '#ffffff'
+                    color: '#ffffff',
+                    font: {
+                        size: 25
+                    }
                 },
                 legend: {
                     labels: {
-                        color: '#ffffff'
+                        color: '#ffffff',
+                        font: {
+                            size: 20
+                        }
                     }
                 },
             },
@@ -233,11 +292,166 @@
                 y: {
                     beginAtZero: true,
                     ticks: {
-                        color: '#ffffff'
+                        color: '#ffffff',
+                        font: {
+                            size: 15
+                        }
                     }
                 }, x: {
                     ticks: {
-                        color: '#ffffff'
+                        color: '#ffffff',
+                        font: {
+                            size: 15
+                        }
+                    }
+                }
+            },
+        }
+    };
+</script>
+
+<script>
+    const labelsOutono = ['Berinjela', 'Milho', 'Abóbora', 'Couve-Chinesa', 'Inhame', 'Oxicoco', 'Girassol', 'Rosa-de-Fada', 'Amaranto', 'Uva', 'Trigo', 'Alcachofra'];
+    const dataBarOutono = {
+        labels: labelsOutono,
+        datasets: [{
+            label: 'Preço Semente',
+            data: [20, 150, 100, 50, 60, 240, 200, 200, 70, 60, 10, 30],
+            backgroundColor: [
+                '#8b6c5c'
+            ],
+            borderColor: [
+                'white'
+            ],
+            borderWidth: 1
+        },
+        {
+            label: 'Preço de Venda Total na Estatação',
+            data: [300, 200, 320, 80, 160, 750, 80, 290, 150, 480, 25, 160],
+            backgroundColor: [
+                '#4c3228'
+            ],
+            borderColor: [
+                'white'
+            ],
+            borderWidth: 1
+        }
+        ],
+    };
+</script>
+<script>
+    const configBarOutono = {
+        type: 'bar',
+        data: dataBarOutono,
+        options: {
+            plugins: {
+                title: {
+                    display: true,
+                    text: 'Sementes do Outono',
+                    color: '#ffffff',
+                    font: {
+                        size: 25
+                    }
+                },
+                legend: {
+                    labels: {
+                        color: '#ffffff',
+                        font: {
+                            size: 20
+                        }
+                    }
+                },
+            },
+            scales: {
+                y: {
+                    beginAtZero: true,
+                    ticks: {
+                        color: '#ffffff',
+                        font: {
+                            size: 15
+                        }
+                    }
+                }, x: {
+                    ticks: {
+                        color: '#ffffff',
+                        font: {
+                            size: 15
+                        }
+                    }
+                }
+            },
+        }
+    };
+</script>
+
+<script>
+    const labelsPrimavera = ['Chirívia', 'Feijão', 'Couve-Flor', 'Batata', 'Tulipa', 'Couve', 'Jasmin-Azul', 'Alho', 'Morango'];
+    const dataBarPrimavera = {
+        labels: labelsPrimavera,
+        datasets: [{
+            label: 'Preço Semente',
+            data: [20, 60, 80, 50, 20, 70, 30, 40, 100],
+            backgroundColor: [
+                '#75ff75'
+            ],
+            borderColor: [
+                'white'
+            ],
+            borderWidth: 1
+        },
+        {
+            label: 'Preço de Venda Total na Estatação',
+            data: [35, 240, 175, 80, 30, 110, 50, 60, 600],
+            backgroundColor: [
+                'green'
+            ],
+            borderColor: [
+                'white'
+            ],
+            borderWidth: 1
+        }
+        ],
+    };
+</script>
+<script>
+    const configBarPrimavera = {
+        type: 'bar',
+        data: dataBarPrimavera,
+        options: {
+            plugins: {
+                title: {
+                    display: true,
+                    text: 'Sementes da Primavera',
+                    color: '#ffffff',
+                    font: {
+                        size: 25
+                    }
+                },
+                legend: {
+                    labels: {
+                        color: '#ffffff',
+
+                        font: {
+                            size: 20
+                        }
+                    }
+                },
+            },
+            scales: {
+                y: {
+                    beginAtZero: true,
+                    ticks: {
+                        color: '#ffffff',
+                        font: {
+                            size: 15
+                        }
+                    }
+                }, x: {
+                    ticks: {
+                        color: '#ffffff',
+                        font: {
+                            size: 15
+                        }
                     }
                 }
             },

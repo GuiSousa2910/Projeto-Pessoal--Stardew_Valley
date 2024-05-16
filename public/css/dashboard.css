@@ -114,7 +114,11 @@ body {
     padding: 1rem;
     width: 90vw;
     height: 80vh;
-    background: linear-gradient(180deg, rgba(244, 212, 151, 1) 40%, rgba(182, 108, 63, 1) 71%);
+    /* background:  */
+}
+
+.centro .todas-infos .dash .textinho{
+    font-size: 18px;
 }
 
 .centro .todas-infos .opcoes {
@@ -171,13 +175,16 @@ body {
     outline: none;
     cursor: pointer;
 }
+.centro .todas-infos .dash select option{
+    color: black;
+}
 
 .container-chart {
     display: flex;
     justify-content: space-around;
     height: 80vh;
     width: 80vw;
-    margin-top: 5%;
+
 }
 
 .chart {

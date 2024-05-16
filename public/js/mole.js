@@ -50,7 +50,7 @@ function setMole() {
     }
 
     let mole = document.createElement('img');
-    mole.src = '../public/assets/whackmole/junimo.png';
+    mole.src = 'assets/whackmole/junimo.png';
 
     let num = getRandomTile();
 
@@ -71,7 +71,7 @@ function setPlant() {
     }
 
     let plant = document.createElement('img');
-    plant.src = '../public/assets/whackmole/Shadow_Brute.png';
+    plant.src = 'assets/whackmole/Shadow_Brute.png';
 
     let num = getRandomTile();
     if (currMoleTile && currMoleTile.id == num) {
