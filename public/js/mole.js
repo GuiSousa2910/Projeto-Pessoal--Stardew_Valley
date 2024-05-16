@@ -43,6 +43,9 @@ function setMole() {
 
     if (gameOver) {
         return;
+        function guardar(idFazendeiro, score) {
+            
+        }
     }
 
     if (currMoleTile) {
@@ -51,14 +54,28 @@ function setMole() {
 
     let mole = document.createElement('img');
     mole.src = 'assets/whackmole/junimo.png';
-
+    
     let num = getRandomTile();
-
+    
     if (currPlantTile && currPlantTile.id == num) {
         return;
     }
+
     currMoleTile = document.getElementById(num);
     currMoleTile.appendChild(mole);
+
+    // if (monstro == 2) {
+    //     let mole2 = document.createElement('img');
+    //     mole2.src = 'assets/whackmole/junimo.png';
+    //     currMoleTile = document.getElementById(num);
+    //     currMoleTile.appendChild(mole2);
+    // }
+    // if (monstro == 3) {
+    //     let mole3 = document.createElement('img');
+    //     mole3.src = 'assets/whackmole/junimo.png';
+    //     currMoleTile = document.getElementById(num);
+    //     currMoleTile.appendChild(mole3);
+    // }
 }
 
 function setPlant() {
@@ -74,9 +91,11 @@ function setPlant() {
     plant.src = 'assets/whackmole/Shadow_Brute.png';
 
     let num = getRandomTile();
+
     if (currMoleTile && currMoleTile.id == num) {
         return;
     }
+
     currPlantTile = document.getElementById(num);
     currPlantTile.appendChild(plant);
 

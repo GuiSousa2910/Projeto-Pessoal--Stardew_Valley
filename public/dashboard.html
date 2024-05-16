@@ -32,7 +32,8 @@
             </div>
             <div class="dash" id="dash">
                 <p id="tittle">Lista de Produtos de cada Estação!</p>
-                <p class="textinho" id="textinho">Veja aqui quanto cada semente te dará individualmente no término da estação!!</p>
+                <p class="textinho" id="textinho">Veja aqui quanto cada semente te dará individualmente no término da
+                    estação!!</p>
                 <select id="select_estacoes">
                     <option id="opcoes" value="#">Selecione a Estação!</option>
                     <option id="opcoes" value="1">Verão</option>
@@ -75,19 +76,27 @@
             document.getElementById('todas-info').style.background = 'linear-gradient(180deg, rgba(244, 212, 151, 1) 40%, rgba(182, 108, 63, 1) 71%)';
             document.getElementById('select_estacoes').style.color = 'black';
             document.getElementById('tittle').style.color = 'black';
+            document.getElementById('textinho').style.color = 'black';
         }
 
         else if (estacoes == '1') {
             document.getElementById('dash').style.marginTop = '0%';
             document.getElementById('todas-info').style.background = 'linear-gradient(165deg, #c2dd5f 0, #cdd551 7.14%, #d7cb43 14.29%, #e0c036 21.43%, #e8b429 28.57%, #eea51d 35.71%, #f49514 42.86%, #f88310 50%, #fb6f15 57.14%, #fe591f 64.29%, #ff402b 71.43%, #ff1a37 78.57%, #ff0045 85.71%, #ff0054 92.86%, #ff0065 100%)';
-            document.getElementById('select_estacoes').style.color = 'white';
-            document.getElementById('tittle').style.color = 'white';
-            document.getElementById('textinho').style.color = 'white';
+            document.getElementById('select_estacoes').style.color = '#fb183d';
+            document.getElementById('select_estacoes').style.webkitTextStrokeWidth = '0.2px';
+            document.getElementById('select_estacoes').style.webkitTextStrokeColor = 'white';
+            document.getElementById('tittle').style.color = '#fb183d';
+            document.getElementById('tittle').style.color = '#fb183d';
+            document.getElementById('tittle').style.webkitTextStrokeWidth = '1px';
+            document.getElementById('tittle').style.webkitTextStrokeColor = 'white';
+            document.getElementById('textinho').style.color = '#fb183d';
+            document.getElementById('textinho').style.webkitTextStrokeWidth = '0.3px';
+            document.getElementById('textinho').style.webkitTextStrokeColor = 'white';
             document.getElementById('botao1').style.backgroundColor = '#ffa500';
             document.getElementById('botao2').style.backgroundColor = '#ff5900';
             document.getElementById('botao3').style.backgroundColor = '#ff5900';
             document.getElementById('container-chart').style.marginTop = '2%';
-            
+
             const chartBarVerao = new Chart(
                 document.getElementById('chart1'),
                 configBarVerao,
@@ -97,7 +106,7 @@
                 document.getElementById('chart2').style.display = 'none'
             );
         }
-        
+
         else if (estacoes == '2') {
             document.getElementById('dash').style.marginTop = '0%';
             document.getElementById('todas-info').style.background = 'linear-gradient(165deg, #bed8ff 0, #1d8ae5 50%, #0046c3 100%';
@@ -117,7 +126,7 @@
                 document.getElementById('chart1').style.display = 'none'
             );
         }
-        
+
         else if (estacoes == '3') {
             document.getElementById('dash').style.marginTop = '0%';
             document.getElementById('todas-info').style.background = 'linear-gradient(165deg, rgb(238, 179, 123) 8.7%, rgb(216, 103, 77) 47.5%, rgb(114, 43, 54) 89.1%)';
@@ -137,15 +146,17 @@
                 document.getElementById('chart1').style.display = 'none'
             );
         }
-        
+
         else if (estacoes == '4') {
             document.getElementById('dash').style.marginTop = '0%';
             document.getElementById('todas-info').style.background = 'linear-gradient(330deg, #0fd850 0%, #f9f047 100%)';
-            document.getElementById('select_estacoes').style.color = 'white';
-            document.getElementById('tittle').style.color = 'white';
             document.getElementById('botao1').style.backgroundColor = '#75ff75';
             document.getElementById('botao2').style.backgroundColor = 'green';
             document.getElementById('botao3').style.backgroundColor = 'green';
+            document.getElementById('select_estacoes').style.color = 'white';
+            document.getElementById('select_estacoes').style.webkitTextStrokeWidth = '0.2px';
+            document.getElementById('select_estacoes').style.webkitTextStrokeColor = 'green';
+            document.getElementById('tittle').style.color = 'white';
             document.getElementById('textinho').style.color = 'white';
             document.getElementById('container-chart').style.marginTop = '2%';
             const chartBarPrimavera = new Chart(
