@@ -172,7 +172,8 @@ function selectTile() {
                 // crie um atributo que recebe o valor recuperado aqui
                 // Agora vá para o arquivo routes/usuario.js
                 pontosServer: score,
-                tempoServer: segundosTotais
+                tempoServer: segundosTotais,
+                idServer: sessionStorage.ID_USUARIO
             }),
         })
             .then(function (resposta) {

@@ -71,24 +71,35 @@ function cadastrar(req, res) {
     }
 }
 
-function cadastrar_jogo(req, res) {
+async function cadastrar_jogo(req, res) {
     // Crie uma variável que vá recuperar os valores do arquivo cadastro.html
     var pontos = req.body.pontosServer;
     var tempo = req.body.tempoServer;
-    var id = req.body.idServer
+    var idFazendeiro = req.body.idServer;
+
+    
 
     // Faça as validações dos valores
     if (pontos == undefined) {
         res.status(400).send("Seu nome está undefined!");
     } else if (tempo == undefined) {
         res.status(400).send("Seu email está undefined!");
-    }else if (id == undefined) {
+    }else if (idFazendeiro == undefined) {
         res.status(400).send("Seu email está undefined!");
     }  
     else {
 
+        const id = await usuarioModel.autenticar_jogo(idFazendeiro)
+        .then(
+            (data) => {
+                return data.length == 0 ? 1 : data[0].idJogo + 1
+            }
+        ).catch(
+
+        )
+       
         // Passe os valores como parâmetro e vá para o arquivo usuarioModel.js
-        usuarioModel.cadastrar_jogo(pontos, tempo, id)
+        usuarioModel.cadastrar_jogo(pontos, tempo, id, idFazendeiro)
             .then(
                 function (resultado) {
                     res.json(resultado);

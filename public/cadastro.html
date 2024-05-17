@@ -128,10 +128,9 @@
         if (resposta.ok) {
 
           mensagem_erro.innerHTML =
-            "Cadastro realizado com sucesso!";
-
+            "Cadastro realizado com sucesso! Redicerionando para a página de login!!";
           setTimeout(() => {
-            window.location.href = "indexLogado.html";
+            window.location.reload();
           }, "5000");
 
           limparFormulario();
@@ -167,7 +166,7 @@
       body: JSON.stringify({
         emailServer: emailVar,
         senhaServer: senhaVar,
-        idServer: sessionStorage.ID_USUARIO = json.idFazendeiro
+        // idServer: sessionStorage.ID_USUARIO = json.idFazendeiro
       })
     }).then(function (resposta) {
       console.log("ESTOU NO THEN DO entrar()!");
@@ -175,11 +174,11 @@
       if (resposta.ok) {
         console.log(resposta);
         div_erros_login.innerHTML = 'Login realizado com sucesso!';
-        
+
         resposta.json().then(json => {
           console.log(json);
           console.log(JSON.stringify(json));
-          
+
           sessionStorage.EMAIL_USUARIO = json.email;
           sessionStorage.NOME_USUARIO = json.nome;
           sessionStorage.NOMEFAZENDA_USUARIO = json.nomeFazenda;
@@ -188,10 +187,10 @@
             window.location = "indexLogado.html";
           }, "3000");
         });
-        
+
         finalizarAguardar();
-        
-        
+
+
         console.log('DEU CERTOOOOOOOOOOOOOOOOOOOOOO');
       } else {
 
