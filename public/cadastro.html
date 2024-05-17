@@ -166,7 +166,8 @@
       },
       body: JSON.stringify({
         emailServer: emailVar,
-        senhaServer: senhaVar
+        senhaServer: senhaVar,
+        idServer: sessionStorage.ID_USUARIO = json.idFazendeiro
       })
     }).then(function (resposta) {
       console.log("ESTOU NO THEN DO entrar()!");
@@ -182,7 +183,7 @@
           sessionStorage.EMAIL_USUARIO = json.email;
           sessionStorage.NOME_USUARIO = json.nome;
           sessionStorage.NOMEFAZENDA_USUARIO = json.nomeFazenda;
-          sessionStorage.ID_USUARIO = json.id;
+          sessionStorage.ID_USUARIO = json.idFazendeiro;
           setTimeout(() => {
             window.location = "indexLogado.html";
           }, "3000");

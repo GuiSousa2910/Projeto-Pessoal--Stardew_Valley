@@ -53,7 +53,8 @@ a {
 nav.menu-lateral {
     width: 70px;
     height: 87.6vh;
-    background: linear-gradient(180deg, rgba(66, 36, 25, 1) 7%, rgba(24, 17, 12, 1) 98%);;
+    background: linear-gradient(180deg, rgba(66, 36, 25, 1) 7%, rgba(24, 17, 12, 1) 98%);
+    ;
     padding: 7vh 0 40px 1%;
     box-shadow: 3px 0 0 green;
     overflow: hidden;
@@ -146,6 +147,13 @@ body {
     display: none;
 }
 
+.imagemCentralHome2 {
+    width: auto;
+    height: 270px;
+    animation: slideLeft 2s ease;
+
+}
+
 .fundo {
     background: rgb(244, 212, 151);
     background: linear-gradient(180deg, rgba(244, 212, 151, 1) 40%, rgba(182, 108, 63, 1) 71%);
@@ -159,11 +167,11 @@ body {
 
 .fundo .informacoes-centrais {
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
     height: 70%;
     width: 100vw;
+    gap: 5vw;
 }
 
 .fundo .informacoes-centrais .textoCentralHome {
@@ -182,15 +190,6 @@ body {
     gap: 5vh;
     margin-top: 5%;
     text-align: center;
-}
-
-.fundo .informacoes-centrais .textoCentralHome h1 {
-    font-size: 60px;
-    font-weight: bolder;
-    width: 100vw;
-    color: green;
-    -webkit-text-stroke-color: white;
-    -webkit-text-stroke-width: 1.3px;
 }
 
 @keyframes slideLeft {
@@ -228,12 +227,6 @@ body {
     background-color: #e0b32c;
 }
 
-.fundo .informacoes-centrais .imagemCentralHome {
-    width: auto;
-    height: 300px;
-    animation: slideRight 2s ease;
-}
-
 @keyframes slideRight {
     0% {
         opacity: 0;
@@ -244,10 +237,6 @@ body {
         opacity: 1;
         transform: translateX(0);
     }
-}
-
-.fundo .informacoes-centrais .imagemCentralHome2:hover {
-    transform: rotate(-5deg) scale(1);
 }
 
 .fundo .flecha {
@@ -281,7 +270,7 @@ body {
     margin-bottom: 10%;
 }
 
-.buttons{
+.buttons {
     display: flex;
     justify-content: center;
     gap: 80px;
