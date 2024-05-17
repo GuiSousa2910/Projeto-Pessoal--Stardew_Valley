@@ -38,25 +38,6 @@ a {
     visibility: hidden;
 }
 
-.nav {
-    height: 10vh;
-    padding-top: 0.2%;
-    padding-bottom: 0.2%;
-    width: 100vw;
-    background: rgb(66, 36, 25);
-    background: linear-gradient(90deg, rgba(66, 36, 25, 1) 7%, rgba(24, 17, 12, 1) 98%);
-    /* position: fixed; */
-    border-bottom: white 2px solid;
-    display: flex;
-    /* font-weight: 100; */
-    margin-top: -19px;
-    flex-direction: row;
-    align-items: center;
-    color: whitesmoke;
-    justify-content: space-evenly;
-    animation: slideDown 2s ease;
-}
-
 @keyframes slideDown {
     0% {
         opacity: 0;
@@ -69,52 +50,83 @@ a {
     }
 }
 
-.nav a {
+nav.menu-lateral {
+    width: 70px;
+    height: 87.6vh;
+    background: linear-gradient(180deg, rgba(66, 36, 25, 1) 7%, rgba(24, 17, 12, 1) 98%);;
+    padding: 7vh 0 40px 1%;
+    box-shadow: 3px 0 0 green;
+    overflow: hidden;
+    transition: .2s;
+}
+
+nav.menu-lateral:hover {
+    width: 280px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.btn-expandir {
+    width: 100%;
+    padding-left: 10px;
+}
+
+.btn-expandir>span {
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+ul {
+    height: 100%;
+    list-style-type: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+ul li.item-menu {
+    transition: .5s;
+}
+
+ul li.item-menu:hover {
+    background-color: #026014;
+    border-top: 2px solid white;
+    border-left: 2px solid white;
+    border-bottom: 2px solid white;
+    border-top-left-radius: 30px;
+    border-bottom-left-radius: 30px;
+}
+
+ul li.item-menu a {
+    color: white;
+    text-decoration: none;
+    font-size: 20px;
+    padding: 20px 4%;
     display: flex;
     align-items: center;
-    font-weight: 500;
-    color: #ffffff;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    position: relative;
-    font-size: 25px;
-    cursor: pointer;
+    margin-top: 1rem;
 }
 
-.nav a::before {
-    content: "";
-    width: 20px;
-    height: 4px;
-    border-top-left-radius: 32px;
-    border-bottom-right-radius: 32px;
-    background: rgb(22, 153, 22);
-    background: linear-gradient(90deg, rgba(22, 153, 22, 1) 36%, rgba(189, 249, 124, 1) 77%);
-    position: absolute;
-    bottom: -6px;
-    transition: width .4s ease-in-out;
-}
-
-.nav a:hover::before {
-    width: 100%;
-}
-
-.nav img {
-    width: auto;
-    height: 60px;
-    margin-left: 7%;
-    cursor: pointer;
-}
-
-.nav .nav-list {
+ul li.item-menu a:hover {
+    color: white;
+    text-decoration: none;
+    font-size: 21px;
+    transition: .5s;
+    padding: 20px 4%;
     display: flex;
-    justify-content: space-between;
-    gap: 200px;
+    align-items: center;
+    margin-top: 1rem;
 }
 
-.nav .nav-list .sobre {
-    display: flex;
-    gap: 100px;
-    margin-right: -10%;
+ul li.item-menu a .txt-link {
+    margin-left: 40px;
+}
+
+ul li.item-menu a .icon>span {
+    font-size: 30px;
+    margin-left: 0.3rem;
 }
 
 body {
@@ -127,6 +139,7 @@ body {
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+    margin: 0%;
 }
 
 ::-webkit-scrollbar {
@@ -139,14 +152,18 @@ body {
     height: 100vh;
     width: 100vw;
     border-bottom: 10px white solid;
+    display: flex;
+    margin-top: -1.2rem;
+    align-items: center;
 }
 
 .fundo .informacoes-centrais {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     height: 70%;
-    gap: 200px;
+    width: 100vw;
 }
 
 .fundo .informacoes-centrais .textoCentralHome {
@@ -164,6 +181,16 @@ body {
     transform: translateX(0px);
     gap: 5vh;
     margin-top: 5%;
+    text-align: center;
+}
+
+.fundo .informacoes-centrais .textoCentralHome h1 {
+    font-size: 60px;
+    font-weight: bolder;
+    width: 100vw;
+    color: green;
+    -webkit-text-stroke-color: white;
+    -webkit-text-stroke-width: 1.3px;
 }
 
 @keyframes slideLeft {
@@ -225,11 +252,12 @@ body {
 
 .fundo .flecha {
     opacity: 0;
-    height: 70px;
-    position: absolute;
+    height: 50px;
+    /* position: absolute; */
     left: 0;
     right: 0;
-    bottom: 24px;
+    margin-top: 5rem;
+    bottom: -24px;
     margin: 0 auto;
     animation: slideDown 1.5s ease forwards 2s, arrowTransition 2s ease-in-out infinite 2s;
     /* user-select: none; */
@@ -253,11 +281,16 @@ body {
     margin-bottom: 10%;
 }
 
+.buttons{
+    display: flex;
+    justify-content: center;
+    gap: 80px;
+}
+
 .meio-site .infos-stardew {
     display: flex;
     justify-content: space-evenly;
     align-items: center;
-    /* gap: 100px  ; */
 }
 
 .meio-site .infos-stardew .txt-stardew {

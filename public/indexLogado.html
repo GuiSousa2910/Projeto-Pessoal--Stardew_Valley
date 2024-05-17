@@ -8,36 +8,76 @@
     <link rel="stylesheet" href="css/indexLogado.css">
     <link rel="icon" href="assets/galinha.png" />
     <title>Stardew Valley</title>
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 </head>
 
-<body onload="escrever()">
+<body>
 
     <img src="/public/assets/" alt="">
     <div class="fundo">
-        <div class="nav">
-            <a href="whackmole.html">dasdada</a>
-            <img src="assets/galinha.png" alt="galinha" onclick="voltar()">
-            <div class="nav-list">
-                <div class="sobre">
-                    <a href="http://localhost:3000/ia.html">IA</a>
-                    <a href="#divisao" onclick="descer()">Oque vou fazer?</a>
-                    <a href="#dev" onclick="descer()">Desenvolvedor</a>
-                    <a href="pesquisa-personagem.html">Busca dos Personagens</a>
-                </div>
+        <nav class="menu-lateral">
+            <div class="btn-expandir">
+                <span class="material-symbols-outlined">menu</span>
             </div>
-            <div id="teste"></div>
-            <img src="assets/fotos logada/fazendeiro.png" alt="">
-        </div>
+
+            <ul>
+                <li class="item-menu" onclick="jogar()">
+                    <a href="#">
+                        <span class="icon">
+                            <span class="material-symbols-outlined">
+                                stadia_controller
+                            </span>
+                        </span>
+                        <span class="txt-link">Game - Whack A Junimo</span>
+                    </a>
+                </li>
+                <li class="item-menu" onclick="ia()">
+                    <a href="#">
+                        <span class="icon">
+                            <span class="material-symbols-outlined">
+                                smart_toy
+                            </span>
+                        </span>
+                        <span class="txt-link">Inteligencia Artificial</span>
+                    </a>
+                </li>
+                <li class="item-menu" onclick="buscar()">
+                    <a href="#">
+                        <span class="icon">
+                            <span class="material-symbols-outlined">
+                                search
+                            </span>
+                        </span>
+                        <span class="txt-link">Busca de Personagens</span>
+                    </a>
+                </li>
+                <li class="item-menu">
+                    <a href="#divisao" onclick="descer()">
+                        <span class="icon">
+                            <span class="material-symbols-outlined">
+                                question_mark
+                            </span>
+                        </span>
+                        <span class="txt-link">Oque farei?</span>
+                    </a>
+                </li>
+                <li class="item-menu">
+                    <a href="#dev" onclick="descer()">
+                        <span class="icon">
+                            <span class="material-symbols-outlined">
+                                contact_mail
+                            </span>
+                        </span>
+                        <span class="txt-link">Desenvolvedor</span>
+                    </a>
+                </li>
+            </ul>
+
+        </nav>
         <div class="informacoes-centrais">
-            <div onmouseleave="desmostrar()" onmouseenter="mostrar()">
-                <div>
-                    <img class="imagemCentralHome" src="assets/Main_Logo.png" id="1">
-                </div>
-                <div>
-                    <img class="imagemCentralHome2" style="display: none;" src="assets/logo custom.png" id="2">
-                </div>
-            </div>
             <div class="textoCentralHome">
+                <h1>Bem vindo ao Stardew Valley!</h1>
                 <p>Para você que está começando a Jogar <span> Stardew Valley</span>, esse é o site
                     <span>perfeito para
                         você!</span> Aqui você terá informações sobre <span> todos os personagens </span> do jogo,
@@ -45,10 +85,14 @@
                         do que comprar em cada estação </span> e muito mais! Acesse sua <span> DashBoard para algumas
                         informações </span>!!
                 </p>
-                <button class="botaoDash" onclick="ir()">DashBoard!</button>
+                <div class="buttons">
+                    <button class="botaoDash" onclick="ir()">DashBoard!</button>
+                    <a href="#espaco" onclick="descer()"><img class="flecha" src="assets/seta para baixo.png"></a>
+                </div>
             </div>
         </div>
-        <a href="#espaco" onclick="descer()"><img class="flecha" src="assets/seta para baixo.png"></a>
+        <!-- <img class="plantas" src="assets/Group 28.png" alt=""> -->
+    </div>
     </div>
     <div id="espaco"></div>
     <div class="meio-site">
@@ -253,15 +297,4 @@
 </html>
 <script src="js/animacaoFoto.js" defer></script>
 <script src="js/scrollreveal.js"></script>
-<script>
-    function escrever() {
-        teste.innerHTML = `Olá, ${sessionStorage.NOME_USUARIO.toUpperCase()}`;
-    }
-
-    function voltar() {
-        window.location = 'index.html';
-    }
-    function ir() {
-        window.location = 'dashboard.html';
-    }
-</script>
+<script src="js/buscadorIndex.js"></script>
