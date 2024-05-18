@@ -77,29 +77,94 @@ async function cadastrar_jogo(req, res) {
     var tempo = req.body.tempoServer;
     var idFazendeiro = req.body.idServer;
 
-    
-
     // Faça as validações dos valores
     if (pontos == undefined) {
         res.status(400).send("Seu nome está undefined!");
     } else if (tempo == undefined) {
         res.status(400).send("Seu email está undefined!");
-    }else if (idFazendeiro == undefined) {
+    } else if (idFazendeiro == undefined) {
         res.status(400).send("Seu email está undefined!");
-    }  
+    }
     else {
 
         const id = await usuarioModel.autenticar_jogo(idFazendeiro)
-        .then(
-            (data) => {
-                return data.length == 0 ? 1 : data[0].idJogo + 1
-            }
-        ).catch(
+            .then(
+                (data) => {
+                    return data.length == 0 ? 1 : data[0].idJogo + 1;
+                }
+            ).catch(
 
-        )
-       
+        );
+
         // Passe os valores como parâmetro e vá para o arquivo usuarioModel.js
         usuarioModel.cadastrar_jogo(pontos, tempo, id, idFazendeiro)
+            .then(
+                function (resultado) {
+                    res.json(resultado);
+                }
+            ).catch(
+                function (erro) {
+                    console.log(erro);
+                    console.log(
+                        "\nHouve um erro ao realizar o cadastro! Erro: ",
+                        erro.sqlMessage
+                    );
+                    res.status(500).json(erro.sqlMessage);
+                }
+            );
+    }
+}
+
+async function cadastrar_jogoCC(req, res) {
+    // Crie uma variável que vá recuperar os valores do arquivo cadastro.html
+    var pontosCC = req.body.pontosCCServer;
+    var verde = req.body.verdeServer;
+    var branco = req.body.brancoServer;
+    var rosa = req.body.rosaServer;
+    var roxo = req.body.roxoServer;
+    var amarelo = req.body.amareloServer;
+    var laranja = req.body.laranjaServer;
+    var idFazendeiro = req.body.idCCServer;
+
+    // Faça as validações dos valores
+    if (pontosCC == undefined) {
+        res.status(400).send("Seu nome está undefined!");
+    } else if (verde == undefined) {
+        res.status(400).send("Seu email está undefined!");
+    }
+    else if (branco == undefined) {
+        res.status(400).send("Seu email está undefined!");
+    }
+    else if (rosa == undefined) {
+        res.status(400).send("Seu email está undefined!");
+    }
+    else if (roxo == undefined) {
+        res.status(400).send("Seu email está undefined!");
+    }
+    else if (amarelo == undefined) {
+        res.status(400).send("Seu email está undefined!");
+    }
+    else if (laranja == undefined) {
+        res.status(400).send("Seu email está undefined!");
+    }
+    else if (idFazendeiro == undefined) {
+        res.status(400).send("Seu email está undefined!");
+    }
+
+
+    else {
+
+        const idCC = await usuarioModel.autenticar_jogoCC(idFazendeiro)
+            .then(
+                (data) => {
+                    return data.length == 0 ? 1 : data[0].idJogoCC + 1;
+                }
+            ).catch(
+
+        );
+
+        // Passe os valores como parâmetro e vá para o arquivo usuarioModel.js
+        usuarioModel.cadastrar_jogoCC(idCC, idFazendeiro, pontosCC, verde, branco, rosa, roxo, amarelo, laranja)
             .then(
                 function (resultado) {
                     res.json(resultado);
@@ -122,5 +187,6 @@ async function cadastrar_jogo(req, res) {
 module.exports = {
     autenticar,
     cadastrar,
-    cadastrar_jogo
+    cadastrar_jogo,
+    cadastrar_jogoCC
 };

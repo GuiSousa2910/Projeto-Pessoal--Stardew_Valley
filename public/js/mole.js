@@ -135,8 +135,7 @@ function selectTile() {
                 "Content-Type": "application/json",
             },
             body: JSON.stringify({
-        
-        
+
                 pontosServer: score,
                 tempoServer: segundosTotais,
                 idServer: sessionStorage.ID_USUARIO
@@ -146,9 +145,9 @@ function selectTile() {
                 console.log("resposta: ", resposta);
 
                 if (resposta.ok) {
-            
-            
-            
+
+
+
 
                 } else {
                     throw "Houve um erro ao tentar realizar o cadastro!";
