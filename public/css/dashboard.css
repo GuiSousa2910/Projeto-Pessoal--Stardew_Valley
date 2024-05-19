@@ -301,7 +301,6 @@ body {
     margin-left: 30px;
 }
 
-/* pagina graficos */
 
 .dash-header {
     background-color: #212124;
@@ -318,7 +317,6 @@ body {
 }
 
 .area-parametros-alerta {
-    /* border: 2px solid pink; */
     display: flex;
     flex-direction: column;
     width: 70%;
@@ -395,9 +393,7 @@ body {
     width: fit-content;
     flex-wrap: wrap;
     display: flex;
-    /* text-align: center; */
     height: 180px;
-    /* justify-content: right; */
     background-color: #212124;
     font-size: 20px;
 }
@@ -517,11 +513,8 @@ canvas {
     height: 100% !important;
 }
 
-/* PAGINA DOS GRÁFICOS 2023 */
-
 .janela {
     display: flex;
-    /* width: 100vw; */
 }
 
 .header-left a {

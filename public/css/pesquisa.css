@@ -100,15 +100,15 @@ h1 {
     padding: 1rem;
     border: white 3px solid;
     border-radius: 50px;
-    font-size: 40px;
+    font-size: 35px;
     color: white;
 }
 
 input{
     margin-top: 1%;
     margin-bottom: 1%;
-    height: 5rem;
-    min-height: 5rem;
+    height: 3rem;
+    min-height: 3rem;
     width: 500px;
     border-radius: 50px;
     background-color: #fdc77f;

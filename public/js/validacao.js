@@ -89,7 +89,6 @@ function cadastrarConfirmarSenha() {
 
 function validar() {
 
-    // Enable/disable button based on validation and empty fields
     if (cadastrarNomeBoolean &&
         cadastrarFazendaBoolean &&
         cadastrarEmailBoolean &&

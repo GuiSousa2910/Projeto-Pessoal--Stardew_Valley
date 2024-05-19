@@ -20,7 +20,7 @@
     <img src="assets/galinha.png" alt="galinha">
     <div class="nav-list">
       <div class="sobre">
-        <a href="index.html">Home</a>
+        <a href="index.html">Voltar</a>
       </div>
     </div>
   </div>
@@ -89,6 +89,10 @@
 </html>
 <script>
 
+  window.onload = function (){
+    document.getElementById("register").click()
+  }
+
   const container = document.getElementById('container');
   const registerBtn = document.getElementById('register');
   const loginBtn = document.getElementById('login');
@@ -130,7 +134,7 @@
           mensagem_erro.innerHTML =
             "Cadastro realizado com sucesso! Redicerionando para a página de login!!";
           setTimeout(() => {
-            document.getElementById("login").click();
+            document.getElementById("login").click()
           }, "2000");
 
           limparFormulario();
@@ -182,10 +186,9 @@
           sessionStorage.NOME_USUARIO = json.nome;
           sessionStorage.NOMEFAZENDA_USUARIO = json.nomeFazenda;
           sessionStorage.ID_USUARIO = json.idFazendeiro;
-          sessionStorage.AQUARIOS = JSON.stringify(json.jogo);
 
           setTimeout(() => {
-            window.location = "indexLogado.html";
+              window.location = "indexLogado.html";
           }, "2000");
         });
 

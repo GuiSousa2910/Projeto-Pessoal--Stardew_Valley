@@ -418,7 +418,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 clearInterval(verificando);
                 document.getElementById('refresh').style.display = 'flex';
 
-                fetch("/usuarios/cadastrar_jogoCC", {
+                fetch("/jogo2/cadastrar_jogoCC", {
                     method: "POST",
                     headers: {
                         "Content-Type": "application/json",

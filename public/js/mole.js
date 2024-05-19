@@ -129,7 +129,7 @@ function selectTile() {
         console.log('perdi');
         document.getElementById('score').innerHTML = `GAME OVER: ${score.toString()}`;
         gameOver = true;
-        fetch("/usuarios/cadastrar_jogo", {
+        fetch("/jogo1/cadastrar_jogo", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
