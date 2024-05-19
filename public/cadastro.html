@@ -130,8 +130,8 @@
           mensagem_erro.innerHTML =
             "Cadastro realizado com sucesso! Redicerionando para a página de login!!";
           setTimeout(() => {
-            window.location.reload();
-          }, "5000");
+            document.getElementById("login").click();
+          }, "2000");
 
           limparFormulario();
           finalizarAguardar();
@@ -166,7 +166,6 @@
       body: JSON.stringify({
         emailServer: emailVar,
         senhaServer: senhaVar,
-        // idServer: sessionStorage.ID_USUARIO = json.idFazendeiro
       })
     }).then(function (resposta) {
       console.log("ESTOU NO THEN DO entrar()!");
@@ -183,9 +182,11 @@
           sessionStorage.NOME_USUARIO = json.nome;
           sessionStorage.NOMEFAZENDA_USUARIO = json.nomeFazenda;
           sessionStorage.ID_USUARIO = json.idFazendeiro;
+          sessionStorage.AQUARIOS = JSON.stringify(json.jogo);
+
           setTimeout(() => {
             window.location = "indexLogado.html";
-          }, "3000");
+          }, "2000");
         });
 
         finalizarAguardar();

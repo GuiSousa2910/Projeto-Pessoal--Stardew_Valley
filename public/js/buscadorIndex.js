@@ -14,5 +14,5 @@ function voltar() {
     window.location = 'index.html';
 }
 function ir() {
-    window.location = 'dashboard.html';
+    window.location = 'dashboardStardew.html';
 }

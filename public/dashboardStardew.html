@@ -28,7 +28,7 @@
             <div class="opcoes">
                 <button id="botao1" onclick="">Produtos</button>
 
-                <button id="botao3" onclick=""></button>
+                <button id="botao3" onclick="dash()"></button>
             </div>
             <div class="dash" id="dash">
                 <p id="tittle">Lista de Produtos de cada Estação!</p>
@@ -59,6 +59,10 @@
 
 
 <script>
+
+    function dash() {
+        window.location = './dashboard/dashboard.html'
+    }
     function validar() {
 
         document.getElementById('botao1').style.backgroundColor = '#ab7a43';

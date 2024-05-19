@@ -18,17 +18,14 @@ function buscarAquariosPorEmpresa(req, res) {
 
 
 function cadastrar(req, res) {
-  var descricao = req.body.descricao;
-  var idUsuario = req.body.idUsuario;
+  var idFazendeiro = req.body.idFazendeiro;
 
-  if (descricao == undefined) {
-    res.status(400).send("descricao está undefined!");
-  } else if (idUsuario == undefined) {
+  if (idFazendeiro == undefined) {
     res.status(400).send("idUsuario está undefined!");
   } else {
 
 
-    aquarioModel.cadastrar(descricao, idUsuario)
+    aquarioModel.cadastrar(idFazendeiro)
       .then((resultado) => {
         res.status(201).json(resultado);
       }
@@ -46,4 +43,4 @@ function cadastrar(req, res) {
 module.exports = {
   buscarAquariosPorEmpresa,
   cadastrar
-}
+};
