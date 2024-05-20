@@ -2,6 +2,11 @@ function jogar() {
     window.location = 'whackmole.html';
 }
 
+function candy() {
+    window.location = "candy-crush.html";
+
+}
+
 function ia() {
     window.location.href = 'http://localhost:3000/ia.html';
 }

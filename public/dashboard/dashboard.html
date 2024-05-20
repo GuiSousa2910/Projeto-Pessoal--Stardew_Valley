@@ -48,10 +48,10 @@
     // ... (resto do código) ... 
     // Função para obter os dados do gráfico do banco de dados
     function obterDadosGrafico() {
-        let fkFazendeiro = 1;
+        let fkFazendeiro = sessionStorage.ID_USUARIO;
         console.log(sessionStorage.ID_USUARIO);
         // Faz uma requisição para a API para obter os últimos dados do aquário
-        fetch(`/ultimas/${fkFazendeiro}`, { cache: 'no-store' })
+        fetch(`jogo1/ultimas/${fkFazendeiro}`, { cache: 'no-store' })
             .then(function (response) {
                 if (response.ok) {
                     // Se a requisição for bem-sucedida, converte a resposta para JSON
@@ -124,7 +124,7 @@
     function atualizarGrafico(dados, myChart) {
         let fkFazendeiro = 1;
         // Faz uma requisição para a API para obter o último dado do aquário
-        fetch(`/tempo-real/${fkFazendeiro}`, { cache: 'no-store' }).then(function (response) {
+        fetch(`jogo1/tempo-real/${fkFazendeiro}`, { cache: 'no-store' }).then(function (response) {
             if (response.ok) {
                 // Se a requisição for bem-sucedida, converte a resposta para JSON
                 response.json().then(function (novoRegistro) {

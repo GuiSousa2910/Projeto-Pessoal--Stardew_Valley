@@ -115,8 +115,8 @@ a {
     height: 4px;
     border-top-left-radius: 32px;
     border-bottom-right-radius: 32px;
-    background: rgb(0,0,255);
-    background: linear-gradient(90deg, rgba(0,0,255,1) 0%, rgba(0,202,255,1) 59%);
+    background: rgb(0, 0, 255);
+    background: linear-gradient(90deg, rgba(0, 0, 255, 1) 0%, rgba(0, 202, 255, 1) 59%);
     position: absolute;
     bottom: -6px;
     transition: width .4s ease-in-out;
@@ -163,13 +163,47 @@ body {
     min-height: 500px;
     background-attachment: fixed;
     background-position: center;
+    overflow-x: hidden;
     background-repeat: no-repeat;
     background-size: cover;
 }
 
-::-webkit-scrollbar {
-    display: none;
+/* body::-webkit-scrollbar {
+    width: 10px;
 }
+
+body::-webkit-scrollbar-thumb {
+    background-color: blue;
+    border-radius: 20px;
+    border: 3px solid orange;
+}
+
+body::-webkit-scrollbar-track {
+    background: transparent;
+} */
+
+/* .back-to-top {
+    background: #fff;
+    cursor: pointer;
+
+    position: fixed;
+    right: 1rem;
+    bottom: 1rem;
+
+    line-height: 0;
+
+    visibility: hidden;
+    opacity: 0;
+
+    transition: 0.3s;
+    transform: translateY(100%);
+}
+
+.back-to-top.show {
+    visibility: visible;
+    opacity: 1;
+    transform: translateY(0);
+} */
 
 .fundo {
     background: rgb(244, 212, 151);
@@ -294,7 +328,7 @@ body {
     text-align: center;
     bottom: -6px;
     transition: width .4s ease-in-out;
-    
+
 }
 
 .meio-site .infos-stardew .txt-stardew .texto-stardew {
@@ -389,7 +423,7 @@ body {
     font-size: 25px;
 }
 
-.meio-site .pesca .setinha-esquerda{
+.meio-site .pesca .setinha-esquerda {
     width: auto;
     height: 15rem;
 }
@@ -560,11 +594,11 @@ body {
 }
 
 .meio-site .mineracao .seta-esquerda {
-    height: 22  rem;
+    height: 22 rem;
     width: auto;
 }
 
-.meio-site .mineracao .mineracao-img{
+.meio-site .mineracao .mineracao-img {
     height: 25rem;
     width: auto;
 }
@@ -611,13 +645,13 @@ body {
     width: auto;
 }
 
-.desenvolvedor{
+.desenvolvedor {
     display: flex;
     justify-content: space-evenly;
     align-items: center;
 }
 
-.desenvolvedor-img{
+.desenvolvedor-img {
     height: 40rem;
     width: auto;
     animation: fotoDesce 4s ease-in-out infinite 2s;
@@ -638,7 +672,7 @@ body {
     }
 }
 
-.desenvolvedor .desenvolvedor-textos{
+.desenvolvedor .desenvolvedor-textos {
     background-color: #19307388;
     border-radius: 20px;
     border: #ffffff 10px solid;
@@ -646,7 +680,7 @@ body {
     padding-top: 20px;
 }
 
-.desenvolvedor .desenvolvedor-textos .desenvolvedor-titulo{
+.desenvolvedor .desenvolvedor-textos .desenvolvedor-titulo {
     font-size: 40px;
     font-weight: bolder;
     letter-spacing: 2px;
@@ -654,7 +688,7 @@ body {
     justify-content: center;
 }
 
-.desenvolvedor .desenvolvedor-textos .desenvolvedor-paragrafo{
+.desenvolvedor .desenvolvedor-textos .desenvolvedor-paragrafo {
     height: 95%;
     padding: 20px;
     width: 800px;
