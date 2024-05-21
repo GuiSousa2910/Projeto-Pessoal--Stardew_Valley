@@ -45,10 +45,18 @@ function buscarMedidasEmTempoReal(fkFazendeiro) {
     console.log("Executando a instrução SQL: \n" + instrucaoSql);
     return database.executar(instrucaoSql);
 }
+function buscarAquariosPorEmpresa(fkFazendeiro) {
+
+    var instrucaoSql = `SELECT * FROM jogo WHERE fkFazendeiro = ${fkFazendeiro}`;
+  
+    console.log("Executando a instrução SQL: \n" + instrucaoSql);
+    return database.executar(instrucaoSql);
+  }
 
 module.exports = {
     cadastrar_jogo,
     autenticar_jogo,
     buscarUltimosPontos,
-    buscarMedidasEmTempoReal
+    buscarMedidasEmTempoReal,
+    buscarAquariosPorEmpresa
 };

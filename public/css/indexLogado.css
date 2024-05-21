@@ -60,17 +60,32 @@ nav.menu-lateral {
     transition: .2s;
 }
 
-nav.menu-lateral:hover {
-    width: 280px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+#logout {
+    display: none;
 }
 
 .btn-expandir {
     width: 100%;
     padding-left: 10px;
 }
+
+nav.menu-lateral:hover {
+    width: 280px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    #logout {
+        display: flex;
+    }
+
+    .btn-expandir {
+        display: flex;
+        justify-content: space-around;
+    }
+}
+
+
 
 .btn-expandir>span {
     color: white;

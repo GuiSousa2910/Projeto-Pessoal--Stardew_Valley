@@ -168,21 +168,11 @@ body {
     background-size: cover;
 }
 
-/* body::-webkit-scrollbar {
-    width: 10px;
+::-webkit-scrollbar {
+    display: none;
 }
 
-body::-webkit-scrollbar-thumb {
-    background-color: blue;
-    border-radius: 20px;
-    border: 3px solid orange;
-}
-
-body::-webkit-scrollbar-track {
-    background: transparent;
-} */
-
-/* .back-to-top {
+ /* .back-to-top {
     background: #fff;
     cursor: pointer;
 
@@ -348,7 +338,7 @@ body::-webkit-scrollbar-track {
 
 #divisao {
     margin-bottom: 5%;
-    margin-top: 5%;
+    margin-top: 3%;
     border-bottom: #ffffff dashed 5px;
 }
 
@@ -415,10 +405,6 @@ body::-webkit-scrollbar-track {
 
 .meio-site .pesca .pesca-texto span {
     color: green;
-    /* background-color: #f5f5f5df; */
-    /* border-radius: 20px; */
-    /* padding: 3px; */
-    /* font-size: 22px; */
     font-weight: 700;
     font-size: 25px;
 }

@@ -4,7 +4,11 @@ function jogar() {
 
 function candy() {
     window.location = "candy-crush.html";
+}
 
+function logout() {
+    window.location = 'index.html';
+    sessionStorage.clear();
 }
 
 function ia() {
