@@ -140,7 +140,7 @@ function selectTile() {
                 tempoServer: segundosTotais,
                 idServer: sessionStorage.ID_USUARIO
             }),
-        })
+        }) 
             .then(function (resposta) {
                 console.log("resposta: ", resposta);
 

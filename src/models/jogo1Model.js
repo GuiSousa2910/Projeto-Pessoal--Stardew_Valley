@@ -34,10 +34,14 @@ function buscarUltimosPontos(fkFazendeiro, limite_linhas) {
     return database.executar(instrucaoSql);
 }
 
-function buscarPontosEmTempoReal(fkFazendeiro) {
-    var instrucaoSql = `SELECT pontos, tempo FROM jogo 
-                       WHERE fkFazendeiro = ${fkFazendeiro} 
-                       ORDER BY idJogo DESC LIMIT 1;`;
+function buscarMedidasEmTempoReal(fkFazendeiro) {
+
+    var instrucaoSql = `
+    SELECT tempo, pontos 
+    FROM jogo 
+    WHERE fkFazendeiro = ${fkFazendeiro}    
+    ORDER BY tempo ASC LIMIT 1`;
+
     console.log("Executando a instrução SQL: \n" + instrucaoSql);
     return database.executar(instrucaoSql);
 }
@@ -46,5 +50,5 @@ module.exports = {
     cadastrar_jogo,
     autenticar_jogo,
     buscarUltimosPontos,
-    buscarPontosEmTempoReal
+    buscarMedidasEmTempoReal
 };

@@ -53,7 +53,7 @@ function autenticar_jogo(fkFazendeiro) {
 }
 
 function buscarUltimosPontos(fkFazendeiro, res) {
-    jogo1Model.buscarUltimosPontos(fkFazendeiro , 10)
+    jogo1Model.buscarUltimosPontos(fkFazendeiro, 10)
         .then(function (resultado) {
             if (resultado.length > 0) {
                 res.status(200).json(resultado);
@@ -66,33 +66,30 @@ function buscarUltimosPontos(fkFazendeiro, res) {
             console.log('Houve um erro ao buscar as ultimas medidas.', erro.sqlMessage);
             res.status(500).json(erro.sqlMessage);
         });
-} 
+}
 
+function buscarMedidasEmTempoReal(req, res) {
 
-function buscarPontosEmTempoReal(req, res) {
-    var idFazendeiro = req.params.idFazendeiro;
-  
-    console.log(`Recuperando Pontos em tempo real`);
-  
-    jogo1Model.buscarPontosEmTempoReal(idFazendeiro)
-      .then(function (resultado) {
+    var fkFazendeiro = req.params.fkFazendeiro;
+
+    console.log(`Recuperando medidas em tempo real`);
+
+    medidaModel.buscarMedidasEmTempoReal(fkFazendeiro).then(function (resultado) {
         if (resultado.length > 0) {
-          res.status(200).json(resultado);
+            res.status(200).json(resultado);
         } else {
-          res.status(204).send("Nenhum resultado encontrado!");
+            res.status(204).send("Nenhum resultado encontrado!");
         }
-      })
-      .catch(function (erro) {
+    }).catch(function (erro) {
         console.log(erro);
         console.log("Houve um erro ao buscar as ultimas medidas.", erro.sqlMessage);
         res.status(500).json(erro.sqlMessage);
-      });
-  }
-
+    });
+}
 
 module.exports = {
     autenticar_jogo,
     cadastrar_jogo,
-    buscarPontosEmTempoReal,
-    buscarUltimosPontos
+    buscarUltimosPontos,
+    buscarMedidasEmTempoReal
 };

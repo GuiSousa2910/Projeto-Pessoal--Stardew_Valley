@@ -9,14 +9,16 @@ router.post("/cadastrar_jogo", function (req, res) {
 router.post("/autenticar_jogo", function (req, res) {
     jogo1Controller.autenticar_jogo(req, res);
 }); 
-
-router.get('/ultimas/:fkFazendeiro', function (req, res) {
+ 
+router.get('/buscarUltimosPontos/:fkFazendeiro', function (req, res) {
     let idFazendeiro = req.params.fkFazendeiro;
+
     jogo1Controller.buscarUltimosPontos(idFazendeiro, res);
 });
 
-router.get("/tempo-real/:fkFazendeiro", function (req, res) {
+router.get("/buscarMedidasEmTempoReal/:fkFazendeiro", function (req, res) {
     let idFazendeiro = req.params.fkFazendeiro;
-    jogo1Controller.buscarPontosEmTempoReal(idFazendeiro, res);
+
+    jogo1Controller.buscarMedidasEmTempoReal(idFazendeiro, res);
 });
 module.exports = router; 
