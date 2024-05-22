@@ -88,11 +88,11 @@ body {
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    
+
     font-family: "Pixelify Sans", sans-serif;
     font-optical-sizing: auto;
     font-style: normal;
-    
+    cursor: url("../assets/image177.png"), auto;
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -105,7 +105,7 @@ body {
     -ms-user-select: none;
 }
 
-#board{
+#board {
     width: 540px;
     height: 540px;
     /* background-color: green; */
@@ -121,12 +121,12 @@ body {
     border-radius: 30px;
 }
 
-.refresh{
+.refresh {
     background-color: green;
     border-radius: 50%;
     width: 40px;
     height: 40px;
-    display:flex;
+    display: flex;
     align-items: center;
     border: 2px solid white;
     cursor: pointer;
@@ -135,17 +135,18 @@ body {
     display: none;
 }
 
-#board div{
+#board div {
     width: 140px;
     height: 140px;
     background-image: url(../assets/whackmole/bau.png);
     background-size: cover;
     display: flex;
-    justify-content: center;;
+    justify-content: center;
+    ;
     align-items: center;
 }
 
-#board div img{
+#board div img {
     width: 80px;
     width: 80px;
 

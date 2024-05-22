@@ -60,16 +60,7 @@ nav.menu-lateral {
     transition: .2s;
 }
 
-#logout {
-    display: none;
-}
-
-.btn-expandir {
-    width: 100%;
-    padding-left: 10px;
-}
-
-nav.menu-lateral:hover {
+/* nav.menu-lateral:hover {
     width: 280px;
     display: flex;
     flex-direction: column;
@@ -83,8 +74,15 @@ nav.menu-lateral:hover {
         display: flex;
         justify-content: space-around;
     }
+} */
+#logout {
+    display: none;
 }
 
+.btn-expandir {
+    width: 100%;
+    padding-left: 10px;
+}
 
 
 .btn-expandir>span {

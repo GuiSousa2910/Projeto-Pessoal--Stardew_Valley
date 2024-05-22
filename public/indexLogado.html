@@ -16,15 +16,26 @@
 
     <img src="/public/assets/" alt="">
     <div class="fundo">
-        <nav class="menu-lateral">
-            <div class="btn-expandir">
-                <span class="material-symbols-outlined">menu</span>
+
+        <nav onmouseleave="sair()" id="menu-lateral" class="menu-lateral">
+            <div id="btn-expandir" class="btn-expandir">
+                <span class="material-symbols-outlined" onclick="abrir()">menu</span>
                 <span class="material-symbols-outlined" id="logout" onclick="logout()">
-                logout
+                    logout
                 </span>
             </div>
 
-            <ul>
+            <ul id="ul">
+                <li class="item-menu" onclick="ia()">
+                    <a href="#">
+                        <span class="icon">
+                            <span class="material-symbols-outlined">
+                                smart_toy
+                            </span>
+                        </span>
+                        <span class="txt-link">Inteligencia Artificial</span>
+                    </a>
+                </li>
                 <li class="item-menu" onclick="jogar()">
                     <a href="#">
                         <span class="icon">
@@ -32,7 +43,7 @@
                                 stadia_controller
                             </span>
                         </span>
-                        <span class="txt-link">Game - Whack A Junimo</span>
+                        <span class="txt-link">Whack A Junimo</span>
                     </a>
                 </li>
                 <li class="item-menu" onclick="candy()">
@@ -42,17 +53,7 @@
                                 joystick
                             </span>
                         </span>
-                        <span class="txt-link">Game - Stardew Crush</span>
-                    </a>
-                </li>
-                <li class="item-menu" onclick="ia()">
-                    <a href="#">
-                        <span class="icon">
-                            <span class="material-symbols-outlined">
-                                smart_toy
-                            </span>
-                        </span>
-                        <span class="txt-link">Inteligencia Artificial</span>
+                        <span class="txt-link">Stardew Crush</span>
                     </a>
                 </li>
                 <li class="item-menu" onclick="buscar()">
@@ -310,3 +311,26 @@
 <script src="js/animacaoFoto.js" defer></script>
 <script src="js/scrollreveal.js"></script>
 <script src="js/buscadorIndex.js"></script>
+<script>
+
+    var cont = 0;
+    function abrir() {
+        cont += 1;
+        var menu = document.getElementById('menu-lateral');
+        menu.style.width = '280px';
+        menu.style.display = 'flex';
+        menu.style.flexDirection = 'column';
+        menu.style.justifyContent = 'space-between';
+        document.getElementById('logout').style.display = 'flex';
+        document.getElementById('btn-expandir').style.display = 'flex';
+        document.getElementById('btn-expandir').style.justifyContent = 'space-around';
+    }
+
+    function sair() {
+        if (cont > 0) {
+            document.getElementById('menu-lateral').style.width = '70px';
+            document.getElementById('logout').style.display = 'none';
+            document.getElementById('btn-expandir').style.marginLeft = '-20px';
+        }
+    }
+</script>

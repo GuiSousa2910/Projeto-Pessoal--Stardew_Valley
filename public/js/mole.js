@@ -1,6 +1,7 @@
 let currMoleTile;
 let currPlantTile;
 let currPlantTile2;
+let currPlantTile3;
 let score = 0;
 var monstro = 1;
 let gameOver = false;
@@ -20,7 +21,7 @@ function tempos() {
 
 function observa() {
     if (segundos.toFixed(1) == 0.5 && score >= 140) {
-
+        setPlant3()
         setMole();
         setPlant2();
         setPlant();
@@ -80,7 +81,7 @@ function setMole() {
 
     let num = getRandomTile();
 
-    if ((currPlantTile && currPlantTile.id == num) || (currPlantTile2 && currPlantTile2.id == num)) {
+    if ((currPlantTile && currPlantTile.id == num) || (currPlantTile2 && currPlantTile2.id == num) || (currPlantTile3 && currPlantTile3.id == num)) {
         return;
     }
 
@@ -103,7 +104,7 @@ function setPlant() {
 
     let num = getRandomTile();
 
-    if ((currMoleTile && currMoleTile.id == num) || (currPlantTile2 && currPlantTile2.id == num)) {
+    if ((currMoleTile && currMoleTile.id == num) || (currPlantTile2 && currPlantTile2.id == num) || (currPlantTile3 && currPlantTile3.id == num)) {
         return;
     }
 
@@ -127,13 +128,35 @@ function setPlant2() {
 
     let num = getRandomTile();
 
-    if ((currMoleTile && currMoleTile.id == num) || (currPlantTile && currPlantTile.id == num)) {
+    if ((currMoleTile && currMoleTile.id == num) || (currPlantTile && currPlantTile.id == num) || (currPlantTile3 && currPlantTile3.id == num)) {
         return;
     }
 
     currPlantTile2 = document.getElementById(num);
     currPlantTile2.appendChild(plant2);
+}
 
+function setPlant3() {
+    if (gameOver) {
+        return;
+    }
+
+    if (currPlantTile3) {
+        currPlantTile3.innerHTML = '';
+    }
+
+    var plant3 = document.createElement('img');
+    plant3.src = 'assets/whackmole/Shadow_Brute.png';
+
+
+    let num = getRandomTile();
+
+    if ((currMoleTile && currMoleTile.id == num) || (currPlantTile && currPlantTile.id == num)|| (currPlantTile2 && currPlantTile2.id == num)) {
+        return;
+    }
+
+    currPlantTile3 = document.getElementById(num);
+    currPlantTile3.appendChild(plant3);
 }
 
 function selectTile() {
@@ -151,7 +174,7 @@ function selectTile() {
             tempoMonstro = 9000;
         }
     }
-    else if (this == currPlantTile || this == currPlantTile2) {
+    else if (this == currPlantTile || this == currPlantTile2 || this == currPlantTile3) {
         console.log('perdi');
         document.getElementById('score').innerHTML = `GAME OVER: ${score.toString()}`;
         gameOver = true;
