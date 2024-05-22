@@ -1,5 +1,6 @@
 let currMoleTile;
 let currPlantTile;
+let currPlantTile2;
 let score = 0;
 var monstro = 1;
 let gameOver = false;
@@ -21,11 +22,12 @@ function observa() {
     if (segundos.toFixed(1) == 0.5 && score >= 140) {
 
         setMole();
+        setPlant2();
         setPlant();
         segundos = 0;
     }
     else if (segundos.toFixed(1) == 1 && (score >= 40 && score < 140)) {
-
+        setPlant2();
         setMole();
         setPlant();
         segundos = 0;
@@ -78,7 +80,7 @@ function setMole() {
 
     let num = getRandomTile();
 
-    if (currPlantTile && currPlantTile.id == num) {
+    if ((currPlantTile && currPlantTile.id == num) || (currPlantTile2 && currPlantTile2.id == num)) {
         return;
     }
 
@@ -101,12 +103,36 @@ function setPlant() {
 
     let num = getRandomTile();
 
-    if (currMoleTile && currMoleTile.id == num) {
+    if ((currMoleTile && currMoleTile.id == num) || (currPlantTile2 && currPlantTile2.id == num)) {
         return;
     }
 
     currPlantTile = document.getElementById(num);
     currPlantTile.appendChild(plant);
+
+}
+
+function setPlant2() {
+    if (gameOver) {
+        return;
+    }
+
+    if (currPlantTile2) {
+        currPlantTile2.innerHTML = '';
+    }
+
+    var plant2 = document.createElement('img');
+    plant2.src = 'assets/whackmole/Shadow_Brute.png';
+
+
+    let num = getRandomTile();
+
+    if ((currMoleTile && currMoleTile.id == num) || (currPlantTile && currPlantTile.id == num)) {
+        return;
+    }
+
+    currPlantTile2 = document.getElementById(num);
+    currPlantTile2.appendChild(plant2);
 
 }
 
@@ -125,7 +151,7 @@ function selectTile() {
             tempoMonstro = 9000;
         }
     }
-    else if (this == currPlantTile) {
+    else if (this == currPlantTile || this == currPlantTile2) {
         console.log('perdi');
         document.getElementById('score').innerHTML = `GAME OVER: ${score.toString()}`;
         gameOver = true;
@@ -140,7 +166,7 @@ function selectTile() {
                 tempoServer: segundosTotais,
                 idServer: sessionStorage.ID_USUARIO
             }),
-        }) 
+        })
             .then(function (resposta) {
                 console.log("resposta: ", resposta);
 
