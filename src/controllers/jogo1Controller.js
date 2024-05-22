@@ -74,7 +74,7 @@ function buscarMedidasEmTempoReal(req, res) {
 
     console.log(`Recuperando medidas em tempo real`);
 
-    medidaModel.buscarMedidasEmTempoReal(fkFazendeiro).then(function (resultado) {
+    jogo1Model.buscarMedidasEmTempoReal(fkFazendeiro).then(function (resultado) {
         if (resultado.length > 0) {
             res.status(200).json(resultado);
         } else {
@@ -87,9 +87,26 @@ function buscarMedidasEmTempoReal(req, res) {
     });
 }
 
+function buscarAquariosPorEmpresa(req, res) {
+    var idUsuario = req.params.fkFazendeiro;
+
+    jogo1Model.buscarAquariosPorEmpresa(idUsuario).then((resultado) => {
+        if (resultado.length > 0) {
+            res.status(200).json(resultado);
+        } else {
+            res.status(204).json([]);
+        }
+    }).catch(function (erro) {
+        console.log(erro);
+        console.log("Houve um erro ao buscar os aquarios: ", erro.sqlMessage);
+        res.status(500).json(erro.sqlMessage);
+    });
+}
+
 module.exports = {
     autenticar_jogo,
     cadastrar_jogo,
     buscarUltimosPontos,
-    buscarMedidasEmTempoReal
+    buscarMedidasEmTempoReal,
+    buscarAquariosPorEmpresa
 };

@@ -44,14 +44,15 @@ function buscarMedidasEmTempoReal(fkFazendeiro) {
 
     console.log("Executando a instrução SQL: \n" + instrucaoSql);
     return database.executar(instrucaoSql);
-}
-function buscarAquariosPorEmpresa(fkFazendeiro) {
+} 
 
-    var instrucaoSql = `SELECT * FROM jogo WHERE fkFazendeiro = ${fkFazendeiro}`;
+function buscarAquariosPorEmpresa(idFazendeiro) {
+
+    var instrucaoSql = `SELECT * FROM fazendeiro join jogo on idFazendeiro = fkFazendeiro WHERE fkFazendeiro = ${idFazendeiro}`;
   
     console.log("Executando a instrução SQL: \n" + instrucaoSql);
     return database.executar(instrucaoSql);
-  }
+}
 
 module.exports = {
     cadastrar_jogo,

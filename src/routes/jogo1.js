@@ -17,8 +17,6 @@ router.get('/buscarUltimosPontos/:fkFazendeiro', function (req, res) {
 });
 
 router.get("/buscarMedidasEmTempoReal/:fkFazendeiro", function (req, res) {
-    let idFazendeiro = req.params.fkFazendeiro;
-
-    jogo1Controller.buscarMedidasEmTempoReal(idFazendeiro, res);
+    jogo1Controller.buscarMedidasEmTempoReal(req, res);
 });
-module.exports = router; 
+module.exports = router;  
