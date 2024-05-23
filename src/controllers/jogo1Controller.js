@@ -52,8 +52,11 @@ function autenticar_jogo(fkFazendeiro) {
     return database.executar(instrucaoSql);
 }
 
-function buscarUltimosPontos(fkFazendeiro, res) {
-    jogo1Model.buscarUltimosPontos(fkFazendeiro, 10)
+function buscarUltimosPontos(req, res) {
+
+    let idFazendeiro = req.params.fkFazendeiro;
+
+    jogo1Model.buscarUltimosPontos(idFazendeiro, 10)
         .then(function (resultado) {
             if (resultado.length > 0) {
                 res.status(200).json(resultado);

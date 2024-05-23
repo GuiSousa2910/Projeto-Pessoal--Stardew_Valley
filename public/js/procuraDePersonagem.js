@@ -850,7 +850,6 @@ const opcoes = [
 
 let texto = document.getElementById('searchInput');
 
-
 texto.addEventListener('input', function () {
    const pesquisa = this.value.toLowerCase();
 
@@ -862,6 +861,7 @@ function displayResults(results) {
 
    const searchResults = document.getElementById('searchResults');
    searchResults.innerHTML = '';
+   
    results.forEach(result => {
       const div = document.createElement('div');
       const div2 = document.createElement('div');

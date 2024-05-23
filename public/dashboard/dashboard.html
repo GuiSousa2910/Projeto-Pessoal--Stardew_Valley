@@ -68,42 +68,45 @@
     let proximaAtualizacao;
 
     // Chama a função exibirAquariosDoUsuario quando a página carregar
-    window.onload = exibirAquariosDoUsuario();
-
+            
+    window.onload = async() => {
+        
+        
+        obterDadosGrafico(sessionStorage.ID_USUARIO)
+    }
     function exibirAquariosDoUsuario() {
         // Obtem os aquários do usuário do sessionStorage
-        var aquarios = JSON.parse(sessionStorage.JOGO);
+        // var aquarios = JSON.parse(sessionStorage.JOGO);
 
-        aquarios.forEach(item => {
-            // Cria um botão para cada aquário
-            document.getElementById("btnAquario").innerHTML += `
-            <button class="btn-chart" onclick="exibirAquario(${item.id})" id="btnAquario${item.id}">${item.descricao}</button>
-        `;
+        // aquarios.forEach(item => {
+        //     // Cria um botão para cada aquário
+        //     document.getElementById("btnAquario").innerHTML += `
+        //     <button class="btn-chart" onclick="exibirAquario(${item.id})" id="btnAquario${item.id}">${item.descricao}</button>
+        // `;
 
-            // Cria uma div para cada gráfico
-            document.getElementById("graficos").innerHTML += `
-                <div id="grafico${item.id}" class="display-none">
-                    <h3 class="tituloGraficos">
-                        <span id="tituloAquario${item.id}">${item.descricao}</span>
-                    </h3>
-                    <div class="graph">
-                        <canvas id="myChartCanvas${item.id}"></canvas>
-                    </div>
-                    <div class="label-captura">
-                        <p id="avisoCaptura${item.id}" style="color: white"></p>
-                    </div>
-                </div>
-            `;
+        //     // Cria uma div para cada gráfico
+        //     document.getElementById("graficos").innerHTML += `
+        //         <div id="grafico${item.id}" class="display-none">
+        //             <h3 class="tituloGraficos">
+        //                 <span id="tituloAquario${item.id}">${item.descricao}</span>
+        //             </h3>
+        //             <div class="graph">
+        //                 <canvas id="myChartCanvas${item.id}"></canvas>
+        //             </div>
+        //             <div class="label-captura">
+        //                 <p id="avisoCaptura${item.id}" style="color: white"></p>
+        //             </div>
+        //         </div>
+        //     `;
 
-            // Obtém os dados para o gráfico
-            obterDadosGrafico(item.id);
-
-            // Verifica se o usuário tem algum aquário cadastrado
-            if (aquarios.length > 0) {
-                exibirAquario(aquarios[0].id); // Exibe o primeiro aquário da lista
-            }
-        });
-    }
+        //     // Obtém os dados para o gráfico
+        
+        //     // Verifica se o usuário tem algum aquário cadastrado
+        //     if (aquarios.length > 0) {
+            //         exibirAquario(aquarios[0].id); // Exibe o primeiro aquário da lista
+            //     }
+            // });
+        }
 
 
     // Função para alterar o título do gráfico
@@ -149,21 +152,19 @@
 
     // Função para obter os dados do gráfico do banco de dados
     function obterDadosGrafico(fkFazendeiro) {
-        if (proximaAtualizacao != undefined) {
-            clearTimeout(proximaAtualizacao);
-        }
-        // Faz uma requisição para a API para obter os últimos dados do aquário
-        fetch(`/jogo1/buscarUltimosPontos/${fkFazendeiro}`, { cache: 'no-store' })
+  
+     
+        fetch(`/jogo1/buscarUltimosPontos/${fkFazendeiro}`)
             .then(function (response) {
                 if (response.ok) {
                     // Se a requisição for bem-sucedida, converte a resposta para JSON
                     response.json().then(function (resposta) {
                         console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
-
-                        resposta.reverse();
-
+                        
+                       
+                        sessionStorage.setItem('Jogos', JSON.stringify(resposta));
                         // Plota o gráfico com os dados recebidos
-                        plotarGrafico(resposta, fkFazendeiro);
+                        // plotarGrafico(resposta, fkFazendeiro);
                     });
                 } else {
                     console.error('Nenhum dado encontrado ou erro na API');

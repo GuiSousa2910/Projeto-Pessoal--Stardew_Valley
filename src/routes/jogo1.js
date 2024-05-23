@@ -11,9 +11,7 @@ router.post("/autenticar_jogo", function (req, res) {
 }); 
  
 router.get('/buscarUltimosPontos/:fkFazendeiro', function (req, res) {
-    let idFazendeiro = req.params.fkFazendeiro;
-
-    jogo1Controller.buscarUltimosPontos(idFazendeiro, res);
+    jogo1Controller.buscarUltimosPontos(req, res);
 });
 
 router.get("/buscarMedidasEmTempoReal/:fkFazendeiro", function (req, res) {
