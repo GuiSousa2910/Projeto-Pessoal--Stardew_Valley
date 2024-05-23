@@ -11,6 +11,9 @@
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 </head>
+<style>
+
+</style>
 
 <body>
 
@@ -100,15 +103,17 @@
                 </p>
                 <div class="buttons">
                     <button class="botaoDash" onclick="ir()">DashBoard!</button>
-                    <a href="#espaco" onclick="descer()"><img class="flecha" src="assets/seta para baixo.png"></a>
+                    <a href="#meio-site" onclick="descer()"><img class="flecha" src="assets/seta para baixo.png"></a>
                 </div>
             </div>
             <img class="imagemCentralHome2" src="assets/logo custom.png" id="2">
+            <button id="back-to-top" title="Back to Top">↑ <br> Voltar ao Topo</button>
+
         </div>
     </div>
     </div>
     <div id="espaco"></div>
-    <div class="meio-site">
+    <div id="meio-site" class="meio-site">
         <div class="infos-stardew">
             <div class="txt-stardew">
                 <div class="titulo-stardew">
@@ -333,4 +338,21 @@
             document.getElementById('btn-expandir').style.marginLeft = '-20px';
         }
     }
+
+    window.onscroll = function () {
+        scrollFunction();
+    };
+
+    function scrollFunction() {
+        const backToTopButton = document.getElementById("back-to-top");
+        if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+            backToTopButton.style.display = "block"; 
+        } else {
+            backToTopButton.style.display = "none"; 
+        }
+    }
+
+    document.getElementById("back-to-top").addEventListener("click", function () {
+        document.documentElement.scrollTop = 0; 
+    });
 </script>
