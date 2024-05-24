@@ -16,7 +16,7 @@ async function cadastrar_jogoCC(req, res) {
         res.status(400).send("Seu nome está undefined!");
     } else if (verde == undefined) {
         res.status(400).send("Seu email está undefined!");
-    }
+    } 
     else if (branco == undefined) {
         res.status(400).send("Seu email está undefined!");
     }
@@ -75,7 +75,27 @@ function autenticar_jogoCC(fkFazendeiro) {
     return database.executar(instrucaoSql);
 }
 
+function buscarUltimosPontosCC(req, res) {
+
+    let idFazendeiro = req.params.fkFazendeiro;
+
+    jogo2Model.buscarUltimosPontosCC(idFazendeiro, 10)
+        .then(function (resultado) {
+            if (resultado.length > 0) {
+                res.status(200).json(resultado);
+            } else {
+                res.status(204).send('Nenhum resultado encontrado!');
+            }
+        })
+        .catch(function (erro) {
+            console.log(erro);
+            console.log('Houve um erro ao buscar as ultimas medidas.', erro.sqlMessage);
+            res.status(500).json(erro.sqlMessage);
+        });
+}
+
 module.exports = {
     cadastrar_jogoCC,
     autenticar_jogoCC,
+    buscarUltimosPontosCC
 };

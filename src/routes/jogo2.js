@@ -10,4 +10,8 @@ router.post("/autenticar_jogoCC", function (req, res) {
     jogo2Controller.autenticar_jogoCC(req, res);
 });
 
-module.exports = router;
+router.get('/buscarUltimosPontosCC/:fkFazendeiro', function (req, res) {
+    jogo2Controller.buscarUltimosPontosCC(req, res);
+});
+
+module.exports = router; 

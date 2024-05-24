@@ -5,6 +5,7 @@ async function cadastrar_jogo(req, res) {
     var pontos = req.body.pontosServer;
     var tempo = req.body.tempoServer;
     var idFazendeiro = req.body.idServer;
+    var dia = req.body.horaServer;
 
     // Faça as validações dos valores
     if (pontos == undefined) {
@@ -12,6 +13,9 @@ async function cadastrar_jogo(req, res) {
     } else if (tempo == undefined) {
         res.status(400).send("Seu email está undefined!");
     } else if (idFazendeiro == undefined) {
+        res.status(400).send("Seu email está undefined!");
+    }
+    else if (dia == undefined) {
         res.status(400).send("Seu email está undefined!");
     }
     else {
@@ -26,7 +30,7 @@ async function cadastrar_jogo(req, res) {
         );
 
         // Passe os valores como parâmetro e vá para o arquivo jogo1Model.js
-        jogo1Model.cadastrar_jogo(pontos, tempo, id, idFazendeiro)
+        jogo1Model.cadastrar_jogo(pontos, tempo, id, idFazendeiro, dia)
             .then(
                 function (resultado) {
                     res.json(resultado);
@@ -71,45 +75,10 @@ function buscarUltimosPontos(req, res) {
         });
 }
 
-function buscarMedidasEmTempoReal(req, res) {
-
-    var fkFazendeiro = req.params.fkFazendeiro;
-
-    console.log(`Recuperando medidas em tempo real`);
-
-    jogo1Model.buscarMedidasEmTempoReal(fkFazendeiro).then(function (resultado) {
-        if (resultado.length > 0) {
-            res.status(200).json(resultado);
-        } else {
-            res.status(204).send("Nenhum resultado encontrado!");
-        }
-    }).catch(function (erro) {
-        console.log(erro);
-        console.log("Houve um erro ao buscar as ultimas medidas.", erro.sqlMessage);
-        res.status(500).json(erro.sqlMessage);
-    });
-}
-
-function buscarAquariosPorEmpresa(req, res) {
-    var idUsuario = req.params.fkFazendeiro;
-
-    jogo1Model.buscarAquariosPorEmpresa(idUsuario).then((resultado) => {
-        if (resultado.length > 0) {
-            res.status(200).json(resultado);
-        } else {
-            res.status(204).json([]);
-        }
-    }).catch(function (erro) {
-        console.log(erro);
-        console.log("Houve um erro ao buscar os aquarios: ", erro.sqlMessage);
-        res.status(500).json(erro.sqlMessage);
-    });
-}
 
 module.exports = {
     autenticar_jogo,
     cadastrar_jogo,
     buscarUltimosPontos,
-    buscarMedidasEmTempoReal,
-    buscarAquariosPorEmpresa
+
 };

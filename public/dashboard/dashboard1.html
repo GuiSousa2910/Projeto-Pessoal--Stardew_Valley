@@ -65,24 +65,23 @@
 </html>
 <script>
 
-    // Define o nome do usuário no DOM
-
-    // Variável para armazenar o intervalo de atualização do gráfico
-    let proximaAtualizacao;
-
-    // Chama a função exibirAquariosDoUsuario quando a página carregar
-
     window.onload = async () => {
         obterDadosGrafico(sessionStorage.ID_USUARIO);
     };
 
-    let pontos = [];
-    let tempo = [];
-    let dataAtual = [];
+    let pontosCC = [];
+    let qntAzul = [];
+    let qntLaranja = [];
+    let qntAmarelo = [];
+    let qntRoxo = [];
+    let qntRosa = [];
+    let qntVerde = [];
+    let qntBranco = [];
+    let jogoAtual = [];
 
     // Função para obter os dados do gráfico do banco de dados
     function obterDadosGrafico(fkFazendeiro) {
-        fetch(`/jogo1/buscarUltimosPontos/${fkFazendeiro}`)
+        fetch(`/jogo2/buscarUltimosPontosCC/${fkFazendeiro}`)
             .then(function (response) {
                 if (response.ok) {
 
@@ -91,14 +90,17 @@
                         for (let i = 0; i < resposta.length; i++) {
                             // Adiciona a data e hora do registro aos labels
                             // Adiciona a umidade e a temperatura aos dados
-                            pontos.push(resposta[i].pontos);
-                            tempo.push(resposta[i].tempo);
-                            dataAtual.push(resposta[i].hora);
-                            console.log(pontos + ' pontos')
-                            console.log(tempo + ' tmepo')
-                            console.log(dataAtual + ' data')
+                            pontosCC.push(resposta[i].pontosCC);
+                            qntAzul.push(resposta[i].qntAzul);
+                            qntLaranja.push(resposta[i].qntLaranja);
+                            qntAmarelo.push(resposta[i].qntAmarelo);
+                            qntRoxo.push(resposta[i].qntRoxo);
+                            qntRosa.push(resposta[i].qntRosa);
+                            qntVerde.push(resposta[i].qntVerde);
+                            qntBranco.push(resposta[i].qntBranco);
+                            jogoAtual.push(resposta[i].idJogoCC);
                         }
-                        sessionStorage.setItem('Jogos', JSON.stringify(resposta));
+                        sessionStorage.setItem('JogosCC', JSON.stringify(resposta));
                         // Plota o gráfico com os dados recebidos
                         plotarGrafico(resposta, fkFazendeiro);
                     });
@@ -118,21 +120,64 @@
         let labels = [];
         // Cria a estrutura para plotar o gráfico - dados (eixo y)
         let dados = {
-            labels: dataAtual,
+            labels: jogoAtual,
             datasets: [
+
                 {
-                    label: 'Pontos',
-                    data: pontos,
+                    label: 'qntBranco',
+                    data: qntBranco,
                     fill: true,
-                    borderColor: 'green',
-                    backgroundColor: 'blue',
+                    borderColor: 'white',
                     tension: 0.1,
                 },
                 {
-                    label: 'Tempo',
-                    data: tempo,
+                    label: 'qntAzul',
+                    data: qntAzul,
                     fill: true,
-                    backgroundColor: 'lightblue',
+                    borderColor: 'lightblue',
+                    tension: 0.1,
+                },
+                {
+                    label: 'qntLaranja',
+                    data: qntLaranja,
+                    fill: true,
+                    borderColor: 'orange',
+                    tension: 0.1,
+                },
+                {
+                    label: 'qntAmarelo',
+                    data: qntAmarelo,
+                    fill: true,
+                    borderColor: 'yellow',
+                    tension: 0.1,
+                },
+                {
+                    label: 'qntRoxo',
+                    data: qntRoxo,
+                    fill: true,
+                    borderColor: 'purple',
+                    tension: 0.1,
+                },
+                {
+                    label: 'qntRosa',
+                    data: qntRosa,
+                    fill: true,
+                    borderColor: 'pink',
+                    tension: 0.1,
+                },
+                {
+                    label: 'qntVerde',
+                    data: qntVerde,
+                    fill: true,
+                    borderColor: 'green',
+                    tension: 0.1,
+                }, 
+                {
+                    label: 'Pontos',
+                    type: 'bar',
+                    data: pontosCC,
+                    backgroundColor: 'blue',
+                    fill: true,
                     borderColor: 'green',
                     tension: 0.1,
                 },
@@ -154,7 +199,7 @@
         console.log('----------------------------------------------');
         // Cria a configuração para o gráfico
         const config = {
-            type: 'bar', // Define o tipo de gráfico como linha
+            type: 'line', // Define o tipo de gráfico como linha
             data: dados, // Define os dados do gráfico
         };
         // Cria o gráfico e o adiciona à div na página
@@ -163,4 +208,5 @@
             config
         );
     }
+
 </script>

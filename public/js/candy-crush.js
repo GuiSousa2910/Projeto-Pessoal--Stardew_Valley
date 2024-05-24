@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Declaração de variáveis para o tempo
     var segundos = 60;
-
+ 
     var qntLaranja = 0;
     var qntAmarelo = 0;
     var qntRosa = 0;
@@ -32,12 +32,6 @@ document.addEventListener('DOMContentLoaded', () => {
         function decrementar() {
             segundos--;
             segundosDisplay.innerHTML = segundos; // Atualiza o display do tempo
-            // console.log(qntAmarelo + ' AMARELO');
-            // console.log(qntBranco + ' BRANCO');
-            // console.log(qntVerde + ' VERDE');
-            // console.log(qntRosa + ' ROSA');
-            // console.log(qntLaranja + ' LARANJA');
-            // console.log(qntRoxo + ' ROXO');
         }
 
         // Define um intervalo para decrementar o tempo a cada segundo

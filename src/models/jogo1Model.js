@@ -1,12 +1,12 @@
 var database = require("../database/config");
 
-function cadastrar_jogo(pontos, tempo, id, idFazendeiro) {
-    console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function cadastrar_jogo():", pontos, tempo, id, idFazendeiro);
+function cadastrar_jogo(pontos, tempo, id, idFazendeiro, tempo, dia) {
+    console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function cadastrar_jogo():", pontos, tempo, id, idFazendeiro, dia);
 
     // Insira exatamente a query do banco aqui, lembrando da nomenclatura exata nos valores
     //  e na ordem de inserção dos dados.
     var instrucaoSql = `
-        INSERT INTO jogo (idJogo, fkFazendeiro, pontos, tempo) VALUES ('${id}','${idFazendeiro}','${pontos}', '${tempo}');
+        INSERT INTO jogo (idJogo, fkFazendeiro, pontos, tempo, hora) VALUES ('${id}','${idFazendeiro}','${pontos}', '${tempo}', DATE_FORMAT(CURDATE(), '%d-%m'));
     `;
     console.log("Executando a instrução SQL: \n" + instrucaoSql);
     return database.executar(instrucaoSql);
@@ -23,33 +23,12 @@ function autenticar_jogo(fkFazendeiro) {
 function buscarUltimosPontos(fkFazendeiro, limite_linhas) {
 
     var instrucaoSql = `
-    SELECT tempo, pontos 
+    SELECT tempo, pontos, hora
     FROM jogo 
     WHERE fkFazendeiro = ${fkFazendeiro}    
-    ORDER BY tempo ASC 
     LIMIT ${limite_linhas};
   `;
 
-    console.log("Executando a instrução SQL: \n" + instrucaoSql);
-    return database.executar(instrucaoSql);
-}
-
-function buscarMedidasEmTempoReal(fkFazendeiro) {
-
-    var instrucaoSql = `
-    SELECT tempo, pontos 
-    FROM jogo 
-    WHERE fkFazendeiro = ${fkFazendeiro}    
-    ORDER BY tempo ASC LIMIT 1`;
-
-    console.log("Executando a instrução SQL: \n" + instrucaoSql);
-    return database.executar(instrucaoSql);
-} 
-
-function buscarAquariosPorEmpresa(idFazendeiro) {
-
-    var instrucaoSql = `SELECT * FROM fazendeiro join jogo on idFazendeiro = fkFazendeiro WHERE fkFazendeiro = ${idFazendeiro}`;
-  
     console.log("Executando a instrução SQL: \n" + instrucaoSql);
     return database.executar(instrucaoSql);
 }
@@ -58,6 +37,4 @@ module.exports = {
     cadastrar_jogo,
     autenticar_jogo,
     buscarUltimosPontos,
-    buscarMedidasEmTempoReal,
-    buscarAquariosPorEmpresa
 };

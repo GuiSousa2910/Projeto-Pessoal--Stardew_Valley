@@ -21,7 +21,7 @@ function tempos() {
 
 function observa() {
     if (segundos.toFixed(1) == 0.5 && score >= 140) {
-        setPlant3()
+        setPlant3();
         setMole();
         setPlant2();
         setPlant();
@@ -151,7 +151,7 @@ function setPlant3() {
 
     let num = getRandomTile();
 
-    if ((currMoleTile && currMoleTile.id == num) || (currPlantTile && currPlantTile.id == num)|| (currPlantTile2 && currPlantTile2.id == num)) {
+    if ((currMoleTile && currMoleTile.id == num) || (currPlantTile && currPlantTile.id == num) || (currPlantTile2 && currPlantTile2.id == num)) {
         return;
     }
 
@@ -178,6 +178,20 @@ function selectTile() {
         console.log('perdi');
         document.getElementById('score').innerHTML = `GAME OVER: ${score.toString()}`;
         gameOver = true;
+        // Criar um novo objeto Date, que irá conter a data e hora atuais
+        var dataAtual = new Date();
+
+        // Extrair a hora, minuto e segundo da data atual
+        var dia = dataAtual.getDate();
+        var mes = dataAtual.getMonth() + 1; // Os meses são baseados em zero, então é necessário adicionar 1
+
+        // Formatando o dia e o mês para garantir que tenham sempre dois dígitos
+        dia = (dia < 10 ? '0' : '') + dia;
+        mes = (mes < 10 ? '0' : '') + mes;
+
+        // Criar uma string com o dia e o mês formatados
+        var diaMesAtual = dia + '/' + mes;
+        sessionStorage.DIA = diaMesAtual
         fetch("/jogo1/cadastrar_jogo", {
             method: "POST",
             headers: {
@@ -187,7 +201,8 @@ function selectTile() {
 
                 pontosServer: score,
                 tempoServer: segundosTotais,
-                idServer: sessionStorage.ID_USUARIO
+                idServer: sessionStorage.ID_USUARIO,
+                horaServer: segundosTotais
             }),
         })
             .then(function (resposta) {

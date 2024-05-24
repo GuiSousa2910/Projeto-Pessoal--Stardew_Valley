@@ -14,7 +14,4 @@ router.get('/buscarUltimosPontos/:fkFazendeiro', function (req, res) {
     jogo1Controller.buscarUltimosPontos(req, res);
 });
 
-router.get("/buscarMedidasEmTempoReal/:fkFazendeiro", function (req, res) {
-    jogo1Controller.buscarMedidasEmTempoReal(req, res);
-});
 module.exports = router;  
