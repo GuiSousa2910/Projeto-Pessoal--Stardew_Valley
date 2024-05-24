@@ -27,8 +27,8 @@
         <div class="todas-infos" id="todas-info">
             <div class="opcoes">
                 <button id="botao1" onclick="">Produtos</button>
-                <button id="botao2" onclick="dash1()"></button>
-                <button id="botao3" onclick="dash()"></button>
+                <button id="botao2" onclick="dashWhack()">Whack Junimo</button>
+                <button id="botao3" onclick="dashCandy()">Stardew Crush</button>
             </div>
             <div class="dash" id="dash">
                 <p id="tittle">Lista de Produtos de cada Estação!</p>
@@ -60,13 +60,14 @@
 
 <script>
 
-    function dash() {
-        window.location = './dashboard/dashboard.html'
+    function dashWhack() {
+        window.location = './dashboard/dashboard.html';
     }
 
-    function dash1() {
-        window.location = './dashboard/dashboard1.html'
+    function dashCandy() {
+        window.location = './dashboard/dashboard1.html';
     }
+
     function validar() {
 
         document.getElementById('botao1').style.backgroundColor = '#ab7a43';
