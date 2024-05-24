@@ -8,53 +8,35 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AquaTech | Dashboards</title>
     <link rel="stylesheet" href="./../css/dashboard.css">
-    <link rel="stylesheet" href="./../css/estilo.css" />
-    <script src="../js/sessao.js"></script>
-    <script src="./../js/alerta.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 
 <body>
-    <div class="janela">
-        <div class="header-left">
-            <h1>AquaTech</h1>
-
-            <div class="hello">
-                <h3>Olá, <span id="b_usuario">usuário</span>!</h3>
-            </div>
-
-            <div class="btn-nav-white">
-                <a href="./cards.html">
-                    <h3>Aquários</h3>
-                </a>
-            </div>
-
-            <div class="btn-nav">
-                <h3>Gráficos</h3>
-            </div>
-
-            <div class="btn-nav-white">
-                <a href="./mural.html">
-                    <h3>Mural</h3>
-                </a>
-            </div>
-
-            <div class="btn-logout" onclick="limparSessao()">
-                <h3>Sair</h3>
+    <div class="nav">
+        <img src="../assets/galinha.png" alt="galinha">
+        <div class="nav-list">
+            <div class="sobre">
+                <a href="indexLogado.html">Voltar</a>
             </div>
         </div>
+    </div>
 
-        <div class="dash">
-            <div id="alerta">
+    <div class="centro">
+        <div class="todas-infos" id="todas-info"
+            style="background: linear-gradient(180deg, rgba(244, 212, 151, 1) 40%, rgba(182, 108, 63, 1) 71%); width: 100vw; height: 85vh;">
+
+            <div class="opcoes">
+                <button class="botao" id="botao1" onclick="">Produtos</button>
+                <button class="botao" id="botao2" onclick="dash1()">Whack Junimo</button>
+                <button class="botao" id="botao3" onclick="dash()">Stardew Crush</button>
             </div>
-
-            <div class="btns-dash" id="btnAquario">
-                <!-- O gráfico é chamado de acordo com o id (fk_aquario) do banco  -->
-            </div>
-
-            <div id="graficos">
+            <div class="dash" style="gap: 100px ;">
+                <p id="tittle">Lista de Produtos de cada Estação!</p>
                 <div class="chart">
-                    <canvas id="myChart"></canvas>
+                    <div class="graficos">
+                        <canvas id="myChart" style="margin-right: 80px;"></canvas>
+                        <canvas id="myChartPonto"></canvas>
+                    </div>
                 </div>
             </div>
         </div>
@@ -126,77 +108,76 @@
                 {
                     label: 'qntBranco',
                     data: qntBranco,
-                    fill: true,
+                    fill: false,
                     borderColor: 'white',
                     tension: 0.1,
+                    borderWidth: 5
                 },
                 {
                     label: 'qntAzul',
                     data: qntAzul,
-                    fill: true,
+                    fill: false,
                     borderColor: 'lightblue',
                     tension: 0.1,
+                    borderWidth: 5
                 },
                 {
                     label: 'qntLaranja',
                     data: qntLaranja,
-                    fill: true,
+                    fill: false,
                     borderColor: 'orange',
                     tension: 0.1,
+                    borderWidth: 5
                 },
                 {
                     label: 'qntAmarelo',
                     data: qntAmarelo,
-                    fill: true,
+                    fill: false,
                     borderColor: 'yellow',
                     tension: 0.1,
+                    borderWidth: 5
                 },
                 {
                     label: 'qntRoxo',
                     data: qntRoxo,
-                    fill: true,
+                    fill: false,
                     borderColor: 'purple',
                     tension: 0.1,
+                    borderWidth: 5
                 },
                 {
                     label: 'qntRosa',
                     data: qntRosa,
-                    fill: true,
+                    fill: false,
                     borderColor: 'pink',
                     tension: 0.1,
+                    borderWidth: 5
                 },
                 {
                     label: 'qntVerde',
                     data: qntVerde,
-                    fill: true,
+                    fill: false,
                     borderColor: 'green',
                     tension: 0.1,
-                }, 
+                    borderWidth: 5
+                }
+            ],
+        };
+
+        let dadosPontos = {
+            labels: jogoAtual,
+            datasets: [
                 {
                     label: 'Pontos',
                     type: 'bar',
                     data: pontosCC,
                     backgroundColor: 'blue',
-                    fill: true,
+                    fill: false,
                     borderColor: 'green',
                     tension: 0.1,
                 },
             ],
         };
-        console.log('----------------------------------------------');
-        console.log(
-            'Estes dados foram recebidos pela funcao "obterDadosGrafico" e passados para "plotarGrafico":'
-        );
-        console.log(resposta);
-        // Itera sobre cada registro de dados
-
-        console.log('----------------------------------------------');
-        console.log('O gráfico será plotado com os respectivos valores:');
-        console.log('Labels:');
-        console.log(labels);
-        console.log('Dados:');
-        console.log(dados.datasets);
-        console.log('----------------------------------------------');
         // Cria a configuração para o gráfico
         const config = {
             type: 'line', // Define o tipo de gráfico como linha
@@ -206,6 +187,16 @@
         let myChart = new Chart(
             document.getElementById(`myChart`),
             config
+        );
+
+        const configPonto = {
+            type: 'line', // Define o tipo de gráfico como linha
+            data: dadosPontos,
+        };
+        // Cria o gráfico e o adiciona à div na página
+        let myChartPonto = new Chart(
+            document.getElementById(`myChartPonto`),
+            configPonto
         );
     }
 
