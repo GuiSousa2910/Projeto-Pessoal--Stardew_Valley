@@ -6,55 +6,40 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AquaTech | Dashboards</title>
+    <title>Dashboards</title>
+    <link rel="icon" href="../assets/galinha.png">
     <link rel="stylesheet" href="./../css/dashboard.css">
-    <link rel="stylesheet" href="./../css/estilo.css" />
-    <script src="../js/sessao.js"></script>
-    <script src="./../js/alerta.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 
 <body>
-    <div class="janela">
-        <div class="header-left">
-            <h1>AquaTech</h1>
-
-            <div class="hello">
-                <h3>Olá, <span id="b_usuario">usuário</span>!</h3>
-            </div>
-
-            <div class="btn-nav-white">
-                <a href="./cards.html">
-                    <h3>Aquários</h3>
-                </a>
-            </div>
-
-            <div class="btn-nav">
-                <h3>Gráficos</h3>
-            </div>
-
-            <div class="btn-nav-white">
-                <a href="./mural.html">
-                    <h3>Mural</h3>
-                </a>
-            </div>
-
-            <div class="btn-logout" onclick="limparSessao()">
-                <h3>Sair</h3>
+    <div class="nav">
+        <img src="../assets/galinha.png" alt="galinha">
+        <div class="nav-list">
+            <div class="sobre">
+                <a href="../indexLogado.html">Voltar</a>
             </div>
         </div>
+    </div>
+    <div class="centro">
+        <div class="todas-infos" id="todas-info"
+            style="background: linear-gradient(180deg, rgba(244, 212, 151, 1) 40%, rgba(182, 108, 63, 1) 71%); ">
 
-        <div class="dash">
-            <div id="alerta">
+            <div class="opcoes">
+                <button class="botao" id="botao1" onclick="dashProdutos()">Produtos</button>
+                <button class="botao" id="botao2" style="background-color: #ab7a43;" onclick="dashWhack()">Whack
+                    Junimo</button>
+                <button class="botao" onclick="dashCandy()" id="botao3">Stardew Crush</button>
             </div>
-
-            <div class="btns-dash" id="btnAquario">
-                <!-- O gráfico é chamado de acordo com o id (fk_aquario) do banco  -->
-            </div>
-
-            <div id="graficos">
-                <div class="chart">
-                    <canvas id="myChart"></canvas>
+            <div class="dash" style="gap: 100px ;">
+                <div>
+                    <p id="tituloPontos">Lista de Pontos por Rodada!</p>
+                </div>
+                <div class="chartCC" style="margin-top: -2rem;">
+                    <div class="graficos"
+                        style="background-color: rgba(0, 0, 0, 0.719); height: 520px; padding-left: 50px; padding-right: 50px; border-radius: 30px; border: 3px white solid;">
+                        <canvas id="myChart"></canvas>
+                    </div>
                 </div>
             </div>
         </div>
@@ -64,6 +49,14 @@
 
 </html>
 <script>
+
+    function dashProdutos() {
+        window.location = '../dashboardStardew.html';
+    }
+
+    function dashCandy() {
+        window.location = 'dashboard1.html';
+    }
 
     // Define o nome do usuário no DOM
 
@@ -94,9 +87,9 @@
                             pontos.push(resposta[i].pontos);
                             tempo.push(resposta[i].tempo);
                             dataAtual.push(resposta[i].hora);
-                            console.log(pontos + ' pontos')
-                            console.log(tempo + ' tmepo')
-                            console.log(dataAtual + ' data')
+                            console.log(pontos + ' pontos');
+                            console.log(tempo + ' tmepo');
+                            console.log(dataAtual + ' data');
                         }
                         sessionStorage.setItem('Jogos', JSON.stringify(resposta));
                         // Plota o gráfico com os dados recebidos
@@ -111,12 +104,22 @@
             });
     }
     // Função para plotar o gráfico na página
-    console.log('bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb');
     function plotarGrafico(resposta, fkFazendeiro) {
         console.log('iniciando plotagem do gráfico...');
         // Cria a estrutura para plotar o gráfico - labels (eixo x)
         let labels = [];
         // Cria a estrutura para plotar o gráfico - dados (eixo y)
+        const ctx = document.getElementById('myChart').getContext('2d');
+        const gradient = ctx.createLinearGradient(0, 0, 0, 400);
+        gradient.addColorStop(0, 'rgb(18, 38, 170)');
+        gradient.addColorStop(1, 'rgb(0, 187, 180)');
+
+        const ctx1 = document.getElementById('myChart').getContext('2d');
+        const gradient1 = ctx1.createLinearGradient(0, 0, 0, 400);
+        gradient1.addColorStop(0, 'rgb(5, 117, 230)');
+        gradient1.addColorStop(1, 'rgb(2, 27, 121)');
+        // gradient.addColorStop(1, 'rgb(255, 255, 255)');
+
         let dados = {
             labels: dataAtual,
             datasets: [
@@ -124,38 +127,74 @@
                     label: 'Pontos',
                     data: pontos,
                     fill: true,
-                    borderColor: 'green',
-                    backgroundColor: 'blue',
+                    borderColor: 'white',
+                    borderWidth: 5,
+                    backgroundColor: gradient,
                     tension: 0.1,
                 },
                 {
                     label: 'Tempo',
                     data: tempo,
                     fill: true,
-                    backgroundColor: 'lightblue',
-                    borderColor: 'green',
+                    backgroundColor: gradient1,
+                    borderColor: 'white',
+                    borderWidth: 5,
                     tension: 0.1,
                 },
             ],
         };
-        console.log('----------------------------------------------');
-        console.log(
-            'Estes dados foram recebidos pela funcao "obterDadosGrafico" e passados para "plotarGrafico":'
-        );
-        console.log(resposta);
-        // Itera sobre cada registro de dados
 
-        console.log('----------------------------------------------');
-        console.log('O gráfico será plotado com os respectivos valores:');
-        console.log('Labels:');
-        console.log(labels);
-        console.log('Dados:');
-        console.log(dados.datasets);
-        console.log('----------------------------------------------');
+        let options = {
+            scales: {
+                y: {
+                    beginAtZero: true,
+                    ticks: {
+                        color: '#FFF',
+                        font: {
+                            size: 15
+                        }
+                    },
+                    grid: {
+                        color: '#FFF'
+                    }
+                },
+                x: {
+                    ticks: {
+                        color: '#FFF',
+                        font: {
+                            size: 15
+                        }
+                    },
+                    grid: {
+                        color: '#FFF'
+                    }
+                }
+            },
+            plugins: {
+                title: {
+                    display: true,
+                    font: {
+                        size: 20
+                    },
+                    color: '#FFF',
+                },
+                legend: {
+                    labels: {
+                        color: '#ffffff',
+                        font: {
+                            size: 20
+                        }
+                    }
+                }
+            },
+
+        };
+
         // Cria a configuração para o gráfico
         const config = {
             type: 'bar', // Define o tipo de gráfico como linha
-            data: dados, // Define os dados do gráfico
+            data: dados,
+            options: options // Define os dados do gráfico
         };
         // Cria o gráfico e o adiciona à div na página
         let myChart = new Chart(

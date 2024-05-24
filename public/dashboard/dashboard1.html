@@ -6,7 +6,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AquaTech | Dashboards</title>
+    <title>Dashboards</title>
+    <link rel="icon" href="../assets/galinha.png">
     <link rel="stylesheet" href="./../css/dashboard.css">
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
@@ -18,7 +19,7 @@
         <img src="../assets/galinha.png" alt="galinha">
         <div class="nav-list">
             <div class="sobre">
-                <a href="indexLogado.html">Voltar</a>
+                <a href="../indexLogado.html">Voltar</a>
             </div>
         </div>
     </div>
@@ -30,23 +31,24 @@
             <div class="opcoes">
                 <button class="botao" id="botao1" onclick="dashProdutos()">Produtos</button>
                 <button class="botao" id="botao2" onclick="dashWhack()">Whack Junimo</button>
-                <button class="botao" id="botao3" onclick="">Stardew Crush</button>
+                <button class="botao" id="botao3" style="background-color: #ab7a43;">Stardew Crush</button>
+                <div style="display: flex;">
+
+                    <button class="botaoCC" onclick="cores()">Cores</button>
+                    <button class="botaoCC" onclick="pontos()">Pontos</button>
+                </div>
             </div>
             <div class="dash" style="gap: 100px ;">
                 <div>
                     <p id="tituloPontosCC">Lista de Pontos por Rodada!</p>
                 </div>
                 <div>
-                    <p id="tituloJunimosCor">Lista da Quantidade de Junimos por Cor! 
-                        <span
-                            class="material-symbols-outlined" style="font-weight: bolder;">
-                            arrow_forward
-                        </span>
-                    </p>
+                    <p id="tituloJunimosCor">Lista da Quantidade de Junimos por Cor!</p>
 
                 </div>
-                <div class="chartCC" style="margin-top: -7rem;">
-                    <div class="graficos">
+                <div class="chartCC" style="margin-top: -8rem;">
+                    <div class="graficos"
+                        style="background-color: rgba(0, 0, 0, 0.719); height: 520px; padding-left: 50px; padding-right: 50px; border-radius: 30px; border: 3px white solid;">
                         <canvas id="myChart1"></canvas>
                         <canvas id="myChartPonto" style="display: none;"></canvas>
                     </div>
@@ -71,6 +73,20 @@
     window.onload = async () => {
         obterDadosGrafico(sessionStorage.ID_USUARIO);
     };
+
+    function cores() {
+        document.getElementById("tituloJunimosCor").style.display = 'flex';
+        document.getElementById("tituloPontosCC").style.display = 'none';
+        document.getElementById("myChart1").style.display = 'flex';
+        document.getElementById("myChartPonto").style.display = 'none';
+    }
+
+    function pontos() {
+        document.getElementById("tituloJunimosCor").style.display = 'none';
+        document.getElementById("tituloPontosCC").style.display = 'flex';
+        document.getElementById("myChart1").style.display = 'none';
+        document.getElementById("myChartPonto").style.display = 'flex';
+    }
 
     let pontosCC = [];
     let qntAzul = [];
@@ -119,69 +135,82 @@
             });
     }
     // Função para plotar o gráfico na página
-    console.log('bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb');
     function plotarGrafico(resposta, fkFazendeiro) {
         console.log('iniciando plotagem do gráfico...');
         // Cria a estrutura para plotar o gráfico - labels (eixo x)
         let labels = [];
+
+        const ctx = document.getElementById('myChart1').getContext('2d');
+
+        const gradient = ctx.createLinearGradient(0, 0, 0, 400);
+        gradient.addColorStop(0, 'rgb(107, 52, 255)');
+        gradient.addColorStop(1, 'rgb(51, 159, 247)');
+
         // Cria a estrutura para plotar o gráfico - dados (eixo y)
         let dados = {
             labels: dataAtual,
             datasets: [
 
                 {
-                    label: 'qntBranco',
+                    label: 'Brancos',
                     data: qntBranco,
                     fill: false,
                     borderColor: 'white',
+                    backgroundColor: 'white',
                     tension: 0.1,
                     borderWidth: 5
                 },
                 {
-                    label: 'qntAzul',
+                    label: 'Azuis',
                     data: qntAzul,
                     fill: false,
                     borderColor: 'lightblue',
+                    backgroundColor: 'lightblue',
                     tension: 0.1,
                     borderWidth: 5
                 },
                 {
-                    label: 'qntLaranja',
+                    label: 'Laranjas',
                     data: qntLaranja,
                     fill: false,
                     borderColor: 'orange',
+                    backgroundColor: 'orange',
                     tension: 0.1,
                     borderWidth: 5
                 },
                 {
-                    label: 'qntAmarelo',
+                    label: 'Amarelos',
                     data: qntAmarelo,
                     fill: false,
                     borderColor: 'yellow',
+                    backgroundColor: 'yellow',
                     tension: 0.1,
                     borderWidth: 5
                 },
                 {
-                    label: 'qntRoxo',
+                    label: 'Roxos',
                     data: qntRoxo,
                     fill: false,
                     borderColor: 'purple',
+                    backgroundColor: 'purple',
                     tension: 0.1,
                     borderWidth: 5
                 },
                 {
-                    label: 'qntRosa',
+                    label: 'Rosas',
                     data: qntRosa,
                     fill: false,
                     borderColor: 'pink',
+                    backgroundColor: 'pink',
                     tension: 0.1,
                     borderWidth: 5
                 },
                 {
-                    label: 'qntVerde',
+                    label: 'Verdes',
                     data: qntVerde,
                     fill: false,
                     borderColor: 'green',
+                    backgroundColor: 'green',
                     tension: 0.1,
                     borderWidth: 5
                 }
@@ -189,23 +218,71 @@
         };
 
         let dadosPontos = {
-            labels: jogoAtual,
+            labels: dataAtual,
             datasets: [
                 {
                     label: 'Pontos',
                     type: 'bar',
                     data: pontosCC,
-                    backgroundColor: 'blue',
+                    backgroundColor: gradient,
                     fill: false,
-                    borderColor: 'green',
+                    borderColor: 'white',
+                    borderWidth: 5,
                     tension: 0.1,
                 },
             ],
         };
+
+        let options = {
+            scales: {
+                y: {
+                    beginAtZero: true,
+                    ticks: {
+                        color: '#FFF',
+                        font: {
+                            size: 15
+                        }
+                    },
+                    grid: {
+                        color: '#FFF'
+                    }
+                },
+                x: {
+                    ticks: {
+                        color: '#FFF',
+                        font: {
+                            size: 15
+                        }
+                    },
+                    grid: {
+                        color: '#FFF'
+                    }
+                }
+            },
+            plugins: {
+                title: {
+                    display: true,
+                    font: {
+                        size: 20
+                    },
+                    color: '#FFF',
+                },
+                legend: {
+                    labels: {
+                        color: '#ffffff',
+                        font: {
+                            size: 20
+                        }
+                    }
+                }
+            },
+
+        };
         // Cria a configuração para o gráfico
         const config = {
             type: 'line', // Define o tipo de gráfico como linha
-            data: dados
+            data: dados,
+            options: options
         };
         // Cria o gráfico e o adiciona à div na página
         let myChart = new Chart(
@@ -216,6 +293,7 @@
         const configPonto = {
             type: 'line', // Define o tipo de gráfico como linha
             data: dadosPontos,
+            options: options,
         };
         // Cria o gráfico e o adiciona à div na página
         let myChartPonto = new Chart(
