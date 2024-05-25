@@ -89,7 +89,6 @@
     }
 
     let pontosCC = [];
-    let qntAzul = [];
     let qntLaranja = [];
     let qntAmarelo = [];
     let qntRoxo = [];
@@ -111,7 +110,6 @@
                             // Adiciona a data e hora do registro aos labels
                             // Adiciona a umidade e a temperatura aos dados
                             pontosCC.push(resposta[i].pontosCC);
-                            qntAzul.push(resposta[i].qntAzul);
                             qntLaranja.push(resposta[i].qntLaranja);
                             qntAmarelo.push(resposta[i].qntAmarelo);
                             qntRoxo.push(resposta[i].qntRoxo);
@@ -157,15 +155,6 @@
                     fill: false,
                     borderColor: 'white',
                     backgroundColor: 'white',
-                    tension: 0.1,
-                    borderWidth: 5
-                },
-                {
-                    label: 'Azuis',
-                    data: qntAzul,
-                    fill: false,
-                    borderColor: 'lightblue',
-                    backgroundColor: 'lightblue',
                     tension: 0.1,
                     borderWidth: 5
                 },
