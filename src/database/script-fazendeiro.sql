@@ -33,6 +33,15 @@ CREATE TABLE jogoCC (
     qntLaranja int
 );
 
+create table ia(
+	idIa int primary key auto_increment,
+    pergunta varchar(500),
+    resposta varchar(900),
+    fkFazendeiro int,
+    foreign key (fkFazendeiro) references fazendeiro (idFazendeiro)
+);
+
+SELECT * FROM ia;
 SELECT * FROM fazendeiro;
 SELECT * FROM jogo;
 SELECT * FROM jogoCC;
