@@ -65,7 +65,7 @@ async function cadastrar_jogoCC(req, res) {
                 }
             );
     }
-}
+} 
 
 function autenticar_jogoCC(fkFazendeiro) {
     var instrucaoSql = `

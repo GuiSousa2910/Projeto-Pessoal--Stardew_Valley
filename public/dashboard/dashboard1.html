@@ -106,6 +106,7 @@
 
                     response.json().then(function (resposta) {
                         console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+                        resposta.reverse();
                         for (let i = 0; i < resposta.length; i++) {
                             // Adiciona a data e hora do registro aos labels
                             // Adiciona a umidade e a temperatura aos dados
@@ -139,7 +140,7 @@
         let labels = [];
 
         const ctx = document.getElementById('myChart1').getContext('2d');
-
+ 
         const gradient = ctx.createLinearGradient(0, 0, 0, 400);
         gradient.addColorStop(0, 'rgb(107, 52, 255)');
         gradient.addColorStop(1, 'rgb(51, 159, 247)');

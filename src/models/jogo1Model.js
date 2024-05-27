@@ -26,6 +26,7 @@ function buscarUltimosPontos(fkFazendeiro, limite_linhas) {
     SELECT tempo, pontos, hora
     FROM jogo 
     WHERE fkFazendeiro = ${fkFazendeiro}    
+    order by idJogo desc
     LIMIT ${limite_linhas};
   `;
 

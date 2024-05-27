@@ -24,9 +24,10 @@ function buscarUltimosPontosCC(fkFazendeiro, limite_linhas) {
 
     var instrucaoSql = `
     SELECT pontosCC, qntVerde, qntAmarelo, qntRosa, qntRoxo, qntBranco, qntLaranja, hora, idJogoCC
-    FROM jogoCC 
-    WHERE fkFazendeiro = ${fkFazendeiro}    
-    LIMIT ${limite_linhas};
+    FROM jogoCC
+    WHERE fkFazendeiro = 1
+    order by idJogoCC desc
+    LIMIT 10;
   `;
 
     console.log("Executando a instrução SQL: \n" + instrucaoSql);

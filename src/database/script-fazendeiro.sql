@@ -4,6 +4,14 @@ describe jogo;
 describe jogoCC;
 show tables;
 
+create table ia(
+	idIa int primary key auto_increment,
+    pergunta varchar(500),
+    resposta varchar(900),
+    fkFazendeiro int,
+    foreign key (fkFazendeiro) references fazendeiro (idFazendeiro)
+);
+
 create table fazendeiro(
 	idFazendeiro int primary key auto_increment,
     nome varchar(45),
@@ -18,6 +26,7 @@ CREATE TABLE jogo(
     foreign key (fkFazendeiro) references fazendeiro(idFazendeiro),
     pontos int,
     tempo decimal(9,2),
+    hora varchar(5),
     primary key (idJogo, fkFazendeiro)
 );
 
@@ -33,15 +42,8 @@ CREATE TABLE jogoCC (
     qntLaranja int
 );
 
-create table ia(
-	idIa int primary key auto_increment,
-    pergunta varchar(500),
-    resposta varchar(900),
-    fkFazendeiro int,
-    foreign key (fkFazendeiro) references fazendeiro (idFazendeiro)
-);
-
-SELECT * FROM ia;
+ALTER TABLE jogoCC ADD COLUMN hora varchar(5);
 SELECT * FROM fazendeiro;
 SELECT * FROM jogo;
-SELECT * FROM jogoCC;
+SELECT * FROM ia;
+SELECT * FROM jogoCC where fkFazendeiro = 1;

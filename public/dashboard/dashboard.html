@@ -81,6 +81,8 @@
 
                     response.json().then(function (resposta) {
                         console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+
+                        resposta.reverse();
                         for (let i = 0; i < resposta.length; i++) {
                             // Adiciona a data e hora do registro aos labels
                             // Adiciona a umidade e a temperatura aos dados
