@@ -43,38 +43,22 @@ async function cadastrar(req, res) {
 
     // Faça as validações dos valores
     if (nome == undefined) {
-        console.log("Seu nome está undefined!")
+        console.log("Seu nome está undefined!");
         res.status(400).send("Seu nome está undefined!");
     } else if (email == undefined) {
-        console.log("Seu email está undefined!")
+        console.log("Seu email está undefined!");
         res.status(400).send("Seu email está undefined!");
     } else if (senha == undefined) {
-        console.log("Seu senha está undefined!")
+        console.log("Seu senha está undefined!");
         res.status(400).send("Sua senha está undefined!");
     } else if (nomeFazenda == undefined) {
-        console.log("Seu fazedna está undefined!")
+        console.log("Seu fazedna está undefined!");
         res.status(400).send("Sua fazenda está undefined!");
     }
-    // else if (idFazendeiro == undefined) {
-    //     console.log("Seu id está undefined!")
-    //     res.status(400).send("Seu id está undefined!");
-    // }
 
     else {
-
-        // const idCC = await jogo2Model.autenticar_jogoCC(idFazendeiro)
-        //     .then(
-        //         (data) => {
-        //             return data.length == 0 ? 1 : data[0].idJogoCC + 1;
-        //         }
-        //     ).catch(
-
-        // );
-
         // Passe os valores como parâmetro e vá para o arquivo usuarioModel.js
-        usuarioModel.cadastrar(nome, email, senha, nomeFazenda 
-        // idCC, idFazendeiro
-    )
+        usuarioModel.cadastrar(nome, email, senha, nomeFazenda)
             .then(
                 function (resultado) {
                     res.json(resultado);
@@ -89,6 +73,21 @@ async function cadastrar(req, res) {
                     res.status(500).json(erro.sqlMessage);
                 }
             );
+
+        usuarioModel.cadastrarJogo().then(
+            function (resultado) {
+                res.json(resultado);
+            }
+        ).catch(
+            function (erro) {
+                console.log(erro);
+                console.log(
+                    "\nHouve um erro ao realizar o cadastro! Erro: ",
+                    erro.sqlMessage
+                );
+                res.status(500).json(erro.sqlMessage);
+            }
+        );
     }
 }
 

@@ -89,9 +89,9 @@
 </html>
 <script>
 
-  window.onload = function (){
-    document.getElementById("register").click()
-  }
+  window.onload = function () {
+    document.getElementById("register").click();
+  };
 
   const container = document.getElementById('container');
   const registerBtn = document.getElementById('register');
@@ -134,7 +134,7 @@
           mensagem_erro.innerHTML =
             "Cadastro realizado com sucesso! Redicerionando para a página de login!!";
           setTimeout(() => {
-            document.getElementById("login").click()
+            document.getElementById("login").click();
           }, "2000");
 
           limparFormulario();
@@ -188,7 +188,7 @@
           sessionStorage.ID_USUARIO = json.idFazendeiro;
 
           setTimeout(() => {
-              window.location = "indexLogado.html";
+            window.location = "indexLogado.html";
           }, "2000");
         });
 
