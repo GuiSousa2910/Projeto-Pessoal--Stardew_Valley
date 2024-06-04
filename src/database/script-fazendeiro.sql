@@ -11,6 +11,7 @@ create table ia(
     fkFazendeiro int,
     foreign key (fkFazendeiro) references fazendeiro (idFazendeiro)
 );
+ALTER TABLE ia MODIFY COLUMN resposta LONGTEXT;
 
 create table fazendeiro(
 	idFazendeiro int primary key auto_increment,
@@ -42,8 +43,10 @@ CREATE TABLE jogoCC (
     qntLaranja int
 );
 
+drop table fazendeiro;
+
 ALTER TABLE jogoCC ADD COLUMN hora varchar(5);
 SELECT * FROM fazendeiro;
 SELECT * FROM jogo;
 SELECT * FROM ia;
-SELECT * FROM jogoCC where fkFazendeiro = 1;
+SELECT * FROM jogoCC;
