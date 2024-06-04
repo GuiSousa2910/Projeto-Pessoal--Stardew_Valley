@@ -1,3 +1,4 @@
+create database projetosolo;
 use projetosolo;
 describe fazendeiro;
 describe jogo;
@@ -12,6 +13,7 @@ create table ia(
     foreign key (fkFazendeiro) references fazendeiro (idFazendeiro)
 );
 ALTER TABLE ia MODIFY COLUMN resposta LONGTEXT;
+ALTER TABLE ia MODIFY COLUMN pergunta LONGTEXT;
 
 create table fazendeiro(
 	idFazendeiro int primary key auto_increment,
@@ -42,8 +44,6 @@ CREATE TABLE jogoCC (
     qntBranco int,
     qntLaranja int
 );
-
-drop table fazendeiro;
 
 ALTER TABLE jogoCC ADD COLUMN hora varchar(5);
 SELECT * FROM fazendeiro;
