@@ -79,7 +79,7 @@ body {
     align-items: center;
     justify-content: space-between;
     flex-direction: column;
-    height: 100vh; 
+    height: 100vh;
 }
 
 .container {
@@ -157,55 +157,65 @@ body {
     outline: transparent;
 
 }
-button:disabled{
+
+button:disabled {
     background-color: #333;
     cursor: auto;
     border: white;
     color: gray;
 }
 
-button:disabled:hover{
+button:disabled:hover {
     background-color: #333;
     cursor: auto;
     border: white;
     color: gray;
 }
 
+/* Define a estrutura principal do formulário */
 .form-container {
     position: absolute;
     top: 0;
     height: 100%;
     transition: all 0.6s ease-in-out;
+    /* Aplica uma transição suave a todas as propriedades do container, com duração de 0.6 segundos e função ease-in-out */
 }
 
+/* Define o estilo da tela de login */
 .sign-in {
     left: 0;
     width: 50%;
     z-index: 2;
+    /* Define o nível de sobreposição da tela de login como 2, para que fique em cima da tela de cadastro */
 }
 
+/* Define o estilo da tela de login quando a classe "active" é aplicada ao container */
 .container.active .sign-in {
-    transform: translateX(100%);
+    transform: translateX(100%);/* Desloca a tela de login 100% para a direita */
 }
 
+/* Define o estilo do título principal */
 h1 {
     font-size: 60px;
 }
 
+/* Define o estilo da tela de cadastro */
 .sign-up {
     left: 0;
     width: 50%;
     opacity: 0;
-    z-index: 1;
+    z-index: 1;/* Define o nível de sobreposição da tela de cadastro como 1, para que fique atrás da tela de login */
 }
 
+/* Define o estilo da tela de cadastro quando a classe "active" é aplicada ao container */
 .container.active .sign-up {
-    transform: translateX(100%);
+    transform: translateX(100%);/* Desloca a tela de cadastro 100% para a direita */
     opacity: 1;
-    z-index: 5;
-    animation: move 0.6s;
+    z-index: 5;/* Define o nível de sobreposição da tela de cadastro como 5, para que fique em cima da tela de login */
+    animation: move 0.6s;/* Aplica a animação "move" à tela de cadastro, com duração de 0.6 segundos */
 }
 
+/* Define a animação "move" */
 @keyframes move {
 
     0%,
@@ -221,23 +231,28 @@ h1 {
     }
 }
 
+/* Define o estilo do elemento que controla a transição entre as telas */
 .toggle-container {
     position: absolute;
     top: 0;
     left: 50%;
     width: 50%;
     height: 100%;
-    overflow: hidden;
+    overflow: hidden;/* Oculta qualquer conteúdo que ultrapasse as bordas do elemento */
     transition: all 0.6s ease-in-out;
     border-radius: 150px 0 0 100px;
+    
     z-index: 1000;
+    /* Define o nível de sobreposição do elemento como 1000, para que fique em cima de todos os outros elementos */
 }
 
+/* Define o estilo do elemento que controla a transição entre as telas quando a classe "active" é aplicada ao container */
 .container.active .toggle-container {
-    transform: translateX(-100%);
-    border-radius: 0 150px 100px 0; 
+    transform: translateX(-100%);/* Desloca o elemento 100% para a esquerda */
+    border-radius: 0 150px 100px 0;
 }
 
+/* Define o estilo da barra que indica a tela atual */
 .toggle {
     height: 100%;
     background: linear-gradient(110.1deg, rgb(34, 126, 34) 2.9%, rgb(168, 251, 60) 90.3%);
@@ -245,14 +260,16 @@ h1 {
     left: -100%;
     height: 100%;
     width: 200%;
-    transform: translateX(0);
-    transition: all 0.6s ease-in-out;
+    transform: translateX(0);/* Define a posição inicial da barra */
+    transition: all 0.6s ease-in-out;/* Aplica uma transição suave*/
 }
 
+/* Define o estilo da barra que indica a tela atual quando a classe "active" é aplicada ao container */
 .container.active .toggle {
-    transform: translateX(50%);
+    transform: translateX(50%);/* Desloca a barra 50% para a direita */
 }
 
+/* Define o estilo dos painéis de login e cadastro */
 .toggle-panel {
     position: absolute;
     width: 50%;
@@ -264,45 +281,48 @@ h1 {
     padding: 0 30px;
     text-align: center;
     top: 0;
-    transform: translateX(0);
-    transition: all 0.6s ease-in-out;
+    transform: translateX(0);/* Define a posição inicial do painel */
+    transition: all 0.6s ease-in-out;/* Aplica uma transição suave*/
 }
 
+/* Define o estilo do painel de login */
 .toggle-left {
-    transform: translateX(-200%);
+    transform: translateX(-200%);/* Desloca o painel de login 200% para a esquerda */
 }
 
+/* Define o estilo do painel de login quando a classe "active" é aplicada ao container */
 .container.active .toggle-left {
-    transform: translateX(0);
+    transform: translateX(0);/* Define a posição inicial do painel de login */
 }
 
+/* Define o estilo do painel de cadastro */
 .toggle-right {
     right: 0;
-    transform: translateX(0);
+    transform: translateX(0); /* Define a posição inicial do painel de cadastro */
 }
 
+/* Define o estilo do painel de cadastro quando a classe "active" é aplicada ao container */
 .container.active .toggle-right {
-    transform: translateX(200%);
+    transform: translateX(200%); /* Desloca o painel de cadastro 200% para a esquerda */
 }
 
 .loading-div {
     width: 50px;
     display: none;
-  }
-  
-  .loading-div img {
+}
+
+.loading-div img {
     height: 60px;
     width: 60px;
-  }
+}
 
-/* Style for the error message span */
 #alerta_email,
 #alerta_senha,
 #alerta_confirme_senha {
     margin-top: -2em;
-    display: block; /* Make it a block element to occupy full width */
-    width: 100%; /* Span the full width of the input field */
-    font-size: 1em; /* Adjust font size as needed */
-    color: red; /* Set error message color */
+    display: block;
+    width: 100%;
+    font-size: 1em;
+    color: red;
     margin: -1.3em;
 }

@@ -79,6 +79,5 @@ function buscarUltimosPontos(req, res) {
 module.exports = {
     autenticar_jogo,
     cadastrar_jogo,
-    buscarUltimosPontos,
-
+    buscarUltimosPontos
 };

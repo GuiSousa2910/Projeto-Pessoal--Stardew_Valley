@@ -34,8 +34,8 @@
                 <button class="botao" id="botao3" style="background-color: #ab7a43;">Stardew Crush</button>
                 <div style="display: flex;">
 
-                    <button class="botaoCC" onclick="cores()">Cores</button>
-                    <button class="botaoCC" onclick="pontos()">Pontos</button>
+                    <button class="botaoCC" id="bC" onclick="cores()" style="background-color: #ab7a43">Cores</button>
+                    <button class="botaoCC" id="bP" onclick="pontos()">Pontos</button>
                 </div>
             </div>
             <div class="dash" style="gap: 100px ;">
@@ -79,13 +79,17 @@
         document.getElementById("tituloPontosCC").style.display = 'none';
         document.getElementById("myChart1").style.display = 'flex';
         document.getElementById("myChartPonto").style.display = 'none';
+        document.getElementById('bC').style.backgroundColor = '#ab7a43'
+        document.getElementById('bP').style.backgroundColor = 'rgb(133, 89, 39)'
     }
-
+    
     function pontos() {
         document.getElementById("tituloJunimosCor").style.display = 'none';
         document.getElementById("tituloPontosCC").style.display = 'flex';
         document.getElementById("myChart1").style.display = 'none';
         document.getElementById("myChartPonto").style.display = 'flex';
+        document.getElementById('bP').style.backgroundColor = '#ab7a43'
+        document.getElementById('bC').style.backgroundColor = 'rgb(133, 89, 39)'
     }
 
     let pontosCC = [];

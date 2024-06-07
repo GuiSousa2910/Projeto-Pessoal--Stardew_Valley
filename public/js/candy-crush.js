@@ -2,7 +2,7 @@
 document.addEventListener('DOMContentLoaded', () => {
 
     // Declaração de variáveis para o tempo
-    var segundos = 60;
+    var segundos = 45;
  
     var qntLaranja = 0;
     var qntAmarelo = 0;

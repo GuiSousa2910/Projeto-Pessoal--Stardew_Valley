@@ -12,7 +12,7 @@ function logout() {
 }
 
 function ia() {
-    window.location.href = 'http://localhost:3000/ia.html';
+    window.location.href = 'http://10.18.33.58:3000/ia.html';
 }
 
 function buscar() {
