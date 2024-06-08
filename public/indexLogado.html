@@ -29,6 +29,16 @@
             </div>
 
             <ul id="ul">
+                <li class="item-menu" onclick="buscar()">
+                    <a href="#">
+                        <span class="icon">
+                            <span class="material-symbols-outlined">
+                                search
+                            </span>
+                        </span>
+                        <span class="txt-link">Busca de Personagens</span>
+                    </a>
+                </li>
                 <li class="item-menu" onclick="ia()">
                     <a href="#">
                         <span class="icon">
@@ -57,16 +67,6 @@
                             </span>
                         </span>
                         <span class="txt-link">Stardew Crush</span>
-                    </a>
-                </li>
-                <li class="item-menu" onclick="buscar()">
-                    <a href="#">
-                        <span class="icon">
-                            <span class="material-symbols-outlined">
-                                search
-                            </span>
-                        </span>
-                        <span class="txt-link">Busca de Personagens</span>
                     </a>
                 </li>
                 <li class="item-menu">
@@ -296,7 +296,8 @@
                 <p>Olá, este sou eu! Me chamo <span style="color: #00ffff;">Guilherme</span> e atualmente tenho <span
                         style="color: #00ffff;">18 anos</span> e curso <span style="color: #ffc400;">ADS na faculdade
                         SPTech</span>, onde tenho a enorme oportunidade de ir atrás <span style="color: #3300cc;">do
-                        meu sonho</span> de ser um <span style="color: blue;">Engenheiro de Software BackEnd</span>. Escolhi <span style="color: #5cf45c;">Stardew Valley</span> como o meu tema
+                        meu sonho</span> de ser um <span style="color: blue;">Engenheiro de Software BackEnd</span>.
+                    Escolhi <span style="color: #5cf45c;">Stardew Valley</span> como o meu tema
                     por conta de toda a <span style="color: #ccff33;">ajuda que ele já me proporcionou.</span> Por ser
                     um jogo calmo, muitas vezes, quando me encontrava <span style="color: #8b008b;">estressado</span>
                     ou, na maioria das vezes, <span style="color: #000080;">triste</span>, eu sempre <span
@@ -346,13 +347,16 @@
     function scrollFunction() {
         const backToTopButton = document.getElementById("back-to-top");
         if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-            backToTopButton.style.display = "block"; 
+            backToTopButton.style.display = "block";
         } else {
-            backToTopButton.style.display = "none"; 
+            backToTopButton.style.display = "none";
         }
     }
 
     document.getElementById("back-to-top").addEventListener("click", function () {
-        document.documentElement.scrollTop = 0; 
+        document.documentElement.scrollTop = 0;
     });
+
+    const idFazendeiro = sessionStorage.ID_USUARIO;
+    document.cookie = "idFazendeiro=" + idFazendeiro + "; path=/";
 </script>
